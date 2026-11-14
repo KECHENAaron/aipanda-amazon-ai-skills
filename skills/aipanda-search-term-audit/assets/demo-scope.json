@@ -1,0 +1,14 @@
+{
+  "profile_id": "DEMO-PROFILE",
+  "marketplace": "US",
+  "currency": "USD",
+  "ad_type": "SP",
+  "attribution_window": "7d",
+  "start_date": "2026-11-01",
+  "end_date": "2026-11-07",
+  "as_of": "2026-11-14",
+  "maturity_days": 7,
+  "target_acos": 0.25,
+  "no_order_spend": 20,
+  "data_kind": "synthetic"
+}

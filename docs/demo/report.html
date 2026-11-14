@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIPANDA 搜索词复核</title><style>
+    *{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#142338;font:15px/1.65 system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:36px 24px}h1{font-size:30px}.label{color:#7356be;font-weight:700}.cards{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.cards div{background:white;border:1px solid #dae1ed;border-radius:12px;padding:16px;min-width:140px}strong,small{display:block}strong{font-size:24px}.table{overflow-x:auto;background:white;border:1px solid #dae1ed;border-radius:12px}table{border-collapse:collapse;width:100%;min-width:900px}td,th{padding:14px;text-align:left;border-bottom:1px solid #e5eaf2}th{background:#edf1fa}pre{white-space:pre-wrap;background:#eaf0f8;border-radius:10px;padding:20px}.note{color:#52627a}a{color:#6052ad}</style>
+    <main><div class="label">AIPANDA · 合成数据演示</div><h1>先看证据，再决定下一步。</h1><p>离线分析草稿；候选不是执行指令。未获取当前 Bid、利润、自然排名或后台状态；不会连接账户或修改广告。</p><div class="cards"><div><small>impressions</small><strong>1,630.00</strong></div><div><small>clicks</small><strong>未知</strong></div><div><small>spend</small><strong>38.00</strong></div><div><small>orders</small><strong>3.00</strong></div><div><small>sales</small><strong>90.00</strong></div></div><div class="table"><table><thead><tr><th>搜索词</th><th>状态</th><th>花费</th><th>订单</th><th>归因销售额</th><th>ACOS</th><th>复核理由</th><th>CSV 行号</th></tr></thead><tbody><tr><td>pool cover</td><td>控费复核候选</td><td>20.00</td><td>0.00</td><td>0.00</td><td>未知</td><td>成熟期内无订单且达到自设花费线；先核相关性与目标，再决定动作</td><td>2, 3</td></tr><tr><td>pool drain adapter</td><td>效率复核候选</td><td>12.00</td><td>3.00</td><td>90.00</td><td>13.3%</td><td>ACOS 在自设目标内；仍需核利润、预算、当前竞价和自然排名</td><td>4, 5</td></tr><tr><td>fountain toy</td><td>继续观察</td><td>4.00</td><td>0.00</td><td>0.00</td><td>未知</td><td>当前证据不足以支持控费判断</td><td>6, 8</td></tr><tr><td>outdoor pool accessory</td><td>数据待核验</td><td>2.00</td><td>0.00</td><td>0.00</td><td>未知</td><td>缺失指标或指标矛盾，先回查来源</td><td>7</td></tr></tbody></table></div><p class="note">仅覆盖所提供数据行；未出现的日期/搜索词不是零表现或完整覆盖的证明。 汇总中任一输入缺失，该指标总计显示“未知”。ACOS 按广告归因销售额计算，与 TACOS 不同。</p><details><summary>数据范围与分析假设</summary><pre>{
+  &quot;profile_id&quot;: &quot;DEMO-PROFILE&quot;,
+  &quot;marketplace&quot;: &quot;US&quot;,
+  &quot;currency&quot;: &quot;USD&quot;,
+  &quot;ad_type&quot;: &quot;SP&quot;,
+  &quot;attribution_window&quot;: &quot;7d&quot;,
+  &quot;start_date&quot;: &quot;2026-11-01&quot;,
+  &quot;end_date&quot;: &quot;2026-11-07&quot;,
+  &quot;as_of&quot;: &quot;2026-11-14&quot;,
+  &quot;maturity_days&quot;: 7,
+  &quot;target_acos&quot;: 0.25,
+  &quot;no_order_spend&quot;: 20,
+  &quot;data_kind&quot;: &quot;synthetic&quot;
+}</pre></details><p class="note">v0.1.0 · 本地生成 · 无网络调用</p></main></html>

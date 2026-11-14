@@ -1,0 +1,8 @@
+date,profile_id,marketplace,currency,ad_type,attribution_window,campaign_id,ad_group_id,target_id,match_type,search_term,impressions,clicks,spend,orders,sales
+2026-11-01,DEMO-PROFILE,US,USD,SP,7d,DEMO-C1,DEMO-G1,DEMO-T1,EXACT,pool cover,500,20,15,0,0
+2026-11-02,DEMO-PROFILE,US,USD,SP,7d,DEMO-C1,DEMO-G1,DEMO-T1,EXACT,pool cover,300,10,5,0,0
+2026-11-03,DEMO-PROFILE,US,USD,SP,7d,DEMO-C1,DEMO-G1,DEMO-T2,EXACT,pool drain adapter,200,12,6,1,30
+2026-11-04,DEMO-PROFILE,US,USD,SP,7d,DEMO-C1,DEMO-G1,DEMO-T2,EXACT,pool drain adapter,250,13,6,2,60
+2026-11-05,DEMO-PROFILE,US,USD,SP,7d,DEMO-C2,DEMO-G2,DEMO-T3,PHRASE,fountain toy,100,4,3,0,0
+2026-11-06,DEMO-PROFILE,US,USD,SP,7d,DEMO-C2,DEMO-G2,DEMO-T4,PHRASE,outdoor pool accessory,80,,2,0,0
+2026-11-07,DEMO-PROFILE,US,USD,SP,7d,DEMO-C2,DEMO-G2,DEMO-T3,PHRASE,fountain toy,200,2,1,0,0

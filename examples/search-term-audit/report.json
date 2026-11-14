@@ -1,0 +1,153 @@
+{
+  "scope": {
+    "profile_id": "DEMO-PROFILE",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_window": "7d",
+    "start_date": "2026-11-01",
+    "end_date": "2026-11-07",
+    "as_of": "2026-11-14",
+    "maturity_days": 7,
+    "target_acos": 0.25,
+    "no_order_spend": 20,
+    "data_kind": "synthetic"
+  },
+  "row_count": 7,
+  "observed_dates": [
+    "2026-11-01",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07"
+  ],
+  "coverage_note": "仅覆盖所提供数据行；未出现的日期/搜索词不是零表现或完整覆盖的证明。",
+  "totals": {
+    "impressions": 1630.0,
+    "clicks": null,
+    "spend": 38.0,
+    "orders": 3.0,
+    "sales": 90.0
+  },
+  "items": [
+    {
+      "search_term": "pool cover",
+      "metrics": {
+        "impressions": 800.0,
+        "clicks": 30.0,
+        "spend": 20.0,
+        "orders": 0.0,
+        "sales": 0.0
+      },
+      "derived": {
+        "ctr": 0.0375,
+        "cpc": 0.666667,
+        "cvr": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "state": "控费复核候选",
+      "reason": "成熟期内无订单且达到自设花费线；先核相关性与目标，再决定动作",
+      "missing_metrics": [],
+      "issues": [],
+      "source_lines": [
+        2,
+        3
+      ],
+      "dates": [
+        "2026-11-01",
+        "2026-11-02"
+      ]
+    },
+    {
+      "search_term": "pool drain adapter",
+      "metrics": {
+        "impressions": 450.0,
+        "clicks": 25.0,
+        "spend": 12.0,
+        "orders": 3.0,
+        "sales": 90.0
+      },
+      "derived": {
+        "ctr": 0.055556,
+        "cpc": 0.48,
+        "cvr": 0.12,
+        "acos": 0.133333,
+        "roas": 7.5
+      },
+      "state": "效率复核候选",
+      "reason": "ACOS 在自设目标内；仍需核利润、预算、当前竞价和自然排名",
+      "missing_metrics": [],
+      "issues": [],
+      "source_lines": [
+        4,
+        5
+      ],
+      "dates": [
+        "2026-11-03",
+        "2026-11-04"
+      ]
+    },
+    {
+      "search_term": "fountain toy",
+      "metrics": {
+        "impressions": 300.0,
+        "clicks": 6.0,
+        "spend": 4.0,
+        "orders": 0.0,
+        "sales": 0.0
+      },
+      "derived": {
+        "ctr": 0.02,
+        "cpc": 0.666667,
+        "cvr": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "state": "继续观察",
+      "reason": "当前证据不足以支持控费判断",
+      "missing_metrics": [],
+      "issues": [],
+      "source_lines": [
+        6,
+        8
+      ],
+      "dates": [
+        "2026-11-05",
+        "2026-11-07"
+      ]
+    },
+    {
+      "search_term": "outdoor pool accessory",
+      "metrics": {
+        "impressions": 80.0,
+        "clicks": null,
+        "spend": 2.0,
+        "orders": 0.0,
+        "sales": 0.0
+      },
+      "derived": {
+        "ctr": null,
+        "cpc": null,
+        "cvr": null,
+        "acos": null,
+        "roas": 0.0
+      },
+      "state": "数据待核验",
+      "reason": "缺失指标或指标矛盾，先回查来源",
+      "missing_metrics": [
+        "clicks"
+      ],
+      "issues": [],
+      "source_lines": [
+        7
+      ],
+      "dates": [
+        "2026-11-06"
+      ]
+    }
+  ],
+  "boundary": "离线分析草稿；候选不是执行指令。未获取当前 Bid、利润、自然排名或后台状态；不会连接账户或修改广告。"
+}
