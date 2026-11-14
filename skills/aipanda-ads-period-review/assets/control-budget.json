@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "unit": "UNIT-A",
+  "scope": {
+    "scope_token": "SCOPE-001",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_basis": "click",
+    "attribution_days": 7,
+    "reporting_lag_days": 2
+  },
+  "window": {
+    "start_date": "2026-03-01",
+    "end_date": "2026-03-07",
+    "snapshot_date": "2026-04-01"
+  },
+  "context": {
+    "configuration_as_of": "2026-04-01",
+    "state": "enabled",
+    "ownership": "exclusive",
+    "relevance": "supported",
+    "capacity": "adequate",
+    "observation_status": "stable",
+    "strategy": "fixed",
+    "other_bid_adjustments": "none_declared",
+    "budget_rules": "none_declared",
+    "bid_basis": "single_or_uniform_declared",
+    "performance_scope": "campaign_declared",
+    "placement_partition": "exclusive_three_declared"
+  },
+  "current": {
+    "base_bid": 0.8,
+    "average_daily_budget": 20,
+    "placement_pct": {
+      "top": 25,
+      "rest": 0,
+      "product": 0
+    }
+  },
+  "proposal": {
+    "base_bid": 0.8,
+    "average_daily_budget": 24,
+    "placement_pct": {
+      "top": 25,
+      "rest": 0,
+      "product": 0
+    }
+  },
+  "guardrails": {
+    "target_acos": 0.25,
+    "min_clicks": 20,
+    "min_orders": 3,
+    "max_base_bid": 1.2,
+    "max_average_daily_budget": 30,
+    "max_placement_adjusted_bid": 1.5
+  },
+  "daily": [
+    {
+      "date": "2026-03-01",
+      "budget_exhausted": false,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    },
+    {
+      "date": "2026-03-02",
+      "budget_exhausted": true,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    },
+    {
+      "date": "2026-03-03",
+      "budget_exhausted": false,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    },
+    {
+      "date": "2026-03-04",
+      "budget_exhausted": true,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    },
+    {
+      "date": "2026-03-05",
+      "budget_exhausted": false,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    },
+    {
+      "date": "2026-03-06",
+      "budget_exhausted": true,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    },
+    {
+      "date": "2026-03-07",
+      "budget_exhausted": false,
+      "impressions": 300,
+      "clicks": 30,
+      "spend": 20,
+      "orders": 3,
+      "sales": 120
+    }
+  ],
+  "placements": [
+    {
+      "placement": "top",
+      "impressions": 700,
+      "clicks": 70,
+      "spend": 56,
+      "orders": 7,
+      "sales": 280
+    },
+    {
+      "placement": "rest",
+      "impressions": 700,
+      "clicks": 70,
+      "spend": 35,
+      "orders": 7,
+      "sales": 280
+    },
+    {
+      "placement": "product",
+      "impressions": 700,
+      "clicks": 70,
+      "spend": 49,
+      "orders": 7,
+      "sales": 280
+    }
+  ]
+}

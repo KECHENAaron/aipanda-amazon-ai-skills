@@ -1,0 +1,189 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIPANDA 竞价预算广告位情景</title><style>*{box-sizing:border-box}body{margin:0;background:#fbfbfd;color:#17233b;font:16px/1.8 system-ui}main{max-width:1080px;margin:auto;padding:30px 24px}p,li,.note,td{overflow-wrap:anywhere}.note{padding:18px;background:#f0ecfa;border-left:4px solid #a995e7}.table{overflow:auto}table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}th,td{padding:12px;border-bottom:1px solid #ddd;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0f7;padding:18px}a{color:#6950c7}</style><main><p>🐼 AIPANDA · 完全合成练习 · MIT</p><h1>竞价、预算与广告位，分开验证。</h1><div class="note">US · USD · SP · 2026-03-01 至 2026-03-07。只检查调用者提出的假设，全部候选 executable=false。所有示例值由常量构造，未使用经营资料。</div><h2>三个值分别看</h2><p>历史 CPC：0.66666667；声明的基础竞价：0.8；目标成本 CPC 参考：1.0。参考不是盈亏线或建议 Bid，历史表现不证明下一期转化率。</p><h2>同窗口广告位表现</h2><div class="table"><table><tr><th>广告位</th><th>点击</th><th>订单</th><th>历史 CPC</th><th>ACOS（小数）</th></tr><tr><td>top</td><td>70.0</td><td>7.0</td><td>0.8</td><td>0.2</td></tr><tr><td>rest</td><td>70.0</td><td>7.0</td><td>0.5</td><td>0.125</td></tr><tr><td>product</td><td>70.0</td><td>7.0</td><td>0.7</td><td>0.175</td></tr></table></div><h2>固定竞价乘数情景</h2><p>仅在 fixed、统一基础竞价和无其他加价声明下计算 base × (1 + placement_pct / 100)；不证明实际竞拍上限。动态策略或其他调整不在模型内时显示未知。</p><div class="table"><table><tr><th>广告位</th><th>当前简化情景</th><th>提议简化情景</th><th>相对变化（小数）</th></tr><tr><td>top</td><td>1.0</td><td>1.125</td><td>0.125</td></tr><tr><td>rest</td><td>0.8</td><td>0.9</td><td>0.125</td></tr><tr><td>product</td><td>0.8</td><td>0.9</td><td>0.125</td></tr></table></div><h2>平均日预算与约束信号</h2><p>声明的平均日预算：20.0 → 提议 20.0；声明的预算耗尽日期数：3。预算不是每日硬上限，本报告不保证任何花费上限。</p><h2>候选与阻断</h2><div class="table"><table><tr><th>变量</th><th>方向</th><th>状态</th><th>阻断 / 待复核</th></tr><tr><td>base_bid</td><td>increase</td><td>REVIEW_ONLY</td><td>仍需人工复核与现场重查</td></tr></table></div><p>当前状态、预算耗尽、容量和相关性均为输入声明，未独立核实。多变量同改会阻断本脚本的单变量试验候选；不意味着所有联合策略都不可用。没有利润核对或后台执行。</p><details><summary>完整审计 JSON</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;data_kind&quot;: &quot;synthetic&quot;,
+  &quot;unit&quot;: &quot;UNIT-A&quot;,
+  &quot;scope&quot;: {
+    &quot;scope_token&quot;: &quot;SCOPE-001&quot;,
+    &quot;marketplace&quot;: &quot;US&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;ad_type&quot;: &quot;SP&quot;,
+    &quot;attribution_basis&quot;: &quot;click&quot;,
+    &quot;attribution_days&quot;: 7,
+    &quot;reporting_lag_days&quot;: 2
+  },
+  &quot;window&quot;: {
+    &quot;start_date&quot;: &quot;2026-03-01&quot;,
+    &quot;end_date&quot;: &quot;2026-03-07&quot;,
+    &quot;snapshot_date&quot;: &quot;2026-04-01&quot;
+  },
+  &quot;context_declarations&quot;: {
+    &quot;configuration_as_of&quot;: &quot;2026-04-01&quot;,
+    &quot;state&quot;: &quot;enabled&quot;,
+    &quot;ownership&quot;: &quot;exclusive&quot;,
+    &quot;relevance&quot;: &quot;supported&quot;,
+    &quot;capacity&quot;: &quot;adequate&quot;,
+    &quot;observation_status&quot;: &quot;stable&quot;,
+    &quot;strategy&quot;: &quot;fixed&quot;,
+    &quot;other_bid_adjustments&quot;: &quot;none_declared&quot;,
+    &quot;budget_rules&quot;: &quot;none_declared&quot;,
+    &quot;bid_basis&quot;: &quot;single_or_uniform_declared&quot;,
+    &quot;performance_scope&quot;: &quot;campaign_declared&quot;,
+    &quot;placement_partition&quot;: &quot;exclusive_three_declared&quot;
+  },
+  &quot;current&quot;: {
+    &quot;base_bid&quot;: 0.8,
+    &quot;average_daily_budget&quot;: 20.0,
+    &quot;placement_pct&quot;: {
+      &quot;top&quot;: 25.0,
+      &quot;rest&quot;: 0.0,
+      &quot;product&quot;: 0.0
+    }
+  },
+  &quot;proposal_hypothesis&quot;: {
+    &quot;base_bid&quot;: 0.9,
+    &quot;average_daily_budget&quot;: 20.0,
+    &quot;placement_pct&quot;: {
+      &quot;top&quot;: 25.0,
+      &quot;rest&quot;: 0.0,
+      &quot;product&quot;: 0.0
+    }
+  },
+  &quot;guardrails&quot;: {
+    &quot;target_acos&quot;: 0.25,
+    &quot;min_clicks&quot;: 20,
+    &quot;min_orders&quot;: 3,
+    &quot;max_base_bid&quot;: 1.2,
+    &quot;max_average_daily_budget&quot;: 30,
+    &quot;max_placement_adjusted_bid&quot;: 1.5
+  },
+  &quot;daily_summary&quot;: {
+    &quot;totals&quot;: {
+      &quot;impressions&quot;: 2100.0,
+      &quot;clicks&quot;: 210.0,
+      &quot;spend&quot;: 140.0,
+      &quot;orders&quot;: 21.0,
+      &quot;sales&quot;: 840.0
+    },
+    &quot;ratios&quot;: {
+      &quot;ctr&quot;: 0.1,
+      &quot;cpc&quot;: 0.66666667,
+      &quot;order_per_click&quot;: 0.1,
+      &quot;acos&quot;: 0.16666667,
+      &quot;roas&quot;: 6.0
+    }
+  },
+  &quot;placement_summaries&quot;: {
+    &quot;top&quot;: {
+      &quot;totals&quot;: {
+        &quot;impressions&quot;: 700.0,
+        &quot;clicks&quot;: 70.0,
+        &quot;spend&quot;: 56.0,
+        &quot;orders&quot;: 7.0,
+        &quot;sales&quot;: 280.0
+      },
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.1,
+        &quot;cpc&quot;: 0.8,
+        &quot;order_per_click&quot;: 0.1,
+        &quot;acos&quot;: 0.2,
+        &quot;roas&quot;: 5.0
+      }
+    },
+    &quot;rest&quot;: {
+      &quot;totals&quot;: {
+        &quot;impressions&quot;: 700.0,
+        &quot;clicks&quot;: 70.0,
+        &quot;spend&quot;: 35.0,
+        &quot;orders&quot;: 7.0,
+        &quot;sales&quot;: 280.0
+      },
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.1,
+        &quot;cpc&quot;: 0.5,
+        &quot;order_per_click&quot;: 0.1,
+        &quot;acos&quot;: 0.125,
+        &quot;roas&quot;: 8.0
+      }
+    },
+    &quot;product&quot;: {
+      &quot;totals&quot;: {
+        &quot;impressions&quot;: 700.0,
+        &quot;clicks&quot;: 70.0,
+        &quot;spend&quot;: 49.0,
+        &quot;orders&quot;: 7.0,
+        &quot;sales&quot;: 280.0
+      },
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.1,
+        &quot;cpc&quot;: 0.7,
+        &quot;order_per_click&quot;: 0.1,
+        &quot;acos&quot;: 0.175,
+        &quot;roas&quot;: 5.71428571
+      }
+    }
+  },
+  &quot;placement_residual&quot;: {
+    &quot;impressions&quot;: 0.0,
+    &quot;clicks&quot;: 0.0,
+    &quot;spend&quot;: 0.0,
+    &quot;orders&quot;: 0.0,
+    &quot;sales&quot;: 0.0
+  },
+  &quot;issues&quot;: [],
+  &quot;mature_under_declared_lag&quot;: true,
+  &quot;historical_cpc&quot;: 0.66666667,
+  &quot;target_cost_cpc_reference&quot;: 1.0,
+  &quot;fixed_only_placement_scenarios&quot;: {
+    &quot;top&quot;: {
+      &quot;current&quot;: 1.0,
+      &quot;proposed&quot;: 1.125,
+      &quot;relative_change&quot;: 0.125,
+      &quot;actual_auction_bid_verified&quot;: false
+    },
+    &quot;rest&quot;: {
+      &quot;current&quot;: 0.8,
+      &quot;proposed&quot;: 0.9,
+      &quot;relative_change&quot;: 0.125,
+      &quot;actual_auction_bid_verified&quot;: false
+    },
+    &quot;product&quot;: {
+      &quot;current&quot;: 0.8,
+      &quot;proposed&quot;: 0.9,
+      &quot;relative_change&quot;: 0.125,
+      &quot;actual_auction_bid_verified&quot;: false
+    }
+  },
+  &quot;scenario_ceiling_model_available&quot;: true,
+  &quot;changed_levers&quot;: [
+    &quot;base_bid&quot;
+  ],
+  &quot;candidates&quot;: [
+    {
+      &quot;lever&quot;: &quot;base_bid&quot;,
+      &quot;direction&quot;: &quot;increase&quot;,
+      &quot;state&quot;: &quot;REVIEW_ONLY&quot;,
+      &quot;blockers&quot;: [],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    }
+  ],
+  &quot;budget_evidence&quot;: {
+    &quot;declared_exhausted_dates&quot;: [
+      &quot;2026-03-02&quot;,
+      &quot;2026-03-04&quot;,
+      &quot;2026-03-06&quot;
+    ],
+    &quot;has_unknown_status&quot;: false,
+    &quot;daily_budget_is_hard_cap&quot;: false,
+    &quot;spend_cap_guaranteed&quot;: false
+  },
+  &quot;business_writes&quot;: 0,
+  &quot;causal_effect_verified&quot;: false,
+  &quot;source_declarations_independently_verified&quot;: false,
+  &quot;limits&quot;: [
+    &quot;Proposals are supplied hypotheses, never calculated bid recommendations.&quot;,
+    &quot;Cost CPC reference is descriptive, not a break-even line or a bid.&quot;,
+    &quot;Fixed-only scenarios exclude audience, schedules, business and dynamic adjustments; no actual auction ceiling certified.&quot;,
+    &quot;Average daily budget is not a guaranteed daily spend cap.&quot;
+  ]
+}</pre></details><p><a href="https://github.com/KECHENAaron/aipanda-amazon-ai-skills/tree/main/skills/aipanda-ads-period-review">源码、方法与契约</a></p></main></html>

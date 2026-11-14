@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "isolated_source_copy": true,
+  "tests": [
+    {
+      "suite": "MIT",
+      "passed": 108
+    },
+    {
+      "suite": "community-search",
+      "passed": 21
+    },
+    {
+      "suite": "community-listing",
+      "passed": 9
+    },
+    {
+      "suite": "community-image",
+      "passed": 8
+    }
+  ],
+  "total_tests_passed": 146,
+  "skills_validated": 7,
+  "relative_links_validated": 170,
+  "new_replay_outputs_byte_identical": 8,
+  "project_version": "0.5.0",
+  "skill_version": "1.2.0",
+  "business_writes": 0,
+  "scope": "offline synthetic hypotheses and publication checks"
+}

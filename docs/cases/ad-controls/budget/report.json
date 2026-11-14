@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "unit": "UNIT-A",
+  "scope": {
+    "scope_token": "SCOPE-001",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_basis": "click",
+    "attribution_days": 7,
+    "reporting_lag_days": 2
+  },
+  "window": {
+    "start_date": "2026-03-01",
+    "end_date": "2026-03-07",
+    "snapshot_date": "2026-04-01"
+  },
+  "context_declarations": {
+    "configuration_as_of": "2026-04-01",
+    "state": "enabled",
+    "ownership": "exclusive",
+    "relevance": "supported",
+    "capacity": "adequate",
+    "observation_status": "stable",
+    "strategy": "fixed",
+    "other_bid_adjustments": "none_declared",
+    "budget_rules": "none_declared",
+    "bid_basis": "single_or_uniform_declared",
+    "performance_scope": "campaign_declared",
+    "placement_partition": "exclusive_three_declared"
+  },
+  "current": {
+    "base_bid": 0.8,
+    "average_daily_budget": 20.0,
+    "placement_pct": {
+      "top": 25.0,
+      "rest": 0.0,
+      "product": 0.0
+    }
+  },
+  "proposal_hypothesis": {
+    "base_bid": 0.8,
+    "average_daily_budget": 24.0,
+    "placement_pct": {
+      "top": 25.0,
+      "rest": 0.0,
+      "product": 0.0
+    }
+  },
+  "guardrails": {
+    "target_acos": 0.25,
+    "min_clicks": 20,
+    "min_orders": 3,
+    "max_base_bid": 1.2,
+    "max_average_daily_budget": 30,
+    "max_placement_adjusted_bid": 1.5
+  },
+  "daily_summary": {
+    "totals": {
+      "impressions": 2100.0,
+      "clicks": 210.0,
+      "spend": 140.0,
+      "orders": 21.0,
+      "sales": 840.0
+    },
+    "ratios": {
+      "ctr": 0.1,
+      "cpc": 0.66666667,
+      "order_per_click": 0.1,
+      "acos": 0.16666667,
+      "roas": 6.0
+    }
+  },
+  "placement_summaries": {
+    "top": {
+      "totals": {
+        "impressions": 700.0,
+        "clicks": 70.0,
+        "spend": 56.0,
+        "orders": 7.0,
+        "sales": 280.0
+      },
+      "ratios": {
+        "ctr": 0.1,
+        "cpc": 0.8,
+        "order_per_click": 0.1,
+        "acos": 0.2,
+        "roas": 5.0
+      }
+    },
+    "rest": {
+      "totals": {
+        "impressions": 700.0,
+        "clicks": 70.0,
+        "spend": 35.0,
+        "orders": 7.0,
+        "sales": 280.0
+      },
+      "ratios": {
+        "ctr": 0.1,
+        "cpc": 0.5,
+        "order_per_click": 0.1,
+        "acos": 0.125,
+        "roas": 8.0
+      }
+    },
+    "product": {
+      "totals": {
+        "impressions": 700.0,
+        "clicks": 70.0,
+        "spend": 49.0,
+        "orders": 7.0,
+        "sales": 280.0
+      },
+      "ratios": {
+        "ctr": 0.1,
+        "cpc": 0.7,
+        "order_per_click": 0.1,
+        "acos": 0.175,
+        "roas": 5.71428571
+      }
+    }
+  },
+  "placement_residual": {
+    "impressions": 0.0,
+    "clicks": 0.0,
+    "spend": 0.0,
+    "orders": 0.0,
+    "sales": 0.0
+  },
+  "issues": [],
+  "mature_under_declared_lag": true,
+  "historical_cpc": 0.66666667,
+  "target_cost_cpc_reference": 1.0,
+  "fixed_only_placement_scenarios": {
+    "top": {
+      "current": 1.0,
+      "proposed": 1.0,
+      "relative_change": 0.0,
+      "actual_auction_bid_verified": false
+    },
+    "rest": {
+      "current": 0.8,
+      "proposed": 0.8,
+      "relative_change": 0.0,
+      "actual_auction_bid_verified": false
+    },
+    "product": {
+      "current": 0.8,
+      "proposed": 0.8,
+      "relative_change": 0.0,
+      "actual_auction_bid_verified": false
+    }
+  },
+  "scenario_ceiling_model_available": true,
+  "changed_levers": [
+    "average_daily_budget"
+  ],
+  "candidates": [
+    {
+      "lever": "average_daily_budget",
+      "direction": "increase",
+      "state": "REVIEW_ONLY",
+      "blockers": [],
+      "executable": false,
+      "live_state_independently_verified": false
+    }
+  ],
+  "budget_evidence": {
+    "declared_exhausted_dates": [
+      "2026-03-02",
+      "2026-03-04",
+      "2026-03-06"
+    ],
+    "has_unknown_status": false,
+    "daily_budget_is_hard_cap": false,
+    "spend_cap_guaranteed": false
+  },
+  "business_writes": 0,
+  "causal_effect_verified": false,
+  "source_declarations_independently_verified": false,
+  "limits": [
+    "Proposals are supplied hypotheses, never calculated bid recommendations.",
+    "Cost CPC reference is descriptive, not a break-even line or a bid.",
+    "Fixed-only scenarios exclude audience, schedules, business and dynamic adjustments; no actual auction ceiling certified.",
+    "Average daily budget is not a guaranteed daily spend cap."
+  ]
+}
