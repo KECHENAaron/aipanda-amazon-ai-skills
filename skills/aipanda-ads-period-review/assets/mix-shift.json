@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "scope": {
+    "scope_token": "SCOPE-001",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_basis": "click",
+    "attribution_days": 7,
+    "reporting_lag_days": 2
+  },
+  "snapshot_date": "2026-03-01",
+  "units": [
+    "UNIT-A",
+    "UNIT-B"
+  ],
+  "periods": [
+    {
+      "period": "before",
+      "start_date": "2026-01-01",
+      "end_date": "2026-01-03"
+    },
+    {
+      "period": "after",
+      "start_date": "2026-01-10",
+      "end_date": "2026-01-12"
+    }
+  ],
+  "rows": [
+    {
+      "period": "before",
+      "date": "2026-01-01",
+      "unit": "UNIT-A",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 1,
+      "orders": 1,
+      "sales": 10
+    },
+    {
+      "period": "before",
+      "date": "2026-01-01",
+      "unit": "UNIT-B",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 9,
+      "orders": 1,
+      "sales": 30
+    },
+    {
+      "period": "before",
+      "date": "2026-01-02",
+      "unit": "UNIT-A",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 1,
+      "orders": 1,
+      "sales": 10
+    },
+    {
+      "period": "before",
+      "date": "2026-01-02",
+      "unit": "UNIT-B",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 9,
+      "orders": 1,
+      "sales": 30
+    },
+    {
+      "period": "before",
+      "date": "2026-01-03",
+      "unit": "UNIT-A",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 1,
+      "orders": 1,
+      "sales": 10
+    },
+    {
+      "period": "before",
+      "date": "2026-01-03",
+      "unit": "UNIT-B",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 9,
+      "orders": 1,
+      "sales": 30
+    },
+    {
+      "period": "after",
+      "date": "2026-01-10",
+      "unit": "UNIT-A",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 6,
+      "orders": 1,
+      "sales": 50
+    },
+    {
+      "period": "after",
+      "date": "2026-01-10",
+      "unit": "UNIT-B",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 3.5,
+      "orders": 1,
+      "sales": 10
+    },
+    {
+      "period": "after",
+      "date": "2026-01-11",
+      "unit": "UNIT-A",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 6,
+      "orders": 1,
+      "sales": 50
+    },
+    {
+      "period": "after",
+      "date": "2026-01-11",
+      "unit": "UNIT-B",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 3.5,
+      "orders": 1,
+      "sales": 10
+    },
+    {
+      "period": "after",
+      "date": "2026-01-12",
+      "unit": "UNIT-A",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 6,
+      "orders": 1,
+      "sales": 50
+    },
+    {
+      "period": "after",
+      "date": "2026-01-12",
+      "unit": "UNIT-B",
+      "active": true,
+      "impressions": 100,
+      "clicks": 10,
+      "spend": 3.5,
+      "orders": 1,
+      "sales": 10
+    }
+  ],
+  "events": [
+    {
+      "period": "after",
+      "date": "2026-01-10",
+      "kind": "promotion"
+    }
+  ]
+}

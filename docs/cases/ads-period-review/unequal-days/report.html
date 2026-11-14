@@ -1,0 +1,281 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIPANDA 匿名广告周期复盘</title><style>*{box-sizing:border-box}body{font:16px/1.8 system-ui;background:#fbfbfd;color:#17233b;margin:0}main{max-width:1040px;margin:auto;padding:32px 24px}a{color:#6950c7}.note{padding:18px;background:#f0ecfa;border-left:4px solid #a995e7}.table{overflow:auto}table{border-collapse:collapse;min-width:680px;width:100%;font-size:14px}td,th{padding:10px;border-bottom:1px solid #ddd;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0f7;padding:18px}code{overflow-wrap:anywhere}</style><main><p>🐼 AIPANDA · 完全合成练习 · MIT</p><h1>广告周期复盘，先核对比较条件。</h1><div class="note"><strong>COMPARABLE_DESCRIPTIVE</strong><br>金额均按输入声明的 USD 展示；百分比率以小数存储。只做描述性比较，未验证因果效果，不输出竞价或否词操作。</div><p>阻断：无 · 聚合改善但各单元恶化：False</p><p>完整覆盖、日历天数、实际投放天数、分单元结果与源行号见下方 JSON。空缺不补零；归因未成熟时仍展示原始数据，但比较变化保留未知。</p><div class="table"><table><tr><th>口径</th><th>指标</th><th>之前</th><th>之后</th><th>绝对变化</th><th>相对变化</th></tr><tr><td>totals</td><td>impressions</td><td>600.0000</td><td>1,200.0000</td><td>600.0000</td><td>100.00%</td></tr><tr><td>totals</td><td>clicks</td><td>60.0000</td><td>120.0000</td><td>60.0000</td><td>100.00%</td></tr><tr><td>totals</td><td>spend</td><td>36.0000</td><td>54.0000</td><td>18.0000</td><td>50.00%</td></tr><tr><td>totals</td><td>orders</td><td>9.0000</td><td>18.0000</td><td>9.0000</td><td>100.00%</td></tr><tr><td>totals</td><td>sales</td><td>180.0000</td><td>360.0000</td><td>180.0000</td><td>100.00%</td></tr><tr><td>per_calendar_day</td><td>impressions</td><td>200.0000</td><td>200.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_calendar_day</td><td>clicks</td><td>20.0000</td><td>20.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_calendar_day</td><td>spend</td><td>12.0000</td><td>9.0000</td><td>-3.0000</td><td>-25.00%</td></tr><tr><td>per_calendar_day</td><td>orders</td><td>3.0000</td><td>3.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_calendar_day</td><td>sales</td><td>60.0000</td><td>60.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_active_day</td><td>impressions</td><td>200.0000</td><td>200.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_active_day</td><td>clicks</td><td>20.0000</td><td>20.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_active_day</td><td>spend</td><td>12.0000</td><td>9.0000</td><td>-3.0000</td><td>-25.00%</td></tr><tr><td>per_active_day</td><td>orders</td><td>3.0000</td><td>3.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>per_active_day</td><td>sales</td><td>60.0000</td><td>60.0000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>ratios</td><td>ctr</td><td>0.1000</td><td>0.1000</td><td>0.0000</td><td>0.00%</td></tr><tr><td>ratios</td><td>cpc</td><td>0.6000</td><td>0.4500</td><td>-0.1500</td><td>-25.00%</td></tr><tr><td>ratios</td><td>order_per_click</td><td>0.1500</td><td>0.1500</td><td>0.0000</td><td>0.00%</td></tr><tr><td>ratios</td><td>acos</td><td>0.2000</td><td>0.1500</td><td>-0.0500</td><td>-25.00%</td></tr><tr><td>ratios</td><td>roas</td><td>5.0000</td><td>6.6667</td><td>1.6667</td><td>33.33%</td></tr></table></div><details><summary>展开完整审计结果</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;data_kind&quot;: &quot;synthetic&quot;,
+  &quot;scope&quot;: {
+    &quot;scope_token&quot;: &quot;SCOPE-001&quot;,
+    &quot;marketplace&quot;: &quot;US&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;ad_type&quot;: &quot;SP&quot;,
+    &quot;attribution_basis&quot;: &quot;click&quot;,
+    &quot;attribution_days&quot;: 7,
+    &quot;reporting_lag_days&quot;: 2
+  },
+  &quot;snapshot_date&quot;: &quot;2026-03-01&quot;,
+  &quot;status&quot;: &quot;COMPARABLE_DESCRIPTIVE&quot;,
+  &quot;periods&quot;: {
+    &quot;before&quot;: {
+      &quot;totals&quot;: {
+        &quot;impressions&quot;: 600.0,
+        &quot;clicks&quot;: 60.0,
+        &quot;spend&quot;: 36.0,
+        &quot;orders&quot;: 9.0,
+        &quot;sales&quot;: 180.0
+      },
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.1,
+        &quot;cpc&quot;: 0.6,
+        &quot;order_per_click&quot;: 0.15,
+        &quot;acos&quot;: 0.2,
+        &quot;roas&quot;: 5.0
+      },
+      &quot;calendar_days&quot;: 3,
+      &quot;active_days&quot;: 3,
+      &quot;rows&quot;: 6,
+      &quot;expected_rows&quot;: 6,
+      &quot;coverage_complete&quot;: true,
+      &quot;mature_under_declared_lag&quot;: true,
+      &quot;source_rows&quot;: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      &quot;per_calendar_day&quot;: {
+        &quot;impressions&quot;: 200.0,
+        &quot;clicks&quot;: 20.0,
+        &quot;spend&quot;: 12.0,
+        &quot;orders&quot;: 3.0,
+        &quot;sales&quot;: 60.0
+      },
+      &quot;per_active_day&quot;: {
+        &quot;impressions&quot;: 200.0,
+        &quot;clicks&quot;: 20.0,
+        &quot;spend&quot;: 12.0,
+        &quot;orders&quot;: 3.0,
+        &quot;sales&quot;: 60.0
+      },
+      &quot;units&quot;: {
+        &quot;UNIT-A&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 300.0,
+            &quot;clicks&quot;: 30.0,
+            &quot;spend&quot;: 24.0,
+            &quot;orders&quot;: 3.0,
+            &quot;sales&quot;: 60.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.1,
+            &quot;cpc&quot;: 0.8,
+            &quot;order_per_click&quot;: 0.1,
+            &quot;acos&quot;: 0.4,
+            &quot;roas&quot;: 2.5
+          }
+        },
+        &quot;UNIT-B&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 300.0,
+            &quot;clicks&quot;: 30.0,
+            &quot;spend&quot;: 12.0,
+            &quot;orders&quot;: 6.0,
+            &quot;sales&quot;: 120.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.1,
+            &quot;cpc&quot;: 0.4,
+            &quot;order_per_click&quot;: 0.2,
+            &quot;acos&quot;: 0.1,
+            &quot;roas&quot;: 10.0
+          }
+        }
+      }
+    },
+    &quot;after&quot;: {
+      &quot;totals&quot;: {
+        &quot;impressions&quot;: 1200.0,
+        &quot;clicks&quot;: 120.0,
+        &quot;spend&quot;: 54.0,
+        &quot;orders&quot;: 18.0,
+        &quot;sales&quot;: 360.0
+      },
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.1,
+        &quot;cpc&quot;: 0.45,
+        &quot;order_per_click&quot;: 0.15,
+        &quot;acos&quot;: 0.15,
+        &quot;roas&quot;: 6.66666667
+      },
+      &quot;calendar_days&quot;: 6,
+      &quot;active_days&quot;: 6,
+      &quot;rows&quot;: 12,
+      &quot;expected_rows&quot;: 12,
+      &quot;coverage_complete&quot;: true,
+      &quot;mature_under_declared_lag&quot;: true,
+      &quot;source_rows&quot;: [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      &quot;per_calendar_day&quot;: {
+        &quot;impressions&quot;: 200.0,
+        &quot;clicks&quot;: 20.0,
+        &quot;spend&quot;: 9.0,
+        &quot;orders&quot;: 3.0,
+        &quot;sales&quot;: 60.0
+      },
+      &quot;per_active_day&quot;: {
+        &quot;impressions&quot;: 200.0,
+        &quot;clicks&quot;: 20.0,
+        &quot;spend&quot;: 9.0,
+        &quot;orders&quot;: 3.0,
+        &quot;sales&quot;: 60.0
+      },
+      &quot;units&quot;: {
+        &quot;UNIT-A&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 600.0,
+            &quot;clicks&quot;: 60.0,
+            &quot;spend&quot;: 36.0,
+            &quot;orders&quot;: 6.0,
+            &quot;sales&quot;: 120.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.1,
+            &quot;cpc&quot;: 0.6,
+            &quot;order_per_click&quot;: 0.1,
+            &quot;acos&quot;: 0.3,
+            &quot;roas&quot;: 3.33333333
+          }
+        },
+        &quot;UNIT-B&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 600.0,
+            &quot;clicks&quot;: 60.0,
+            &quot;spend&quot;: 18.0,
+            &quot;orders&quot;: 12.0,
+            &quot;sales&quot;: 240.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.1,
+            &quot;cpc&quot;: 0.3,
+            &quot;order_per_click&quot;: 0.2,
+            &quot;acos&quot;: 0.075,
+            &quot;roas&quot;: 13.33333333
+          }
+        }
+      }
+    }
+  },
+  &quot;deltas&quot;: {
+    &quot;totals&quot;: {
+      &quot;impressions&quot;: {
+        &quot;absolute&quot;: 600.0,
+        &quot;relative&quot;: 1.0
+      },
+      &quot;clicks&quot;: {
+        &quot;absolute&quot;: 60.0,
+        &quot;relative&quot;: 1.0
+      },
+      &quot;spend&quot;: {
+        &quot;absolute&quot;: 18.0,
+        &quot;relative&quot;: 0.5
+      },
+      &quot;orders&quot;: {
+        &quot;absolute&quot;: 9.0,
+        &quot;relative&quot;: 1.0
+      },
+      &quot;sales&quot;: {
+        &quot;absolute&quot;: 180.0,
+        &quot;relative&quot;: 1.0
+      }
+    },
+    &quot;ratios&quot;: {
+      &quot;ctr&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;cpc&quot;: {
+        &quot;absolute&quot;: -0.15,
+        &quot;relative&quot;: -0.25
+      },
+      &quot;order_per_click&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;acos&quot;: {
+        &quot;absolute&quot;: -0.05,
+        &quot;relative&quot;: -0.25
+      },
+      &quot;roas&quot;: {
+        &quot;absolute&quot;: 1.66666667,
+        &quot;relative&quot;: 0.33333333
+      }
+    },
+    &quot;per_calendar_day&quot;: {
+      &quot;impressions&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;clicks&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;spend&quot;: {
+        &quot;absolute&quot;: -3.0,
+        &quot;relative&quot;: -0.25
+      },
+      &quot;orders&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;sales&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      }
+    },
+    &quot;per_active_day&quot;: {
+      &quot;impressions&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;clicks&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;spend&quot;: {
+        &quot;absolute&quot;: -3.0,
+        &quot;relative&quot;: -0.25
+      },
+      &quot;orders&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      },
+      &quot;sales&quot;: {
+        &quot;absolute&quot;: 0.0,
+        &quot;relative&quot;: 0.0
+      }
+    }
+  },
+  &quot;blockers&quot;: [],
+  &quot;issues&quot;: [],
+  &quot;events&quot;: [],
+  &quot;mix_shift_warning&quot;: false,
+  &quot;all_units_acos_worsened&quot;: [],
+  &quot;business_writes&quot;: 0,
+  &quot;causal_effect_verified&quot;: false,
+  &quot;limits&quot;: [
+    &quot;Descriptive comparison only; declared lags do not certify final source data.&quot;,
+    &quot;Active-day averages exclude inactive dates; inspect both denominators.&quot;,
+    &quot;No product facts, financial reconciliation, bid recommendation or backend execution.&quot;
+  ]
+}</pre></details><p>声明的成熟窗口不代表后续不会回填；事件与投放结构变化仍需人工解释。本报告不包含产品成本、费用账本或利润核对。</p><p><a href="https://github.com/KECHENAaron/aipanda-amazon-ai-skills/tree/main/skills/aipanda-ads-period-review">源码与使用说明</a></p></main></html>

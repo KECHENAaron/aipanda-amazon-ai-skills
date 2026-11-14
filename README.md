@@ -8,7 +8,7 @@
 
 面向亚马逊卖家与使用 AI 的运营人员。从一个具体问题出发，保留输入、来源、判断理由与可复现结果。
 
-**当前版本：0.2.0。** 共 6 个技能入口：3 个 MIT 基础技能，另增 3 个保留 AGPL-3.0 的社区衍生包；其中 4 个有可运行脚本，2 个是指令型工作流。配套 [4 个可复现的实务问题重构案例](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)。示例全部为合成数据，未展示真实店铺成绩。
+**当前版本：0.3.0。** 共 7 个技能入口：4 个 MIT 技能与 3 个保留 AGPL-3.0 的社区衍生包；5 个有离线脚本，2 个是指令型工作流。配套 [5 个完全合成案例主题](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)，其中新增广告周期复盘含 3 个独立练习。只分享通用技能，不展示实际商品、店铺或经营资料。
 
 **许可分区：基础版 MIT；`community/ivyeaops/` 与 `docs/cases/data/` 保留 AGPL-3.0。** 来源、版本与修改逐包记录，品牌图片另见 [NOTICE](NOTICE)。
 
@@ -22,7 +22,7 @@
 
 工具当前只接受已经按仓库字段规范整理的 CSV，不直接兼容所有 Amazon、ERP 或广告导出格式。
 
-## 本机实践整理的社区技能
+## 独立维护的社区技能
 
 以下是 [IvyeaOps 固定版本](https://github.com/Hector-xue/IvyeaOps/tree/d5e440d7f14ff0444bbde4a890ed39df05876388) 的独立优化公开副本，保留作者署名与完整 AGPL 许可。逐包带源码、测试、合成输入、依赖和改动记录，使用前见 [社区包说明](community/ivyeaops/README.md)。
 
@@ -34,7 +34,21 @@
 
 **工具检查有范围。** 引用 ID 有效不等于文案文意正确；白色像素不等于整图合规；启发式候选不等于可以执行的广告调整。三个包均不包含业务写入脚本。标准库基础版与社区包的输入协议、依赖和许可分别说明。
 
-[本批 14 类候选筛选记录](docs/curation.md) · [版本变化](CHANGELOG.md) · [完整案例目录](cases/README.md)
+[公开分享规范](docs/curation.md) · [版本变化](CHANGELOG.md) · [完整案例目录](cases/README.md)
+
+## 新增：匿名广告周期复盘
+
+[技能与契约](skills/aipanda-ads-period-review/SKILL.md) · [3 个合成练习](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/ads-period-review.html) · [公开来源与许可](skills/aipanda-ads-period-review/references/sources.md)
+
+Python 标准库实现，从相同匿名单元的 SP 日报比较两期：覆盖、归因成熟、总量与两种日均、加权比率、分单元变化及结构偏移。字段白名单拒绝商品 / 店铺 / 成本 / 备注等额外字段，不做利润核对，不输出竞价或否词操作。
+
+```bash
+python3 skills/aipanda-ads-period-review/scripts/review.py \
+  --input skills/aipanda-ads-period-review/assets/unequal-days.json \
+  --output-dir /tmp/aipanda-period-demo
+```
+
+仅用常量合成的公开练习可供分享；匿名本地报告标记“不供公开”，不要提交到仓库或 Issue。
 
 ## 十分钟开始
 

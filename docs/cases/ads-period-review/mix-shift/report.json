@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "scope": {
+    "scope_token": "SCOPE-001",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_basis": "click",
+    "attribution_days": 7,
+    "reporting_lag_days": 2
+  },
+  "snapshot_date": "2026-03-01",
+  "status": "COMPARABLE_DESCRIPTIVE",
+  "periods": {
+    "before": {
+      "totals": {
+        "impressions": 600.0,
+        "clicks": 60.0,
+        "spend": 30.0,
+        "orders": 6.0,
+        "sales": 120.0
+      },
+      "ratios": {
+        "ctr": 0.1,
+        "cpc": 0.5,
+        "order_per_click": 0.1,
+        "acos": 0.25,
+        "roas": 4.0
+      },
+      "calendar_days": 3,
+      "active_days": 3,
+      "rows": 6,
+      "expected_rows": 6,
+      "coverage_complete": true,
+      "mature_under_declared_lag": true,
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "per_calendar_day": {
+        "impressions": 200.0,
+        "clicks": 20.0,
+        "spend": 10.0,
+        "orders": 2.0,
+        "sales": 40.0
+      },
+      "per_active_day": {
+        "impressions": 200.0,
+        "clicks": 20.0,
+        "spend": 10.0,
+        "orders": 2.0,
+        "sales": 40.0
+      },
+      "units": {
+        "UNIT-A": {
+          "totals": {
+            "impressions": 300.0,
+            "clicks": 30.0,
+            "spend": 3.0,
+            "orders": 3.0,
+            "sales": 30.0
+          },
+          "ratios": {
+            "ctr": 0.1,
+            "cpc": 0.1,
+            "order_per_click": 0.1,
+            "acos": 0.1,
+            "roas": 10.0
+          }
+        },
+        "UNIT-B": {
+          "totals": {
+            "impressions": 300.0,
+            "clicks": 30.0,
+            "spend": 27.0,
+            "orders": 3.0,
+            "sales": 90.0
+          },
+          "ratios": {
+            "ctr": 0.1,
+            "cpc": 0.9,
+            "order_per_click": 0.1,
+            "acos": 0.3,
+            "roas": 3.33333333
+          }
+        }
+      }
+    },
+    "after": {
+      "totals": {
+        "impressions": 600.0,
+        "clicks": 60.0,
+        "spend": 28.5,
+        "orders": 6.0,
+        "sales": 180.0
+      },
+      "ratios": {
+        "ctr": 0.1,
+        "cpc": 0.475,
+        "order_per_click": 0.1,
+        "acos": 0.15833333,
+        "roas": 6.31578947
+      },
+      "calendar_days": 3,
+      "active_days": 3,
+      "rows": 6,
+      "expected_rows": 6,
+      "coverage_complete": true,
+      "mature_under_declared_lag": true,
+      "source_rows": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "per_calendar_day": {
+        "impressions": 200.0,
+        "clicks": 20.0,
+        "spend": 9.5,
+        "orders": 2.0,
+        "sales": 60.0
+      },
+      "per_active_day": {
+        "impressions": 200.0,
+        "clicks": 20.0,
+        "spend": 9.5,
+        "orders": 2.0,
+        "sales": 60.0
+      },
+      "units": {
+        "UNIT-A": {
+          "totals": {
+            "impressions": 300.0,
+            "clicks": 30.0,
+            "spend": 18.0,
+            "orders": 3.0,
+            "sales": 150.0
+          },
+          "ratios": {
+            "ctr": 0.1,
+            "cpc": 0.6,
+            "order_per_click": 0.1,
+            "acos": 0.12,
+            "roas": 8.33333333
+          }
+        },
+        "UNIT-B": {
+          "totals": {
+            "impressions": 300.0,
+            "clicks": 30.0,
+            "spend": 10.5,
+            "orders": 3.0,
+            "sales": 30.0
+          },
+          "ratios": {
+            "ctr": 0.1,
+            "cpc": 0.35,
+            "order_per_click": 0.1,
+            "acos": 0.35,
+            "roas": 2.85714286
+          }
+        }
+      }
+    }
+  },
+  "deltas": {
+    "totals": {
+      "impressions": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "clicks": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "spend": {
+        "absolute": -1.5,
+        "relative": -0.05
+      },
+      "orders": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "sales": {
+        "absolute": 60.0,
+        "relative": 0.5
+      }
+    },
+    "ratios": {
+      "ctr": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "cpc": {
+        "absolute": -0.025,
+        "relative": -0.05
+      },
+      "order_per_click": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "acos": {
+        "absolute": -0.09166667,
+        "relative": -0.36666667
+      },
+      "roas": {
+        "absolute": 2.31578947,
+        "relative": 0.57894737
+      }
+    },
+    "per_calendar_day": {
+      "impressions": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "clicks": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "spend": {
+        "absolute": -0.5,
+        "relative": -0.05
+      },
+      "orders": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "sales": {
+        "absolute": 20.0,
+        "relative": 0.5
+      }
+    },
+    "per_active_day": {
+      "impressions": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "clicks": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "spend": {
+        "absolute": -0.5,
+        "relative": -0.05
+      },
+      "orders": {
+        "absolute": 0.0,
+        "relative": 0.0
+      },
+      "sales": {
+        "absolute": 20.0,
+        "relative": 0.5
+      }
+    }
+  },
+  "blockers": [],
+  "issues": [],
+  "events": [
+    {
+      "period": "after",
+      "date": "2026-01-10",
+      "kind": "promotion"
+    }
+  ],
+  "mix_shift_warning": true,
+  "all_units_acos_worsened": [
+    "UNIT-A",
+    "UNIT-B"
+  ],
+  "business_writes": 0,
+  "causal_effect_verified": false,
+  "limits": [
+    "Descriptive comparison only; declared lags do not certify final source data.",
+    "Active-day averages exclude inactive dates; inspect both denominators.",
+    "No product facts, financial reconciliation, bid recommendation or backend execution."
+  ]
+}

@@ -33,7 +33,7 @@
   },
   "items": [
     {
-      "search_term": "pool cover",
+      "search_term": "demo term alpha",
       "metrics": {
         "impressions": 800.0,
         "clicks": 30.0,
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "search_term": "pool drain adapter",
+      "search_term": "demo term beta",
       "metrics": {
         "impressions": 450.0,
         "clicks": 25.0,
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "search_term": "fountain toy",
+      "search_term": "demo term gamma",
       "metrics": {
         "impressions": 300.0,
         "clicks": 6.0,
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "search_term": "outdoor pool accessory",
+      "search_term": "demo term delta",
       "metrics": {
         "impressions": 80.0,
         "clicks": null,

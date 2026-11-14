@@ -37,11 +37,11 @@ class SearchTermAuditTests(unittest.TestCase):
         self.assertEqual(r['totals']['spend'], 38)
         self.assertIsNone(r['totals']['clicks'])
         self.assertEqual(r['totals']['orders'], 3)
-        self.assertEqual(terms['pool cover']['state'], '控费复核候选')
-        self.assertAlmostEqual(terms['pool drain adapter']['derived']['acos'], 12/90, places=6)
-        self.assertEqual(terms['fountain toy']['state'], '继续观察')
-        self.assertIsNone(terms['outdoor pool accessory']['derived']['cpc'])
-        self.assertEqual(terms['outdoor pool accessory']['source_lines'], [7])
+        self.assertEqual(terms['demo term alpha']['state'], '控费复核候选')
+        self.assertAlmostEqual(terms['demo term beta']['derived']['acos'], 12/90, places=6)
+        self.assertEqual(terms['demo term gamma']['state'], '继续观察')
+        self.assertIsNone(terms['demo term delta']['derived']['cpc'])
+        self.assertEqual(terms['demo term delta']['source_lines'], [7])
 
     def test_duplicate_blocks(self):
         with self.assertRaisesRegex(ValueError, '重复'):

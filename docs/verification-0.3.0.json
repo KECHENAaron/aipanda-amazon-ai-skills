@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "suite": "MIT and guard",
+      "passed": 42
+    },
+    {
+      "suite": "community search",
+      "passed": 21
+    },
+    {
+      "suite": "community listing",
+      "passed": 9
+    },
+    {
+      "suite": "community image",
+      "passed": 8
+    }
+  ],
+  "total_tests_passed": 80,
+  "skill_structures_valid": 7,
+  "relative_links_valid": 121,
+  "new_replay_outputs_byte_identical": 6,
+  "version": "0.3.0",
+  "scope": "offline synthetic fixtures and generic patterns only",
+  "business_writes": 0,
+  "financial_reconciliation_included": false
+}
