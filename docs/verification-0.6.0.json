@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "project_version": "0.6.0",
+  "ad_skill_version": "1.2.0",
+  "isolated_source_copy": true,
+  "tests": [
+    {
+      "suite": "MIT",
+      "passed": 124
+    },
+    {
+      "suite": "community-search",
+      "passed": 21
+    },
+    {
+      "suite": "community-listing",
+      "passed": 9
+    },
+    {
+      "suite": "community-image",
+      "passed": 8
+    }
+  ],
+  "total_tests_passed": 162,
+  "skills_validated": 7,
+  "project_check": {
+    "status": "PASS",
+    "skills": 7,
+    "demos": 11,
+    "relative_links_checked": 200,
+    "generated_page_matches": true,
+    "replay_outputs_byte_identical": 22,
+    "network_requests": 0,
+    "limit": "Static checks and synthetic replays do not verify live accounts or business outcomes."
+  },
+  "business_writes": 0,
+  "new_external_code_or_dependencies": false,
+  "new_sources": "Existing public repository only; original metadata and launcher; no course originals, new upstream code or private records.",
+  "browser_local_checks": {
+    "filter": true,
+    "empty_state": true,
+    "reset": true,
+    "demo_selection_and_preview_navigation": true,
+    "mobile_page_overflow": false,
+    "console_errors": 0,
+    "tested_browser": "Chrome",
+    "mobile_viewport": [
+      390,
+      844
+    ]
+  }
+}

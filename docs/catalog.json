@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "project_version": "0.6.0",
+  "skills": [
+    {
+      "id": "aipanda-search-term-audit",
+      "title": "搜索词复核",
+      "category": "ads",
+      "kind": "script",
+      "runtime": "stdlib",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "path": "skills/aipanda-search-term-audit",
+      "summary": "标准 SP 日粒度 CSV，检查缺数、重复与归因成熟，输出带来源行号的候选分类。",
+      "dependencies": "Python 标准库；原始导出需先映射为标准字段。",
+      "case_page": "demo/report.html"
+    },
+    {
+      "id": "aipanda-ads-period-review",
+      "title": "广告复盘与调整假设",
+      "category": "ads",
+      "kind": "script",
+      "runtime": "stdlib",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "path": "skills/aipanda-ads-period-review",
+      "summary": "比较周期、诊断架构与搜索词，检查竞价、预算和广告位假设；保留阻断理由。",
+      "dependencies": "Python 标准库；10 个独立合成练习，三种输入协议。",
+      "case_page": "cases/ad-controls.html"
+    },
+    {
+      "id": "aipanda-listing-evidence",
+      "title": "Listing 文案证据复核",
+      "category": "listing",
+      "kind": "workflow",
+      "runtime": "instructions",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "path": "skills/aipanda-listing-evidence",
+      "summary": "把文案断言对应到事实、缺证与冲突，再给出逐句改写理由。",
+      "dependencies": "由支持读取 SKILL.md 的 AI 工具执行；没有独立分析脚本。",
+      "case_page": null
+    },
+    {
+      "id": "aipanda-competitor-evidence",
+      "title": "竞品同口径对标",
+      "category": "research",
+      "kind": "workflow",
+      "runtime": "instructions",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "path": "skills/aipanda-competitor-evidence",
+      "summary": "统一规格、范围与来源，形成竞品证据矩阵，保留可比性与待核验项。",
+      "dependencies": "由 AI 按指令组织证据；无需指定付费工具，没有独立分析脚本。",
+      "case_page": null
+    },
+    {
+      "id": "zach-search-term-report-analyzer-optimized",
+      "title": "搜索词进阶分析",
+      "category": "ads",
+      "kind": "script",
+      "runtime": "third_party",
+      "license": "AGPL-3.0",
+      "license_path": "community/ivyeaops/zach-search-term-report-analyzer-optimized/LICENSE",
+      "path": "community/ivyeaops/zach-search-term-report-analyzer-optimized",
+      "summary": "显式表头映射，区分逐日与汇总粒度，保留来源实体与条件候选。",
+      "dependencies": "需 pandas、BeautifulSoup、openpyxl；以包内 requirements.txt 为准。",
+      "case_page": "cases/aggregate-window.html"
+    },
+    {
+      "id": "amazon-asin-cosmo-rufus-audit-optimized",
+      "title": "Listing 结构化证据审计",
+      "category": "listing",
+      "kind": "script",
+      "runtime": "stdlib",
+      "license": "AGPL-3.0",
+      "license_path": "community/ivyeaops/amazon-asin-cosmo-rufus-audit-optimized/LICENSE",
+      "path": "community/ivyeaops/amazon-asin-cosmo-rufus-audit-optimized",
+      "summary": "检查事实冲突、部件与批次绑定、评论去重和引用有效性。",
+      "dependencies": "Python 标准库；程序不证明文案语义或外部事实真实。",
+      "case_page": "cases/listing-conflicts.html"
+    },
+    {
+      "id": "amazon-listing-creative-optimized",
+      "title": "图片简报与技术筛查",
+      "category": "images",
+      "kind": "script",
+      "runtime": "optional",
+      "license": "AGPL-3.0",
+      "license_path": "community/ivyeaops/amazon-listing-creative-optimized/LICENSE",
+      "path": "community/ivyeaops/amazon-listing-creative-optimized",
+      "summary": "检查卖点与配件证据、简报阻断和可选像素技术指标。",
+      "dependencies": "简报检查为标准库；像素检查需 Pillow，OCR 另有系统要求。",
+      "case_page": "cases/image-brief.html"
+    }
+  ],
+  "demos": [
+    {
+      "id": "search-terms",
+      "title": "搜索词分类与缺数",
+      "skill_id": "aipanda-search-term-audit",
+      "script": "skills/aipanda-search-term-audit/scripts/audit.py",
+      "input": "skills/aipanda-search-term-audit/assets/demo.csv",
+      "scope": "skills/aipanda-search-term-audit/assets/demo-scope.json",
+      "preview": "docs/demo/report.html"
+    },
+    {
+      "id": "ads-unequal-days",
+      "title": "不同天数的周期比较",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/review.py",
+      "input": "skills/aipanda-ads-period-review/assets/unequal-days.json",
+      "scope": null,
+      "preview": "docs/cases/ads-period-review/unequal-days/report.html"
+    },
+    {
+      "id": "ads-immature",
+      "title": "归因尚未成熟",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/review.py",
+      "input": "skills/aipanda-ads-period-review/assets/immature.json",
+      "scope": null,
+      "preview": "docs/cases/ads-period-review/immature/report.html"
+    },
+    {
+      "id": "ads-mix-shift",
+      "title": "流量结构偏移",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/review.py",
+      "input": "skills/aipanda-ads-period-review/assets/mix-shift.json",
+      "scope": null,
+      "preview": "docs/cases/ads-period-review/mix-shift/report.html"
+    },
+    {
+      "id": "ads-architecture",
+      "title": "广告结构诊断",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/diagnose.py",
+      "input": "skills/aipanda-ads-period-review/assets/diagnostic-architecture.json",
+      "scope": null,
+      "preview": "docs/cases/ads-diagnostics/architecture/report.html"
+    },
+    {
+      "id": "ads-term-safety",
+      "title": "搜索词保护与阻断",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/diagnose.py",
+      "input": "skills/aipanda-ads-period-review/assets/diagnostic-term-safety.json",
+      "scope": null,
+      "preview": "docs/cases/ads-diagnostics/term-safety/report.html"
+    },
+    {
+      "id": "ads-optimization",
+      "title": "优化候选与承接",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/diagnose.py",
+      "input": "skills/aipanda-ads-period-review/assets/diagnostic-optimization.json",
+      "scope": null,
+      "preview": "docs/cases/ads-diagnostics/optimization/report.html"
+    },
+    {
+      "id": "ads-bid",
+      "title": "基础竞价假设",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/control_scenarios.py",
+      "input": "skills/aipanda-ads-period-review/assets/control-bid.json",
+      "scope": null,
+      "preview": "docs/cases/ad-controls/bid/report.html"
+    },
+    {
+      "id": "ads-budget",
+      "title": "预算约束假设",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/control_scenarios.py",
+      "input": "skills/aipanda-ads-period-review/assets/control-budget.json",
+      "scope": null,
+      "preview": "docs/cases/ad-controls/budget/report.html"
+    },
+    {
+      "id": "ads-placement",
+      "title": "广告位加价假设",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/control_scenarios.py",
+      "input": "skills/aipanda-ads-period-review/assets/control-placement.json",
+      "scope": null,
+      "preview": "docs/cases/ad-controls/placement/report.html"
+    },
+    {
+      "id": "ads-joint-change",
+      "title": "联合改动反例",
+      "skill_id": "aipanda-ads-period-review",
+      "script": "skills/aipanda-ads-period-review/scripts/control_scenarios.py",
+      "input": "skills/aipanda-ads-period-review/assets/control-joint-change.json",
+      "scope": null,
+      "preview": "docs/cases/ad-controls/joint-change/report.html"
+    }
+  ]
+}
