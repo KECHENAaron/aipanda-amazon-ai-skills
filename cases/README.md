@@ -13,6 +13,8 @@
 | [匿名广告周期复盘](../docs/cases/ads-period-review.html) | 3 个完全合成练习：总量与日均、未成熟阻断、聚合结构偏移 | [技能](../skills/aipanda-ads-period-review/SKILL.md) / [合成生成器](../skills/aipanda-ads-period-review/scripts/make_demo.py) |
 | [广告架构与搜索词诊断](../docs/cases/ads-diagnostics.html) | 3 组合成练习：架构缺口、成交保护 / 符号聚合、有条件迁移 | [诊断契约](../skills/aipanda-ads-period-review/references/diagnostic-contract.md) / [常量生成器](../skills/aipanda-ads-period-review/scripts/make_diagnostic_demo.py) |
 | [竞价预算广告位情景](../docs/cases/ad-controls.html) | 4 组合成练习：Bid、预算、位置与多变量反例 | [控制协议](../skills/aipanda-ads-period-review/references/control-contract.md) / [常量生成器](../skills/aipanda-ads-period-review/scripts/make_control_demo.py) |
+| [Listing 声明证据核对](../docs/cases/listing-evidence.html) | 支持、未引用冲突、绑定 / 量纲 / 来源反例 | [独立 Skill](../skills/aipanda-listing-evidence/SKILL.md) |
+| [竞品可比性核对](../docs/cases/competitor-evidence.html) | 精确包装归一、窗口 / 方法差异、未知与多来源 | [独立 Skill](../skills/aipanda-competitor-evidence/SKILL.md) |
 
 ## 如何复现
 
@@ -23,3 +25,5 @@
 案例文字为 AIPANDA 原创整理，适用根 MIT。`docs/cases/data/` 内含社区工具生成的结果，整体按该目录保留的 AGPL-3.0 分发，完整对应源码位于 `community/ivyeaops/`；请勿将整个仓库统称为 MIT。
 
 广告复盘的 `docs/cases/ads-period-review/` 、`docs/cases/ads-diagnostics/` 和 `docs/cases/ad-controls/` 目录为独立 MIT 内容，不属于社区 AGPL 数据目录。
+
+新 Listing 与竞品的 `docs/cases/listing-evidence/`、`docs/cases/competitor-evidence/` 为独立原创 MIT 内容，不属于 AGPL data 目录。

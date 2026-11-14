@@ -1,0 +1,145 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>竞品对标，先核对可比条件。</title><style>*{box-sizing:border-box}body{margin:0;background:#fbfbfd;color:#17233b;font:16px/1.8 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:32px 22px}h1{font-size:34px;line-height:1.3}.note{padding:18px;background:#f0edf8;border-left:4px solid #a695df}.scroll{overflow:auto}table{width:100%;min-width:760px;border-collapse:collapse}td,th{text-align:left;padding:13px;border-bottom:1px solid #dfe4ee;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef0f6;padding:18px}a{color:#6950c7}details{margin-top:24px}summary{cursor:pointer}</style><main><p>🐼 AIPANDA · MIT · 声明合成练习 · 发布前仍须核对生成器</p><h1>竞品对标，先核对可比条件。</h1><p class="note">只验证结构化输入间的一致性和可比性。来源、对象绑定和语义未独立核实，不代表事实真实、文案可直接提交或市场机会已经成立。全部结果 executable=false。</p><div class="scroll"><table><thead><tr><th>比较对象</th><th>维度</th><th>可比性</th><th>阻断理由</th><th>每件值 / 均值</th><th>差值（精确分数）</th></tr></thead><tbody><tr><td>ITEM-B</td><td>ATTR-001</td><td>COMPARABLE_BY_INPUT</td><td>[]</td><td>[&quot;10&quot;, &quot;10&quot;]</td><td>0</td></tr><tr><td>ITEM-B</td><td>ATTR-002</td><td>COMPARABLE_BY_INPUT</td><td>[]</td><td>[&quot;3&quot;, &quot;4&quot;]</td><td>1</td></tr></tbody></table></div><details><summary>完整证据与审计 JSON</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;skill_version&quot;: &quot;1.0.0&quot;,
+  &quot;data_kind&quot;: &quot;synthetic&quot;,
+  &quot;snapshot_date&quot;: &quot;2026-03-02&quot;,
+  &quot;max_age_days&quot;: 30,
+  &quot;baseline&quot;: &quot;ITEM-A&quot;,
+  &quot;entities&quot;: [
+    {
+      &quot;id&quot;: &quot;ITEM-A&quot;,
+      &quot;variant&quot;: &quot;VAR-A&quot;,
+      &quot;comparison_group&quot;: &quot;GROUP-A&quot;,
+      &quot;pack_count&quot;: 1
+    },
+    {
+      &quot;id&quot;: &quot;ITEM-B&quot;,
+      &quot;variant&quot;: &quot;VAR-A&quot;,
+      &quot;comparison_group&quot;: &quot;GROUP-A&quot;,
+      &quot;pack_count&quot;: 2
+    }
+  ],
+  &quot;sources&quot;: [
+    {
+      &quot;id&quot;: &quot;SRC-001&quot;,
+      &quot;observed_date&quot;: &quot;2026-03-01&quot;,
+      &quot;access&quot;: &quot;provided&quot;
+    }
+  ],
+  &quot;observations&quot;: [
+    {
+      &quot;id&quot;: &quot;OBS-001&quot;,
+      &quot;source_id&quot;: &quot;SRC-001&quot;,
+      &quot;entity_id&quot;: &quot;ITEM-A&quot;,
+      &quot;variant&quot;: &quot;VAR-A&quot;,
+      &quot;attribute&quot;: &quot;ATTR-001&quot;,
+      &quot;value&quot;: &quot;10&quot;,
+      &quot;measure_unit&quot;: &quot;count&quot;,
+      &quot;kind&quot;: &quot;observed&quot;,
+      &quot;method&quot;: &quot;METHOD-A&quot;,
+      &quot;coverage&quot;: &quot;COVER-A&quot;,
+      &quot;window_start&quot;: &quot;2026-02-01&quot;,
+      &quot;window_end&quot;: &quot;2026-02-07&quot;,
+      &quot;basis&quot;: &quot;per_item&quot;,
+      &quot;aggregation&quot;: &quot;additive&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OBS-002&quot;,
+      &quot;source_id&quot;: &quot;SRC-001&quot;,
+      &quot;entity_id&quot;: &quot;ITEM-B&quot;,
+      &quot;variant&quot;: &quot;VAR-A&quot;,
+      &quot;attribute&quot;: &quot;ATTR-001&quot;,
+      &quot;value&quot;: &quot;20&quot;,
+      &quot;measure_unit&quot;: &quot;count&quot;,
+      &quot;kind&quot;: &quot;observed&quot;,
+      &quot;method&quot;: &quot;METHOD-A&quot;,
+      &quot;coverage&quot;: &quot;COVER-A&quot;,
+      &quot;window_start&quot;: &quot;2026-02-01&quot;,
+      &quot;window_end&quot;: &quot;2026-02-07&quot;,
+      &quot;basis&quot;: &quot;per_pack&quot;,
+      &quot;aggregation&quot;: &quot;additive&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OBS-003&quot;,
+      &quot;source_id&quot;: &quot;SRC-001&quot;,
+      &quot;entity_id&quot;: &quot;ITEM-A&quot;,
+      &quot;variant&quot;: &quot;VAR-A&quot;,
+      &quot;attribute&quot;: &quot;ATTR-002&quot;,
+      &quot;value&quot;: &quot;3&quot;,
+      &quot;measure_unit&quot;: &quot;count&quot;,
+      &quot;kind&quot;: &quot;observed&quot;,
+      &quot;method&quot;: &quot;METHOD-A&quot;,
+      &quot;coverage&quot;: &quot;COVER-A&quot;,
+      &quot;window_start&quot;: &quot;2026-02-01&quot;,
+      &quot;window_end&quot;: &quot;2026-02-07&quot;,
+      &quot;basis&quot;: &quot;per_item&quot;,
+      &quot;aggregation&quot;: &quot;additive&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OBS-004&quot;,
+      &quot;source_id&quot;: &quot;SRC-001&quot;,
+      &quot;entity_id&quot;: &quot;ITEM-B&quot;,
+      &quot;variant&quot;: &quot;VAR-A&quot;,
+      &quot;attribute&quot;: &quot;ATTR-002&quot;,
+      &quot;value&quot;: &quot;4&quot;,
+      &quot;measure_unit&quot;: &quot;count&quot;,
+      &quot;kind&quot;: &quot;observed&quot;,
+      &quot;method&quot;: &quot;METHOD-A&quot;,
+      &quot;coverage&quot;: &quot;COVER-A&quot;,
+      &quot;window_start&quot;: &quot;2026-02-01&quot;,
+      &quot;window_end&quot;: &quot;2026-02-07&quot;,
+      &quot;basis&quot;: &quot;per_item&quot;,
+      &quot;aggregation&quot;: &quot;additive&quot;
+    }
+  ],
+  &quot;comparisons&quot;: [
+    {
+      &quot;baseline&quot;: &quot;ITEM-A&quot;,
+      &quot;peer&quot;: &quot;ITEM-B&quot;,
+      &quot;attribute&quot;: &quot;ATTR-001&quot;,
+      &quot;status&quot;: &quot;COMPARABLE_BY_INPUT&quot;,
+      &quot;reasons&quot;: [],
+      &quot;baseline_observation_ids&quot;: [
+        &quot;OBS-001&quot;
+      ],
+      &quot;peer_observation_ids&quot;: [
+        &quot;OBS-002&quot;
+      ],
+      &quot;normalized_per_item_values&quot;: [
+        &quot;10&quot;,
+        &quot;10&quot;
+      ],
+      &quot;equal_by_input&quot;: true,
+      &quot;delta_exact&quot;: &quot;0&quot;,
+      &quot;relative_change_exact&quot;: &quot;0&quot;,
+      &quot;relative_unavailable_reason&quot;: null,
+      &quot;executable&quot;: false
+    },
+    {
+      &quot;baseline&quot;: &quot;ITEM-A&quot;,
+      &quot;peer&quot;: &quot;ITEM-B&quot;,
+      &quot;attribute&quot;: &quot;ATTR-002&quot;,
+      &quot;status&quot;: &quot;COMPARABLE_BY_INPUT&quot;,
+      &quot;reasons&quot;: [],
+      &quot;baseline_observation_ids&quot;: [
+        &quot;OBS-003&quot;
+      ],
+      &quot;peer_observation_ids&quot;: [
+        &quot;OBS-004&quot;
+      ],
+      &quot;normalized_per_item_values&quot;: [
+        &quot;3&quot;,
+        &quot;4&quot;
+      ],
+      &quot;equal_by_input&quot;: false,
+      &quot;delta_exact&quot;: &quot;1&quot;,
+      &quot;relative_change_exact&quot;: &quot;1/3&quot;,
+      &quot;relative_unavailable_reason&quot;: null,
+      &quot;executable&quot;: false
+    }
+  ],
+  &quot;source_authenticity_verified&quot;: false,
+  &quot;comparison_group_independently_verified&quot;: false,
+  &quot;scope&quot;: &quot;Declared pool and attributes only; no market coverage, causal effect, winner or profit conclusion.&quot;,
+  &quot;executable&quot;: false
+}</pre></details><p>不接卖家账户，不上传资料，不做利润核对。真实输入与本地匿名报告不要公开。</p></main></html>

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "project_version": "0.6.0",
+  "project_version": "0.7.0",
   "skills": [
     {
       "id": "aipanda-search-term-audit",
@@ -32,27 +32,27 @@
       "id": "aipanda-listing-evidence",
       "title": "Listing 文案证据复核",
       "category": "listing",
-      "kind": "workflow",
-      "runtime": "instructions",
+      "kind": "script",
+      "runtime": "stdlib",
       "license": "MIT",
       "license_path": "LICENSE",
       "path": "skills/aipanda-listing-evidence",
-      "summary": "把文案断言对应到事实、缺证与冲突，再给出逐句改写理由。",
-      "dependencies": "由支持读取 SKILL.md 的 AI 工具执行；没有独立分析脚本。",
-      "case_page": null
+      "summary": "逐项检查声明、绑定、引用、反证和缺证，保留完整匿名证据账本。",
+      "dependencies": "Python 标准库；3 个常量练习，结构化输入协议，不验证外部事实。",
+      "case_page": "cases/listing-evidence.html"
     },
     {
       "id": "aipanda-competitor-evidence",
       "title": "竞品同口径对标",
       "category": "research",
-      "kind": "workflow",
-      "runtime": "instructions",
+      "kind": "script",
+      "runtime": "stdlib",
       "license": "MIT",
       "license_path": "LICENSE",
       "path": "skills/aipanda-competitor-evidence",
-      "summary": "统一规格、范围与来源，形成竞品证据矩阵，保留可比性与待核验项。",
-      "dependencies": "由 AI 按指令组织证据；无需指定付费工具，没有独立分析脚本。",
-      "case_page": null
+      "summary": "核对逐维度可比性、来源窗口与方法，按声明条件做精确包装归一。",
+      "dependencies": "Python 标准库；3 个常量练习，结构化输入协议，不验证外部事实。",
+      "case_page": "cases/competitor-evidence.html"
     },
     {
       "id": "zach-search-term-report-analyzer-optimized",
@@ -193,6 +193,60 @@
       "input": "skills/aipanda-ads-period-review/assets/control-joint-change.json",
       "scope": null,
       "preview": "docs/cases/ad-controls/joint-change/report.html"
+    },
+    {
+      "id": "listing-supported",
+      "title": "Listing 支持与语义边界",
+      "skill_id": "aipanda-listing-evidence",
+      "script": "skills/aipanda-listing-evidence/scripts/audit.py",
+      "input": "skills/aipanda-listing-evidence/assets/supported.json",
+      "scope": null,
+      "preview": "docs/cases/listing-evidence/supported/report.html"
+    },
+    {
+      "id": "listing-conflicts",
+      "title": "Listing 未引用反证",
+      "skill_id": "aipanda-listing-evidence",
+      "script": "skills/aipanda-listing-evidence/scripts/audit.py",
+      "input": "skills/aipanda-listing-evidence/assets/conflicts.json",
+      "scope": null,
+      "preview": "docs/cases/listing-evidence/conflicts/report.html"
+    },
+    {
+      "id": "listing-boundaries",
+      "title": "Listing 绑定与来源",
+      "skill_id": "aipanda-listing-evidence",
+      "script": "skills/aipanda-listing-evidence/scripts/audit.py",
+      "input": "skills/aipanda-listing-evidence/assets/boundaries.json",
+      "scope": null,
+      "preview": "docs/cases/listing-evidence/boundaries/report.html"
+    },
+    {
+      "id": "competitor-normalized",
+      "title": "竞品包装归一",
+      "skill_id": "aipanda-competitor-evidence",
+      "script": "skills/aipanda-competitor-evidence/scripts/compare.py",
+      "input": "skills/aipanda-competitor-evidence/assets/normalized.json",
+      "scope": null,
+      "preview": "docs/cases/competitor-evidence/normalized/report.html"
+    },
+    {
+      "id": "competitor-scope-mismatch",
+      "title": "竞品窗口与方法",
+      "skill_id": "aipanda-competitor-evidence",
+      "script": "skills/aipanda-competitor-evidence/scripts/compare.py",
+      "input": "skills/aipanda-competitor-evidence/assets/scope-mismatch.json",
+      "scope": null,
+      "preview": "docs/cases/competitor-evidence/scope-mismatch/report.html"
+    },
+    {
+      "id": "competitor-missing",
+      "title": "竞品缺失与多来源",
+      "skill_id": "aipanda-competitor-evidence",
+      "script": "skills/aipanda-competitor-evidence/scripts/compare.py",
+      "input": "skills/aipanda-competitor-evidence/assets/missing.json",
+      "scope": null,
+      "preview": "docs/cases/competitor-evidence/missing/report.html"
     }
   ]
 }

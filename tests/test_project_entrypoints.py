@@ -25,8 +25,8 @@ class CatalogTests(unittest.TestCase):
 
     def test_all_published_skills_and_demos_are_listed(self):
         self.assertEqual(len(self.data['skills']), 7)
-        self.assertEqual(len(self.data['demos']), 11)
-        self.assertEqual(sum(s['kind'] == 'script' for s in self.data['skills']), 5)
+        self.assertEqual(len(self.data['demos']), 17)
+        self.assertEqual(sum(s['kind'] == 'script' for s in self.data['skills']), 7)
 
     def test_missing_skill_is_detected(self):
         self.rejects(lambda d: d['skills'].pop())
@@ -38,7 +38,7 @@ class CatalogTests(unittest.TestCase):
         self.rejects(lambda d: d['skills'][-1].update(license='MIT', license_path='LICENSE'))
 
     def test_workflow_cannot_claim_script_runtime(self):
-        self.rejects(lambda d: d['skills'][2].update(runtime='stdlib'))
+        self.rejects(lambda d: d['skills'][2].update(kind='workflow',runtime='stdlib'))
 
     def test_duplicate_demo_is_rejected(self):
         self.rejects(lambda d: d['demos'].append(d['demos'][0]))
@@ -90,7 +90,7 @@ class LauncherTests(unittest.TestCase):
     def test_list_has_no_execution_side_effect(self):
         p = subprocess.run([sys.executable, str(ROOT / 'tools/run_demo.py'), '--list'], capture_output=True, text=True)
         self.assertEqual(p.returncode, 0, p.stderr)
-        self.assertEqual(len(p.stdout.splitlines()), 11)
+        self.assertEqual(len(p.stdout.splitlines()), 17)
 
     def test_default_output_is_unique_and_complete(self):
         # Supply an isolated system temporary base; runner must choose fresh children.

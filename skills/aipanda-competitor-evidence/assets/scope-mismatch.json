@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "snapshot_date": "2026-03-02",
+  "max_age_days": 30,
+  "sources": [
+    {
+      "id": "SRC-001",
+      "observed_date": "2026-03-01",
+      "access": "provided"
+    }
+  ],
+  "baseline": "ITEM-A",
+  "entities": [
+    {
+      "id": "ITEM-A",
+      "variant": "VAR-A",
+      "comparison_group": "GROUP-A",
+      "pack_count": 1
+    },
+    {
+      "id": "ITEM-B",
+      "variant": "VAR-A",
+      "comparison_group": "GROUP-A",
+      "pack_count": 2
+    }
+  ],
+  "observations": [
+    {
+      "id": "OBS-001",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-A",
+      "variant": "VAR-A",
+      "attribute": "ATTR-001",
+      "value": 10,
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-002",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-B",
+      "variant": "VAR-A",
+      "attribute": "ATTR-001",
+      "value": 20,
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-02",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-003",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-A",
+      "variant": "VAR-A",
+      "attribute": "ATTR-002",
+      "value": 10,
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-004",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-B",
+      "variant": "VAR-A",
+      "attribute": "ATTR-002",
+      "value": 20,
+      "measure_unit": "count",
+      "kind": "estimated",
+      "method": "METHOD-B",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-005",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-A",
+      "variant": "VAR-A",
+      "attribute": "ATTR-003",
+      "value": 10,
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-006",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-B",
+      "variant": "VAR-A",
+      "attribute": "ATTR-003",
+      "value": 20,
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-B",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "skill_version": "1.0.0",
+  "data_kind": "synthetic",
+  "snapshot_date": "2026-03-02",
+  "max_age_days": 30,
+  "baseline": "ITEM-A",
+  "entities": [
+    {
+      "id": "ITEM-A",
+      "variant": "VAR-A",
+      "comparison_group": "GROUP-A",
+      "pack_count": 1
+    },
+    {
+      "id": "ITEM-B",
+      "variant": "VAR-A",
+      "comparison_group": "GROUP-A",
+      "pack_count": 2
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "observed_date": "2026-03-01",
+      "access": "provided"
+    }
+  ],
+  "observations": [
+    {
+      "id": "OBS-001",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-A",
+      "variant": "VAR-A",
+      "attribute": "ATTR-001",
+      "value": "10",
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-002",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-B",
+      "variant": "VAR-A",
+      "attribute": "ATTR-001",
+      "value": "20",
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_pack",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-003",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-A",
+      "variant": "VAR-A",
+      "attribute": "ATTR-002",
+      "value": "3",
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    },
+    {
+      "id": "OBS-004",
+      "source_id": "SRC-001",
+      "entity_id": "ITEM-B",
+      "variant": "VAR-A",
+      "attribute": "ATTR-002",
+      "value": "4",
+      "measure_unit": "count",
+      "kind": "observed",
+      "method": "METHOD-A",
+      "coverage": "COVER-A",
+      "window_start": "2026-02-01",
+      "window_end": "2026-02-07",
+      "basis": "per_item",
+      "aggregation": "additive"
+    }
+  ],
+  "comparisons": [
+    {
+      "baseline": "ITEM-A",
+      "peer": "ITEM-B",
+      "attribute": "ATTR-001",
+      "status": "COMPARABLE_BY_INPUT",
+      "reasons": [],
+      "baseline_observation_ids": [
+        "OBS-001"
+      ],
+      "peer_observation_ids": [
+        "OBS-002"
+      ],
+      "normalized_per_item_values": [
+        "10",
+        "10"
+      ],
+      "equal_by_input": true,
+      "delta_exact": "0",
+      "relative_change_exact": "0",
+      "relative_unavailable_reason": null,
+      "executable": false
+    },
+    {
+      "baseline": "ITEM-A",
+      "peer": "ITEM-B",
+      "attribute": "ATTR-002",
+      "status": "COMPARABLE_BY_INPUT",
+      "reasons": [],
+      "baseline_observation_ids": [
+        "OBS-003"
+      ],
+      "peer_observation_ids": [
+        "OBS-004"
+      ],
+      "normalized_per_item_values": [
+        "3",
+        "4"
+      ],
+      "equal_by_input": false,
+      "delta_exact": "1",
+      "relative_change_exact": "1/3",
+      "relative_unavailable_reason": null,
+      "executable": false
+    }
+  ],
+  "source_authenticity_verified": false,
+  "comparison_group_independently_verified": false,
+  "scope": "Declared pool and attributes only; no market coverage, causal effect, winner or profit conclusion.",
+  "executable": false
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "snapshot_date": "2026-03-02",
+  "max_age_days": 30,
+  "sources": [
+    {
+      "id": "SRC-001",
+      "observed_date": "2026-03-01",
+      "access": "provided"
+    }
+  ],
+  "facts": [
+    {
+      "id": "EV-001",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-001",
+      "condition": "COND-A",
+      "value": 10,
+      "measure_unit": "cm"
+    },
+    {
+      "id": "EV-002",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-001",
+      "condition": "COND-A",
+      "value": 20,
+      "measure_unit": "cm"
+    },
+    {
+      "id": "EV-003",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-002",
+      "condition": "COND-A",
+      "value": 1,
+      "measure_unit": "count"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLAIM-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-001",
+      "condition": "COND-A",
+      "value": 10,
+      "measure_unit": "cm",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    {
+      "id": "CLAIM-002",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-002",
+      "condition": "COND-A",
+      "value": 2,
+      "measure_unit": "count",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    {
+      "id": "CLAIM-003",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-003",
+      "condition": "COND-A",
+      "value": true,
+      "measure_unit": "bool",
+      "evidence_ids": []
+    }
+  ]
+}

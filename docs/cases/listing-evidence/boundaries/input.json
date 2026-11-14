@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "snapshot_date": "2026-03-02",
+  "max_age_days": 30,
+  "sources": [
+    {
+      "id": "SRC-001",
+      "observed_date": "2026-03-01",
+      "access": "provided"
+    },
+    {
+      "id": "SRC-002",
+      "observed_date": "2026-01-01",
+      "access": "unavailable"
+    }
+  ],
+  "facts": [
+    {
+      "id": "EV-001",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-B",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-001",
+      "condition": "COND-A",
+      "value": 10,
+      "measure_unit": "count"
+    },
+    {
+      "id": "EV-002",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-002",
+      "condition": "COND-A",
+      "value": 10,
+      "measure_unit": "mm"
+    },
+    {
+      "id": "EV-003",
+      "source_id": "SRC-002",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-003",
+      "condition": "COND-A",
+      "value": null,
+      "measure_unit": "count"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLAIM-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-001",
+      "condition": "COND-A",
+      "value": 10,
+      "measure_unit": "count",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    {
+      "id": "CLAIM-002",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-002",
+      "condition": "COND-A",
+      "value": 10,
+      "measure_unit": "cm",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    {
+      "id": "CLAIM-003",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-003",
+      "condition": "COND-A",
+      "value": 0,
+      "measure_unit": "count",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ]
+}

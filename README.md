@@ -8,20 +8,20 @@
 
 面向亚马逊卖家与使用 AI 的运营人员。从一个具体问题出发，保留输入、来源、判断理由与可复现结果。
 
-**当前版本：0.6.0。** 共 7 个技能入口：4 个 MIT 技能与 3 个保留 AGPL-3.0 的社区衍生包；5 个有离线脚本，2 个是指令型工作流。配套 [7 个完全合成案例主题](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)，其中广告复盘包含周期比较、架构 / 搜索词诊断、竞价 / 预算 / 广告位情景三组，共 10 个独立练习。只分享通用技能，不展示实际商品、店铺或经营资料。
+**当前版本：0.7.0。** 共 7 个技能入口：4 个 MIT 技能与 3 个保留 AGPL-3.0 的社区衍生包；7 个均有离线脚本。配套 [9 个完全合成案例主题](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)，其中广告复盘包含周期比较、架构 / 搜索词诊断、竞价 / 预算 / 广告位情景三组，共 10 个独立练习。只分享通用技能，不展示实际商品、店铺或经营资料。
 
 **许可分区：基础版 MIT；`community/ivyeaops/` 与 `docs/cases/data/` 保留 AGPL-3.0。** 来源、版本与修改逐包记录，品牌图片另见 [NOTICE](NOTICE)。
 
 ## 技能目录
 
-初次使用可先看 [按任务选择技能](https://kechenaaron.github.io/aipanda-amazon-ai-skills/start.html)，那里区分脚本 / 指令、依赖与许可。机器可读目录为 [catalog.json](docs/catalog.json)。
+初次使用可先看 [按任务选择技能](https://kechenaaron.github.io/aipanda-amazon-ai-skills/start.html)，那里区分任务、依赖与许可。机器可读目录为 [catalog.json](docs/catalog.json)。
 
 | 技能 | 输入与交付 | 当前状态 |
 |---|---|---|
 | [搜索词复核](skills/aipanda-search-term-audit/SKILL.md) | 标准 SP 日粒度 CSV → 带来源行号的 HTML / JSON 草稿 | Python 工具，可离线运行 |
 | [广告复盘与调整假设](skills/aipanda-ads-period-review/SKILL.md) | 周期 / 架构 / 搜索词 / 竞价预算广告位假设 → 复核理由与阻断 | Python 标准库，10 个合成练习 |
-| [Listing 证据复核](skills/aipanda-listing-evidence/SKILL.md) | 产品事实＋文案 → 逐条证据状态与改写理由 | 指令型技能，含合成练习 |
-| [竞品证据对标](skills/aipanda-competitor-evidence/SKILL.md) | 竞品资料 → 同口径矩阵、机会与缺口 | 指令型技能，含合成练习 |
+| [Listing 证据复核](skills/aipanda-listing-evidence/SKILL.md) | 匿名原子声明＋事实 → 绑定、冲突与缺证 | 标准库脚本，3 个合成练习 |
+| [竞品证据对标](skills/aipanda-competitor-evidence/SKILL.md) | 匿名实体＋观测 → 可比性矩阵与精确包装归一 | 标准库脚本，3 个合成练习 |
 
 工具当前只接受已经按仓库字段规范整理的 CSV，不直接兼容所有 Amazon、ERP 或广告导出格式。
 
@@ -59,7 +59,7 @@ python3 skills/aipanda-ads-period-review/scripts/review.py \
 
 ## 十分钟开始
 
-统一入口需要 Python 3.9+，只运行两个原创 MIT 工具的 11 个公开合成练习，无第三方依赖、API Key 或账户接入。
+统一入口需要 Python 3.9+，只运行四个原创 MIT 工具的 17 个公开合成练习，无第三方依赖、API Key 或账户接入。
 
 ```bash
 git clone https://github.com/KECHENAaron/aipanda-amazon-ai-skills.git
@@ -77,6 +77,17 @@ python3 tools/run_demo.py --demo ads-budget --output-dir outputs/budget-01
 已有输出目录会被拒绝，不自动覆盖或删除。`outputs/` 已被 Git 忽略。统一入口不接收真实报表；自有数据仅在本地按所选技能协议处理。社区包仍按各自说明运行，不能混用其依赖与许可。
 
 想先理解搜索词分类，运行 `--demo search-terms`：四种情况分别是控费复核、效率复核、继续观察和数据待核验。缺失不会补为零。演示阈值仅为常量假设，不是通用投放标准；输入边界见 [schema](skills/aipanda-search-term-audit/references/schema.md)。
+
+## Listing 与竞品：从指令到离线检查
+
+两个原创 Skill 均为 1.0.0，可单包复制，附独立脚本、完整 MIT LICENSE 和常量合成输入。
+
+```bash
+python3 tools/run_demo.py --demo listing-conflicts
+python3 tools/run_demo.py --demo competitor-normalized
+```
+
+[Listing 三个练习](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/listing-evidence.html)核对原子声明、变体 / 批次 / 条件、引用及未引用反证；不自动理解英文句子或验证原件。[竞品三个练习](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/competitor-evidence.html)先核对量纲、窗口、观测 / 估算方法与覆盖，再按明确可加的包装值做精确归一，不给全产品赢家或市场结论。新协议不接收商品名、店铺、价格、成本费用或自由备注；真实映射与原件留在本地。
 
 ## 在 AI 工具中使用
 

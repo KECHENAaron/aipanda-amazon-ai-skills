@@ -1,20 +1,27 @@
 ---
 name: aipanda-competitor-evidence
-description: 将 Amazon 竞品资料整理为可追溯的对标矩阵，标明来源、时间、估算口径、可比性和证据缺口，用于产品、Listing 与流量研究；不把估算销量当实际销量或自动作进入市场决策。
+description: 按匿名实体和观测核对量纲、窗口、方法、包装与可比性，离线输出证据矩阵 HTML / JSON；不作市场赢家或利润结论。
+license: MIT
+metadata:
+  version: "1.0.0"
 ---
 
-# AIPANDA 竞品证据对标
+# 竞品证据对标 · 1.0.0
 
-先明确自有产品/研究问题、站点、类目与比较日期。竞品池应解释纳入理由：用途、规格、价格或用户群。不要只因关键词相同就认定直接竞争。
+Python 3.9+ 标准库独立运行，先读 [输入契约与状态](references/contract.md)，再运行随包合成样例。无需 API、账户或私有知识库；不直接读取原始 Amazon / ERP 导出。
 
-交付矩阵采用 `产品 / 维度 / 值 / 单位 / 来源或证据编号 / 观测日期 / 实测或估算 / 覆盖与限制`。来源链接可访问时再标记已核验，缺失值用未知。
+先说明比较池与比较组依据，再提供同维度观测。程序保留来源、时间、实测 / 估算、范围与缺口；同口径通过也不证明全产品等价或市场覆盖。按包装归一化只适用于明确可加的数值，未知不补零。人工仍须核对实际规格及方法。
 
-比较时保留三种边界：
+从本技能目录运行，输出目录须尚不存在：
 
-- 产品：父子体、尺寸、包装数、配件与变体分别核实；不同规格价格不直接当价差优势。
-- 流量：工具窗口、自然/广告排名与搜索词覆盖不混合；抓取时间不同则披露。
-- 商业：估算销量、评论数量、BSR 与利润假设分别列出，不能相互替代；未经同口径比较不作销量因果推断。
+```bash
+python3 scripts/compare.py --input assets/normalized.json --output-dir /tmp/aipanda-competitor-evidence-1
+python3 scripts/compare.py --input assets/scope-mismatch.json --output-dir /tmp/aipanda-competitor-evidence-2
+python3 scripts/compare.py --input assets/missing.json --output-dir /tmp/aipanda-competitor-evidence-3
+```
 
-输出具体机会、反证、缺口和下一项验证。将“已确认事实”“来源估算”“分析假设”分开。没有完整数据时允许部分结论，不能补零或编造“全市场”覆盖。
+每次生成 report.html 与 report.json，先读回状态、理由和完整匿名证据账本。没有英文文案自动生成、官方评分、完整政策合规或后台提交。
 
-本包不依赖指定付费工具或本地知识库。可用用户提供的公开资料，也可在获授权、实际可用的工具范围补证。样例见 [合成对标](assets/demo.md)。
+[来源与许可](references/sources.md)区分既有 MIT 方法、官方阅读背景和原创协议；不复制原课程、知识卡或社区 AGPL 实现。三个输入由 scripts/make_demo.py 的常量生成，不读取经营资料；只允许代码标签与有限类型值，不接收真实商品名、店铺、成本费用、外链或自由备注。真实对应表留在本地，anonymized_local 报告不供公开。synthetic 声明仍需生成器与人工复审。
+
+本包含完整 MIT LICENSE 和独立脚本；复制单包即可。程序输出始终不可执行，来源真实性和业务判断需另行核实。利润核对不属于本技能。

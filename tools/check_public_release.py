@@ -57,6 +57,15 @@ def check(root=ROOT,history=False):
   sp=importlib.util.spec_from_file_location('public_control_generator',control_demo);cm=importlib.util.module_from_spec(sp);sp.loader.exec_module(cm)
   for kind in cm.KINDS:
    if json.loads((control_demo.parents[1]/'assets'/f'control-{kind}.json').read_text()) != cm.demo(kind):findings.append({'path':kind,'rule':'synthetic_control_fixture_mismatch'})
+ for skill in ['aipanda-listing-evidence','aipanda-competitor-evidence']:
+  generator=root/'skills'/skill/'scripts/make_demo.py'
+  if generator.exists():
+   import importlib.util
+   sp=importlib.util.spec_from_file_location('public_'+skill.replace('-','_'),generator);gm=importlib.util.module_from_spec(sp);sp.loader.exec_module(gm)
+   for kind in gm.KINDS:
+    asset=generator.parents[1]/'assets'/f'{kind}.json'
+    public=root/'docs/cases'/skill[8:]/kind/'input.json'
+    if json.loads(asset.read_text()) != gm.demo(kind) or asset.read_bytes()!=public.read_bytes():findings.append({'path':skill+'/'+kind,'rule':'synthetic_evidence_fixture_mismatch'})
  historic=0;commits=0
  if history:
   objects=subprocess.check_output(['git','rev-list','--all','--objects'],cwd=root,text=True).splitlines()

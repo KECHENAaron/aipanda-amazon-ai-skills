@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "skill_version": "1.0.0",
+  "data_kind": "synthetic",
+  "snapshot_date": "2026-03-02",
+  "max_age_days": 30,
+  "claims": [
+    {
+      "claim_id": "CLAIM-001",
+      "binding": {
+        "unit": "UNIT-A",
+        "variant": "VAR-A",
+        "batch": "BATCH-A",
+        "component": "PART-ALL",
+        "attribute": "ATTR-001",
+        "condition": "COND-A"
+      },
+      "claim_value": "10",
+      "measure_unit": "cm",
+      "status": "SUPPORTED_BY_INPUT",
+      "reasons": [],
+      "cited_evidence_ids": [
+        "EV-001"
+      ],
+      "matching_evidence": [
+        {
+          "evidence_id": "EV-001",
+          "cited": true,
+          "reasons": []
+        }
+      ],
+      "wrong_binding_citations": [],
+      "draft_value": "10",
+      "copy_semantics_verified": false,
+      "executable": false
+    },
+    {
+      "claim_id": "CLAIM-002",
+      "binding": {
+        "unit": "UNIT-A",
+        "variant": "VAR-A",
+        "batch": "BATCH-A",
+        "component": "PART-ALL",
+        "attribute": "ATTR-002",
+        "condition": "COND-A"
+      },
+      "claim_value": "1",
+      "measure_unit": "count",
+      "status": "SUPPORTED_BY_INPUT",
+      "reasons": [],
+      "cited_evidence_ids": [
+        "EV-002"
+      ],
+      "matching_evidence": [
+        {
+          "evidence_id": "EV-002",
+          "cited": true,
+          "reasons": []
+        }
+      ],
+      "wrong_binding_citations": [],
+      "draft_value": "1",
+      "copy_semantics_verified": false,
+      "executable": false
+    },
+    {
+      "claim_id": "CLAIM-003",
+      "binding": {
+        "unit": "UNIT-A",
+        "variant": "VAR-A",
+        "batch": "BATCH-A",
+        "component": "PART-ALL",
+        "attribute": "ATTR-003",
+        "condition": "COND-A"
+      },
+      "claim_value": true,
+      "measure_unit": "bool",
+      "status": "SUPPORTED_BY_INPUT",
+      "reasons": [],
+      "cited_evidence_ids": [
+        "EV-003"
+      ],
+      "matching_evidence": [
+        {
+          "evidence_id": "EV-003",
+          "cited": true,
+          "reasons": []
+        }
+      ],
+      "wrong_binding_citations": [],
+      "draft_value": true,
+      "copy_semantics_verified": false,
+      "executable": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "observed_date": "2026-03-01",
+      "access": "provided"
+    }
+  ],
+  "facts": [
+    {
+      "id": "EV-001",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-001",
+      "condition": "COND-A",
+      "value": "10",
+      "measure_unit": "cm"
+    },
+    {
+      "id": "EV-002",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-002",
+      "condition": "COND-A",
+      "value": "1",
+      "measure_unit": "count"
+    },
+    {
+      "id": "EV-003",
+      "source_id": "SRC-001",
+      "unit": "UNIT-A",
+      "variant": "VAR-A",
+      "batch": "BATCH-A",
+      "component": "PART-ALL",
+      "attribute": "ATTR-003",
+      "condition": "COND-A",
+      "value": true,
+      "measure_unit": "bool"
+    }
+  ],
+  "source_authenticity_verified": false,
+  "binding_independently_verified": false,
+  "scope": "Only supplied facts; omitted evidence and natural-language semantics are not verified.",
+  "executable": false
+}

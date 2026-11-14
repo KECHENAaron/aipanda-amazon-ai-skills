@@ -1,21 +1,27 @@
 ---
 name: aipanda-listing-evidence
-description: 根据产品规格和证据表审阅 Amazon Listing 草稿，区分已支持、冲突、缺证与待核实的卖点，并给出逐句改写理由；适用于文案证据复核，不提交 Listing 或输出官方质量分。
+description: 按匿名原子声明核对来源、变体批次条件、冲突与缺证，离线输出 HTML / JSON；不验证自然语言语义、不提交 Listing。
+license: MIT
+metadata:
+  version: "1.0.0"
 ---
 
-# AIPANDA Listing 证据复核
+# Listing 证据复核 · 1.0.0
 
-输入产品事实、当前文案和目标站点/语言。事实缺口会影响表达时，先列出最小缺口；可以继续处理有证据的句子。需要平台最新规则时另外查官方来源并注明核验日期，不凭本技能推断当前政策。
+Python 3.9+ 标准库独立运行，先读 [输入契约与状态](references/contract.md)，再运行随包合成样例。无需 API、账户或私有知识库；不直接读取原始 Amazon / ERP 导出。
 
-把文案拆为可验证的原子断言，按 `claim_id / 原句 / 对应产品或变体 / 证据 / 状态 / 建议措辞 / 理由` 交付。
+把原句在本地拆为可验证声明，绑定对象、变体、批次、部件、属性与条件。程序扫描全部已输入的匹配事实，保留未引用反证；支持值只表示结构化输入一致，人工仍须核对原文含义、测试范围和原件。关键词不能增加事实。
 
-- 已支持：证据直接覆盖本产品及对应配置、测试条件，保留适用边界。
-- 冲突：不同来源的数值、版本或条件不一致，保留差异，等待确认，不替用户选一个“更好卖”的值。
-- 缺证：移除或改为有证据的具体描述，不自动补出容量、材质认证、承重和兼容范围。
-- 待核实：外部页面或引用无法访问时明确记录，不当作已阅读。
+从本技能目录运行，输出目录须尚不存在：
 
-关键词只改变表达，不增加事实。对竞品的评论、参数和宣传，不得转成自有产品已经具备的事实。输出是改写草稿，不是后台提交或表现提升验证。不要称作 Amazon 官方评分、COSMO/Rufus 内部算法结论。
+```bash
+python3 scripts/audit.py --input assets/supported.json --output-dir /tmp/aipanda-listing-evidence-1
+python3 scripts/audit.py --input assets/conflicts.json --output-dir /tmp/aipanda-listing-evidence-2
+python3 scripts/audit.py --input assets/boundaries.json --output-dir /tmp/aipanda-listing-evidence-3
+```
 
-独立演示见 [合成例子](assets/demo.md)。可用提示：
+每次生成 report.html 与 report.json，先读回状态、理由和完整匿名证据账本。没有英文文案自动生成、官方评分、完整政策合规或后台提交。
 
-> 请根据合成规格审阅文案，为每条断言给证据状态和改写，保留矛盾，输出一段有证据的英文标题草稿。
+[来源与许可](references/sources.md)区分既有 MIT 方法、官方阅读背景和原创协议；不复制原课程、知识卡或社区 AGPL 实现。三个输入由 scripts/make_demo.py 的常量生成，不读取经营资料；只允许代码标签与有限类型值，不接收真实商品名、店铺、成本费用、外链或自由备注。真实对应表留在本地，anonymized_local 报告不供公开。synthetic 声明仍需生成器与人工复审。
+
+本包含完整 MIT LICENSE 和独立脚本；复制单包即可。程序输出始终不可执行，来源真实性和业务判断需另行核实。利润核对不属于本技能。

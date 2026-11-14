@@ -1,20 +1,9 @@
-# 合成对标：收纳箱
+# 完全合成练习导览
 
-以下是虚构素材，非真实 ASIN、竞品或市场调研。
+本包仅用中性编号和独立构造的测量值，不映射实际商品、店铺或经营资料。当前 JSON 协议见 [契约](../references/contract.md)。
 
-| 产品 | 规格 | 包装数 | 报价 | 来源 | 属性 |
-|---|---|---|---|---|---|
-| DEMO-A | 40 × 30 × 25 cm | 1 | USD 18 | DEMO-SNAPSHOT-A，2026-11-01 | 合成页面报价 |
-| DEMO-B | 40 × 30 × 25 cm | 2 | USD 30 | DEMO-SNAPSHOT-B，2026-11-01 | 合成页面报价 |
-| DEMO-C | 50 × 35 × 30 cm | 未知 | USD 23 | DEMO-SNAPSHOT-C，2026-11-03 | 不同规格与日期 |
+- [normalized](normalized.json)：由 scripts/make_demo.py 公开常量生成。
+- [scope-mismatch](scope-mismatch.json)：由 scripts/make_demo.py 公开常量生成。
+- [missing](missing.json)：由 scripts/make_demo.py 公开常量生成。
 
-用户问题：DEMO-B 是否更便宜，DEMO-C 是否卖得更好？
-
-示例分析：
-
-- B 的合成单件标价为 USD 15，A 为 USD 18；仍需运费、折扣、税和材质等可比条件，不能只比较整包价。
-- C 的规格更大，包装数和成交条件未知；不能把 USD 23 简单判断为贵或便宜。
-- 三个样例都没有订单、销量或同口径估算。不能推断 C 销量更好。
-- 下一项验证：补全包装数与报价条件，再核同窗口的流量和销量来源。
-
-可直接将这些素材交给本技能，观察是否保留未知、估算边界和可比条件。
+程序只检查结构化输入，不验证外部事实或自然语言语义。来源与许可见 [说明](../references/sources.md)。

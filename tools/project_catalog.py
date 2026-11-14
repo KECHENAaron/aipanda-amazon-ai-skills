@@ -9,6 +9,8 @@ ALLOWED_SCRIPTS = {
     'skills/aipanda-ads-period-review/scripts/review.py',
     'skills/aipanda-ads-period-review/scripts/diagnose.py',
     'skills/aipanda-ads-period-review/scripts/control_scenarios.py',
+    'skills/aipanda-listing-evidence/scripts/audit.py',
+    'skills/aipanda-competitor-evidence/scripts/compare.py',
 }
 
 
