@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/Hector-xue/IvyeaOps",
+  "commit": "d5e440d7f14ff0444bbde4a890ed39df05876388",
+  "path": "skills/amazon/amazon-listing-creative",
+  "derived_version": "1.1.0",
+  "original_entrypoint_sha256": "c3925ba8d3d6da9b4185f2ce3d4cfb7a10f878daca43491734294b71e8b99e7a",
+  "license_note": "Repository root AGPL-3.0 license preserved as LICENSE. Upstream xlsx and audit Skill frontmatter additionally declares MIT. Original author attribution retained here.",
+  "upstream_authors": [
+    "Hector-xue/IvyeaOps",
+    "Zach (search-term analyzer)",
+    "Hermes Agent (xlsx and ASIN audit metadata)"
+  ],
+  "independent_variant": true,
+  "public_curation_version": "1.1.0-public.1",
+  "public_curation_date": "2026-11-14",
+  "public_curator": "AIPANDA",
+  "public_changes": "PUBLIC_CHANGES.md",
+  "examples": "synthetic reconstructions"
+}

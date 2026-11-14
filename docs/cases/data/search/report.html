@@ -1,0 +1,169 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>搜索词分析</title><style>body{font:16px/1.7 system-ui;max-width:1200px;margin:auto;padding:24px;color:#21334a}table{border-collapse:collapse;font-size:13px}td,th{border:1px solid #ccd4dd;padding:8px;vertical-align:top}section{overflow:auto}pre{white-space:pre-wrap}</style><h1>搜索词分析 · B0DEMO0001</h1><p>只读候选报告；参考 ACOS 不是利润线。所有候选仍需结合实际当前状态和产品事实人工复核。</p><pre>{
+  &quot;status&quot;: &quot;DONE_WITH_CONCERNS&quot;,
+  &quot;asin&quot;: &quot;B0DEMO0001&quot;,
+  &quot;brand&quot;: &quot;DemoBrand&quot;,
+  &quot;site&quot;: &quot;US&quot;,
+  &quot;input_mode&quot;: &quot;aggregate&quot;,
+  &quot;start_date&quot;: &quot;2026-09-01&quot;,
+  &quot;end_date&quot;: &quot;2026-09-12&quot;,
+  &quot;days&quot;: 12,
+  &quot;input_rows&quot;: 4,
+  &quot;distinct_search_terms&quot;: 4,
+  &quot;excluded_other_asin&quot;: 0,
+  &quot;excluded_date_rows&quot;: 0,
+  &quot;duplicate_rows_removed&quot;: 0,
+  &quot;observed_daily_dates&quot;: null,
+  &quot;window_coverage_note&quot;: &quot;汇总窗口，不推断7/14/30天趋势&quot;,
+  &quot;reference_cvr&quot;: 0.06578947368421052,
+  &quot;reference_acos&quot;: 0.31645569620253167,
+  &quot;target_acos&quot;: 0.25,
+  &quot;goal&quot;: &quot;diagnostic&quot;,
+  &quot;protected_keywords&quot;: [
+    &quot;folding storage bin&quot;
+  ],
+  &quot;decision_counts&quot;: {
+    &quot;hold_test&quot;: 2,
+    &quot;scale_up&quot;: 1,
+    &quot;reduce_bid&quot;: 1
+  },
+  &quot;economics_verified&quot;: false,
+  &quot;business_writes&quot;: 0,
+  &quot;candidate_only&quot;: true,
+  &quot;orders_complete&quot;: true,
+  &quot;sales_complete&quot;: true
+}</pre><section><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>search_term</th>
+      <th>period_clicks</th>
+      <th>period_impressions</th>
+      <th>period_spend</th>
+      <th>period_orders</th>
+      <th>period_sales</th>
+      <th>match_type</th>
+      <th>period_ctr</th>
+      <th>period_cvr</th>
+      <th>period_cpc</th>
+      <th>period_acos</th>
+      <th>period_roas</th>
+      <th>term_category</th>
+      <th>listing_alignment_score</th>
+      <th>listing_alignment_tokens</th>
+      <th>relative_cvr_to_baseline</th>
+      <th>relative_acos_to_target</th>
+      <th>trend_flag</th>
+      <th>confidence_level</th>
+      <th>listing_feedback_candidate</th>
+      <th>decision_tag</th>
+      <th>decision_reason</th>
+      <th>listing_feedback</th>
+      <th>priority_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>folding storage bin</td>
+      <td>36.0</td>
+      <td>900.0</td>
+      <td>24.0</td>
+      <td>3.0</td>
+      <td>96.0</td>
+      <td>exact</td>
+      <td>0.040000</td>
+      <td>0.083333</td>
+      <td>0.666667</td>
+      <td>0.25</td>
+      <td>4.000000</td>
+      <td>core_category_term</td>
+      <td>1.000000</td>
+      <td>bin, folding, storage</td>
+      <td>0.266667</td>
+      <td>0.0</td>
+      <td>not_available_aggregate</td>
+      <td>high</td>
+      <td>False</td>
+      <td>scale_up</td>
+      <td>高于该 ASIN 基准 CVR，可优先考虑放量</td>
+      <td>False</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <td>waterproof storage box</td>
+      <td>20.0</td>
+      <td>650.0</td>
+      <td>15.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>broad</td>
+      <td>0.030769</td>
+      <td>0.000000</td>
+      <td>0.750000</td>
+      <td>&lt;NA&gt;</td>
+      <td>0.000000</td>
+      <td>core_category_term</td>
+      <td>0.666667</td>
+      <td>storage, waterproof</td>
+      <td>-1.000000</td>
+      <td>&lt;NA&gt;</td>
+      <td>not_available_aggregate</td>
+      <td>medium</td>
+      <td>False</td>
+      <td>reduce_bid</td>
+      <td>低于基准且已产生明显消耗，先降 bid 控成本</td>
+      <td>False</td>
+      <td>60.0</td>
+    </tr>
+    <tr>
+      <td>drawer organizer</td>
+      <td>12.0</td>
+      <td>280.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>30.0</td>
+      <td>phrase</td>
+      <td>0.042857</td>
+      <td>0.083333</td>
+      <td>0.583333</td>
+      <td>0.233333</td>
+      <td>4.285714</td>
+      <td>uncertain_term</td>
+      <td>0.000000</td>
+      <td></td>
+      <td>0.266667</td>
+      <td>-0.066667</td>
+      <td>not_available_aggregate</td>
+      <td>low</td>
+      <td>False</td>
+      <td>hold_test</td>
+      <td>高于该 ASIN 基准 CVR，但样本仍偏小，先保持测试</td>
+      <td>False</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <td>demobrand folding bin</td>
+      <td>8.0</td>
+      <td>160.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>32.0</td>
+      <td>exact</td>
+      <td>0.050000</td>
+      <td>0.125000</td>
+      <td>0.500000</td>
+      <td>0.125</td>
+      <td>8.000000</td>
+      <td>brand_term</td>
+      <td>1.000000</td>
+      <td>bin, folding</td>
+      <td>0.900000</td>
+      <td>-0.5</td>
+      <td>not_available_aggregate</td>
+      <td>low</td>
+      <td>False</td>
+      <td>hold_test</td>
+      <td>品牌词单独标记，不直接作为重点放量或否词</td>
+      <td>False</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table></section><p><a href="details.csv">完整明细及投放来源</a> · <a href="candidates.csv">候选清单</a> · <a href="summary.json">运行摘要</a></p></html>

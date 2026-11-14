@@ -1,0 +1,6 @@
+interface:
+  display_name: "独立优化版Listing图片简报"
+  short_description: "为Amazon主图与辅图制作按品类选择的设计简报，核验卖点证据、SKU配件和图像技术质量；不承担"
+  default_prompt: "使用 $amazon-listing-creative-optimized 完成只读分析，并报告证据缺口与验证结果。"
+policy:
+  allow_implicit_invocation: true

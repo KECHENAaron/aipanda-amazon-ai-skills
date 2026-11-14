@@ -1,0 +1,158 @@
+{
+  "data_kind": "synthetic",
+  "product": {
+    "asin": "B0DEMO0001",
+    "marketplace": "US",
+    "sku": "DEMO-BOX",
+    "batch_id": "DEMO-BATCH"
+  },
+  "sources": [
+    {
+      "id": "SPEC",
+      "reference": "synthetic:spec-sheet",
+      "observed_at": "2026-09-15",
+      "verification": "reviewed_original",
+      "asin": "B0DEMO0001",
+      "marketplace": "US",
+      "sku": "DEMO-BOX",
+      "batch_id": "DEMO-BATCH"
+    },
+    {
+      "id": "PAGE",
+      "reference": "synthetic:legacy-page",
+      "observed_at": "2026-09-15",
+      "verification": "page_claim",
+      "asin": "B0DEMO0001",
+      "marketplace": "US",
+      "sku": "DEMO-BOX",
+      "batch_id": "DEMO-BATCH"
+    }
+  ],
+  "required_fields": [
+    "material",
+    "dimensions",
+    "included_quantity"
+  ],
+  "claims": [
+    {
+      "id": "MAT-A",
+      "field": "material",
+      "component": "body",
+      "value": "polyester",
+      "source_id": "SPEC"
+    },
+    {
+      "id": "MAT-B",
+      "field": "material",
+      "component": "body",
+      "value": "cotton",
+      "source_id": "PAGE"
+    },
+    {
+      "id": "SIZE-A",
+      "field": "dimensions",
+      "value": [
+        44,
+        31,
+        26
+      ],
+      "unit": "cm",
+      "source_id": "SPEC"
+    },
+    {
+      "id": "SIZE-B",
+      "field": "dimensions",
+      "value": [
+        46,
+        31,
+        26
+      ],
+      "unit": "cm",
+      "source_id": "PAGE"
+    },
+    {
+      "id": "QTY",
+      "field": "included_quantity",
+      "value": 1,
+      "unit": "piece",
+      "source_id": "SPEC"
+    }
+  ],
+  "copy_claims": [
+    {
+      "id": "COPY-SIZE",
+      "location": "title",
+      "text": "46 cm wide storage bin",
+      "fact_ids": [
+        "SIZE-B"
+      ]
+    },
+    {
+      "id": "COPY-QTY",
+      "location": "bullet",
+      "text": "Includes one storage bin",
+      "fact_ids": [
+        "QTY"
+      ]
+    },
+    {
+      "id": "COPY-COUNTEREXAMPLE",
+      "location": "bullet",
+      "text": "Includes ten storage bins",
+      "fact_ids": [
+        "QTY"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "DEMO-R1",
+      "asin": "B0DEMO0001",
+      "date": "2026-09-02",
+      "rating": 4,
+      "text": "Synthetic review: easy to fold",
+      "topics": [
+        "folding"
+      ]
+    },
+    {
+      "id": "DEMO-R1",
+      "asin": "B0DEMO0001",
+      "date": "2026-09-02",
+      "rating": 4,
+      "text": "Synthetic review: easy to fold",
+      "topics": [
+        "folding"
+      ]
+    },
+    {
+      "id": "DEMO-R2",
+      "asin": "B0DEMO0001",
+      "date": "2026-09-04",
+      "rating": 3,
+      "text": "Synthetic review: softer side walls",
+      "topics": [
+        "structure"
+      ]
+    },
+    {
+      "id": "DEMO-R3",
+      "asin": "B0DEMO0002",
+      "date": "2026-09-05",
+      "rating": 2,
+      "text": "Synthetic other-variant review",
+      "topics": [
+        "size"
+      ]
+    },
+    {
+      "id": "DEMO-R4",
+      "date": "2026-09-06",
+      "rating": 5,
+      "text": "Synthetic review with unknown variant",
+      "topics": [
+        "size"
+      ]
+    }
+  ]
+}

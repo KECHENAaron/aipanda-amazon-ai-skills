@@ -1,0 +1,6 @@
+interface:
+  display_name: "独立优化版Listing证据审计"
+  short_description: "按11板块审计Amazon Listing并生成有证据的改写草稿，核验产品事实冲突、SKU批次绑"
+  default_prompt: "使用 $amazon-asin-cosmo-rufus-audit-optimized 完成只读分析，并报告证据缺口与验证结果。"
+policy:
+  allow_implicit_invocation: true

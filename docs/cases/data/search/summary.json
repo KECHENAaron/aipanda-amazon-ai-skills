@@ -1,0 +1,51 @@
+{
+  "status": "DONE_WITH_CONCERNS",
+  "asin": "B0DEMO0001",
+  "brand": "DemoBrand",
+  "site": "US",
+  "input_mode": "aggregate",
+  "start_date": "2026-09-01",
+  "end_date": "2026-09-12",
+  "days": 12,
+  "input_rows": 4,
+  "distinct_search_terms": 4,
+  "excluded_other_asin": 0,
+  "excluded_date_rows": 0,
+  "duplicate_rows_removed": 0,
+  "observed_daily_dates": null,
+  "window_coverage_note": "汇总窗口，不推断7/14/30天趋势",
+  "reference_cvr": 0.06578947368421052,
+  "reference_acos": 0.31645569620253167,
+  "target_acos": 0.25,
+  "goal": "diagnostic",
+  "thresholds": {
+    "min_clicks_for_judgement": 8,
+    "min_clicks_for_priority": 15,
+    "min_clicks_for_scale_up": 12,
+    "min_clicks_for_listing_feedback": 10,
+    "min_spend_for_attention": 10.0,
+    "high_spend_without_orders": 15.0,
+    "near_avg_cvr_band": 0.15,
+    "high_cvr_band": 0.2,
+    "low_cvr_band": 0.2,
+    "trend_change_band": 0.2,
+    "max_target_acos_multiple_for_scale_up": 1.15,
+    "very_high_target_acos_multiple": 1.5,
+    "brand_similarity_threshold": 0.82,
+    "competitor_frequency_min": 2
+  },
+  "protected_keywords": [
+    "folding storage bin"
+  ],
+  "decision_counts": {
+    "hold_test": 2,
+    "scale_up": 1,
+    "reduce_bid": 1
+  },
+  "input_sha256": "66aa8009c369bc7d4222b451c69401c7afc5251efdb20d2574f3f6ab15957770",
+  "economics_verified": false,
+  "business_writes": 0,
+  "candidate_only": true,
+  "orders_complete": true,
+  "sales_complete": true
+}

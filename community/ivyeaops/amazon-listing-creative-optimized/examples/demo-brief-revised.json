@@ -1,0 +1,37 @@
+{
+  "data_kind": "synthetic",
+  "product": {
+    "asin": "B0DEMO0001",
+    "marketplace": "US",
+    "sku": "DEMO-BOX",
+    "batch_id": "DEMO-BATCH"
+  },
+  "facts": [],
+  "slots": [
+    {
+      "slot": 1,
+      "role": "main",
+      "question": "What does the product look like?",
+      "background": "#FFFFFF",
+      "subject": "DEMO storage bin",
+      "text_overlays": [],
+      "callouts": [],
+      "forbidden": [
+        "invented accessories"
+      ],
+      "accessories_visible": false
+    },
+    {
+      "slot": 2,
+      "role": "structure",
+      "question": "How does it fold?",
+      "background": "#FFFFFF",
+      "subject": "DEMO storage bin",
+      "text_overlays": [],
+      "callouts": [],
+      "forbidden": [
+        "invented accessories"
+      ]
+    }
+  ]
+}

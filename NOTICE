@@ -1,10 +1,22 @@
-The MIT license covers the original source code, skill instructions,
-documentation, and synthetic data authored for this repository.
+License scope — AIPANDA Amazon AI Skills
 
-AIPANDA brand artwork (including assets/avatar.jpg and docs/assets/avatar.jpg)
-is excluded from the MIT grant. Third-party names and marks visible in that
-artwork remain with their respective owners. No third-party endorsement is
-implied. Contact the maintainer before reusing the brand artwork.
+1. Original AIPANDA starter code in skills/, tests/, and original website and
+   documentation are covered by the root MIT license, except as below.
+2. community/ivyeaops/** contains independently maintained derivatives of
+   Hector-xue/IvyeaOps at d5e440d7f14ff0444bbde4a890ed39df05876388.
+   These packages retain their own full AGPL-3.0 LICENSE, UPSTREAM.json author
+   attribution and PUBLIC_CHANGES.md. The root MIT grant does not relicense
+   these packages. Complete corresponding source is included in each package.
+3. docs/cases/data/** contains reconstructed examples and generated outputs
+   accompanying those derivatives. It is distributed under the included
+   AGPL-3.0 LICENSE; source is in community/ivyeaops/** in this repository.
+   Original case narratives outside that data directory remain MIT.
+4. AIPANDA brand artwork (assets/avatar.jpg and docs/assets/avatar.jpg) is
+   excluded from the MIT and AGPL grants. Third-party names and marks visible
+   in the artwork remain with their respective owners. Contact the maintainer
+   before reusing the brand artwork. No third-party endorsement is implied.
 
-External projects linked in docs/references.md are reading references only;
-their source code, paid course material, data, and branding are not included.
+Other projects linked in docs/references.md are reading references only.
+Paid course material, private knowledge bases, seller/customer records and
+production account integrations are not included. The public examples are
+synthetic reconstructions, not anonymized seller performance reports.

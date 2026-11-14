@@ -1,0 +1,153 @@
+{
+  "product": {
+    "asin": "B0DEMO0001",
+    "marketplace": "US",
+    "sku": "DEMO-BOX",
+    "batch_id": "DEMO-BATCH"
+  },
+  "as_of": "2026-09-20",
+  "status": "DRAFT_WITH_BLOCKERS",
+  "facts": [
+    {
+      "field": "material",
+      "component": "body",
+      "status": "disputed",
+      "claims": [
+        {
+          "id": "MAT-A",
+          "field": "material",
+          "component": "body",
+          "value": "polyester",
+          "source_id": "SPEC"
+        },
+        {
+          "id": "MAT-B",
+          "field": "material",
+          "component": "body",
+          "value": "cotton",
+          "source_id": "PAGE"
+        }
+      ],
+      "confirmed_claim_ids": [
+        "MAT-A"
+      ],
+      "reasons": [
+        "conflicting_values_or_units"
+      ]
+    },
+    {
+      "field": "dimensions",
+      "component": "unspecified",
+      "status": "disputed",
+      "claims": [
+        {
+          "id": "SIZE-A",
+          "field": "dimensions",
+          "value": [
+            44,
+            31,
+            26
+          ],
+          "unit": "cm",
+          "source_id": "SPEC"
+        },
+        {
+          "id": "SIZE-B",
+          "field": "dimensions",
+          "value": [
+            46,
+            31,
+            26
+          ],
+          "unit": "cm",
+          "source_id": "PAGE"
+        }
+      ],
+      "confirmed_claim_ids": [
+        "SIZE-A"
+      ],
+      "reasons": [
+        "conflicting_values_or_units"
+      ]
+    },
+    {
+      "field": "included_quantity",
+      "component": "unspecified",
+      "status": "confirmed",
+      "claims": [
+        {
+          "id": "QTY",
+          "field": "included_quantity",
+          "value": 1,
+          "unit": "piece",
+          "source_id": "SPEC"
+        }
+      ],
+      "confirmed_claim_ids": [
+        "QTY"
+      ],
+      "reasons": []
+    }
+  ],
+  "excluded_claims": [],
+  "copy_claims": [
+    {
+      "id": "COPY-SIZE",
+      "location": "title",
+      "text": "46 cm wide storage bin",
+      "status": "blocked_missing_or_conflicting_evidence",
+      "blocked_fact_ids": [
+        "SIZE-B"
+      ],
+      "fact_ids": [
+        "SIZE-B"
+      ],
+      "text_semantics_verified": false
+    },
+    {
+      "id": "COPY-QTY",
+      "location": "bullet",
+      "text": "Includes one storage bin",
+      "status": "references_validated_manual_text_review_required",
+      "blocked_fact_ids": [],
+      "fact_ids": [
+        "QTY"
+      ],
+      "text_semantics_verified": false
+    },
+    {
+      "id": "COPY-COUNTEREXAMPLE",
+      "location": "bullet",
+      "text": "Includes ten storage bins",
+      "status": "references_validated_manual_text_review_required",
+      "blocked_fact_ids": [],
+      "fact_ids": [
+        "QTY"
+      ],
+      "text_semantics_verified": false
+    }
+  ],
+  "reviews": {
+    "returned": 5,
+    "deduplicated": 4,
+    "duplicate_count": 1,
+    "exact_variant": 2,
+    "unknown_variant": 1,
+    "other_variant": 1,
+    "first_date": "2026-09-02",
+    "last_date": "2026-09-04",
+    "topic_counts": {
+      "folding": 1,
+      "structure": 1
+    },
+    "population_complete": false,
+    "not_a_defect_rate": true
+  },
+  "missing_critical_fields": [],
+  "official_algorithm_score": null,
+  "rufus_live_test_performed": false,
+  "authenticity_independently_verified": false,
+  "copy_text_semantics_verified": false,
+  "verification_limit": "检查输入声明、冲突及范围绑定，不替代原件内容人工审阅或实际Rufus测试",
+  "business_writes": 0
+}

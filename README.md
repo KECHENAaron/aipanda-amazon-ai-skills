@@ -8,7 +8,9 @@
 
 面向亚马逊卖家与使用 AI 的运营人员。从一个具体问题出发，保留输入、来源、判断理由与可复现结果。
 
-**当前版本：0.1.0。** 包含 1 个可运行的离线分析工具，以及 2 个可供 AI 使用的证据工作流与合成练习。示例全部为合成数据，未展示真实店铺成绩。
+**当前版本：0.2.0。** 共 6 个技能入口：3 个 MIT 基础技能，另增 3 个保留 AGPL-3.0 的社区衍生包；其中 4 个有可运行脚本，2 个是指令型工作流。配套 [4 个可复现的实务问题重构案例](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)。示例全部为合成数据，未展示真实店铺成绩。
+
+**许可分区：基础版 MIT；`community/ivyeaops/` 与 `docs/cases/data/` 保留 AGPL-3.0。** 来源、版本与修改逐包记录，品牌图片另见 [NOTICE](NOTICE)。
 
 ## 技能目录
 
@@ -19,6 +21,20 @@
 | [竞品证据对标](skills/aipanda-competitor-evidence/SKILL.md) | 竞品资料 → 同口径矩阵、机会与缺口 | 指令型技能，含合成练习 |
 
 工具当前只接受已经按仓库字段规范整理的 CSV，不直接兼容所有 Amazon、ERP 或广告导出格式。
+
+## 本机实践整理的社区技能
+
+以下是 [IvyeaOps 固定版本](https://github.com/Hector-xue/IvyeaOps/tree/d5e440d7f14ff0444bbde4a890ed39df05876388) 的独立优化公开副本，保留作者署名与完整 AGPL 许可。逐包带源码、测试、合成输入、依赖和改动记录，使用前见 [社区包说明](community/ivyeaops/README.md)。
+
+| 技能 | 能做什么 | 可复现案例 |
+|---|---|---|
+| [搜索词进阶分析](community/ivyeaops/zach-search-term-report-analyzer-optimized/SKILL.md) | 显式字段映射、daily / aggregate、候选与来源实体 | [汇总粒度](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/aggregate-window.html) |
+| [Listing 结构化证据审计](community/ivyeaops/amazon-asin-cosmo-rufus-audit-optimized/SKILL.md) | 部件 / SKU / 批次冲突、引用校验、评论去重与变体分母 | [参数冲突](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/listing-conflicts.html) / [文意反例](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/copy-reference.html) |
+| [图片简报与技术筛查](community/ivyeaops/amazon-listing-creative-optimized/SKILL.md) | 卖点 / 配件证据、简报阻断、可选 Pillow / OCR | [简报到验收](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/image-brief.html) |
+
+**工具检查有范围。** 引用 ID 有效不等于文案文意正确；白色像素不等于整图合规；启发式候选不等于可以执行的广告调整。三个包均不包含业务写入脚本。标准库基础版与社区包的输入协议、依赖和许可分别说明。
+
+[本批 14 类候选筛选记录](docs/curation.md) · [版本变化](CHANGELOG.md) · [完整案例目录](cases/README.md)
 
 ## 十分钟开始
 
@@ -60,8 +76,8 @@ Codex 用户可手动将选中的技能文件夹复制到自己的 `~/.codex/ski
 
 ## 范围与许可
 
-本版本不连接卖家账户，不获取实时数据，不修改广告或 Listing。历史 CPC 不等于当前 Bid；ACOS 不等于 TACOS；离线草稿不代表后台已执行或收益已提升。
+本版默认离线运行，不连接卖家账户，不修改广告或 Listing。社区搜索词包可选抓取公开商品页，需使用者明确选择；默认关闭。历史 CPC 不等于当前 Bid；ACOS 不等于 TACOS；离线草稿不代表后台已执行或收益已提升。
 
-本仓库新编写的代码和文档采用 [MIT](LICENSE)。品牌图片另见 [NOTICE](NOTICE)。
+本仓库原创基础代码和文档采用 [MIT](LICENSE)；`community/ivyeaops/` 和 `docs/cases/data/` 按各目录保留的 AGPL-3.0 分发，完整对应源码随仓库提供。不可将整库代码统称为 MIT。品牌图片另见 [NOTICE](NOTICE)。
 
 Independent project for Amazon sellers. Not affiliated with or endorsed by Amazon, Walmart, or TikTok. Third-party marks remain with their respective owners.

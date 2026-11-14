@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "checked_on": "2026-11-14",
+  "method": "isolated public source copy; offline synthetic fixtures",
+  "tests": [
+    {
+      "suite": "MIT starter",
+      "passed": 9
+    },
+    {
+      "suite": "community search",
+      "passed": 21
+    },
+    {
+      "suite": "community listing",
+      "passed": 9
+    },
+    {
+      "suite": "community image",
+      "passed": 8
+    }
+  ],
+  "total_tests_passed": 47,
+  "skills_frontmatter_validated": 6,
+  "replayed_output_files_byte_identical": 7,
+  "strict_expected_block_exit_codes_verified": true,
+  "original_installed_source_files_unchanged": 39,
+  "data_kind": "synthetic reconstruction",
+  "private_source_data_published": false,
+  "business_writes": 0,
+  "boundaries": [
+    "No live account data or production backend validation",
+    "No independent document authenticity or copy text semantic verification",
+    "No image generation, upload, or platform compliance certification",
+    "Search candidate rules are heuristics, not verified profit or execution decisions"
+  ],
+  "validation_instructions": "CONTRIBUTING.md and community/ivyeaops/README.md"
+}

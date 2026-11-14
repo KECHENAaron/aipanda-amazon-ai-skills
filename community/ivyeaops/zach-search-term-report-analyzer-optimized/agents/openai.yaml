@@ -1,0 +1,6 @@
+interface:
+  display_name: "独立优化版搜索词分析"
+  short_description: "分析Amazon搜索词报表，区分逐日与汇总粒度，输出可追溯的分类、观察、控成本及放量候选；用于搜"
+  default_prompt: "使用 $zach-search-term-report-analyzer-optimized 完成只读分析，并报告证据缺口与验证结果。"
+policy:
+  allow_implicit_invocation: true

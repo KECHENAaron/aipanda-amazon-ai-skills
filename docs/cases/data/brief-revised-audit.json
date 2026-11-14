@@ -1,0 +1,33 @@
+{
+  "product": {
+    "asin": "B0DEMO0001",
+    "marketplace": "US",
+    "sku": "DEMO-BOX",
+    "batch_id": "DEMO-BATCH"
+  },
+  "slots": [
+    {
+      "slot": 1,
+      "role": "main",
+      "status": "ready_for_design_review",
+      "blockers": [],
+      "warnings": [],
+      "human_product_identity_review_required": true
+    },
+    {
+      "slot": 2,
+      "role": "structure",
+      "status": "ready_for_design_review",
+      "blockers": [],
+      "warnings": [],
+      "human_product_identity_review_required": true
+    }
+  ],
+  "status": "BRIEF_CHECKED_DRAFT",
+  "suggested_slot_count": 7,
+  "actual_slot_count": 2,
+  "generated_images": 0,
+  "uploaded_images": 0,
+  "business_writes": 0,
+  "note": "简报检查不能证明图像已经生成、合规、与实物一致或经过人工验收"
+}

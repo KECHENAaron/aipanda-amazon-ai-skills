@@ -1,0 +1,5 @@
+Brand,ASIN,Campaign Name,Ad Group Name,Match Type,Customer Search Term,Impressions,Clicks,Spend,Orders,Sales
+DemoBrand,B0DEMO0001,DEMO-SP-1,DEMO-GROUP,exact,folding storage bin,900,36,24,3,96
+DemoBrand,B0DEMO0001,DEMO-SP-2,DEMO-GROUP,broad,waterproof storage box,650,20,15,0,0
+DemoBrand,B0DEMO0001,DEMO-SP-3,DEMO-GROUP,phrase,drawer organizer,280,12,7,1,30
+DemoBrand,B0DEMO0001,DEMO-SP-4,DEMO-GROUP,exact,demobrand folding bin,160,8,4,1,32

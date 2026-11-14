@@ -1,0 +1,88 @@
+{
+  "data_kind": "synthetic",
+  "product": {
+    "asin": "B0DEMO0001",
+    "marketplace": "US",
+    "sku": "DEMO-BOX",
+    "batch_id": "DEMO-BATCH"
+  },
+  "facts": [
+    {
+      "id": "SIZE",
+      "field": "dimensions",
+      "value": [
+        44,
+        31,
+        26
+      ],
+      "unit": "cm",
+      "status": "disputed",
+      "source_reference": "synthetic:conflicting-specs",
+      "asin": "B0DEMO0001",
+      "marketplace": "US",
+      "sku": "DEMO-BOX",
+      "batch_id": "DEMO-BATCH"
+    }
+  ],
+  "slots": [
+    {
+      "slot": 1,
+      "role": "main",
+      "question": "What is included?",
+      "background": "#FFFFFF",
+      "subject": "DEMO storage bin",
+      "text_overlays": [],
+      "callouts": [],
+      "forbidden": [
+        "invented accessories"
+      ],
+      "accessories_visible": true
+    },
+    {
+      "slot": 2,
+      "role": "dimensions",
+      "question": "Will it fit?",
+      "background": "#FFFFFF",
+      "subject": "DEMO storage bin",
+      "text_overlays": [
+        "44 cm"
+      ],
+      "callouts": [],
+      "forbidden": [
+        "invented accessories"
+      ],
+      "claims": [
+        {
+          "text": "44 cm",
+          "fact_ids": [
+            "SIZE"
+          ]
+        }
+      ]
+    },
+    {
+      "slot": 3,
+      "role": "comparison",
+      "question": "How is it different?",
+      "background": "#FFFFFF",
+      "subject": "DEMO storage bin",
+      "text_overlays": [],
+      "callouts": [],
+      "forbidden": [
+        "invented accessories"
+      ]
+    },
+    {
+      "slot": 4,
+      "role": "included_items",
+      "question": "Which pieces arrive?",
+      "background": "#FFFFFF",
+      "subject": "DEMO storage bin",
+      "text_overlays": [],
+      "callouts": [],
+      "forbidden": [
+        "invented accessories"
+      ]
+    }
+  ]
+}
