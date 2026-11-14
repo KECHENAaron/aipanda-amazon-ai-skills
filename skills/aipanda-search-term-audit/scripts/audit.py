@@ -129,20 +129,24 @@ def analyze(input_path, scope):
 
 
 def render(report):
-    def value(v):
-        return '未知' if v is None else f'{v:,.2f}'
-    cards = ''.join(f'<div><small>{escape(k)}</small><strong>{value(v)}</strong></div>' for k, v in report['totals'].items())
+    def value(v, count=False):
+        return '未知' if v is None else (f'{v:,.0f}' if count else f'{v:,.2f}')
+    currency = report['scope']['currency']
+    labels = {'impressions': '展示', 'clicks': '点击', 'spend': f'花费（{currency}）', 'orders': '订单', 'sales': f'广告归因销售额（{currency}）'}
+    cards = ''.join(f'<div><small>{escape(labels[k])}</small><strong>{value(v, k in ("impressions", "clicks", "orders"))}</strong></div>' for k, v in report['totals'].items())
+    s = report['scope']
+    scope_line = escape(f'{s["marketplace"]} · {currency} · {s["ad_type"]} · 归因窗口 {s["attribution_window"]} · {s["start_date"]} 至 {s["end_date"]} · 快照 {s["as_of"]}')
     rows = []
     for item in report['items']:
         metrics = item['metrics']
         acos = item['derived']['acos']
         evidence = ', '.join(map(str, item['source_lines']))
-        rows.append('<tr>' + ''.join(f'<td>{escape(str(v))}</td>' for v in [item['search_term'], item['state'], value(metrics['spend']), value(metrics['orders']), value(metrics['sales']), '未知' if acos is None else f'{acos:.1%}', item['reason'], evidence]) + '</tr>')
+        rows.append('<tr>' + ''.join(f'<td>{escape(str(v))}</td>' for v in [item['search_term'], item['state'], value(metrics['spend']), value(metrics['orders'], True), value(metrics['sales']), '未知' if acos is None else f'{acos:.1%}', item['reason'], evidence]) + '</tr>')
     scope = escape(json.dumps(report['scope'], ensure_ascii=False, indent=2))
     data_label = '合成数据演示' if report['scope']['data_kind'] == 'synthetic' else '用户提供数据 · 本地分析'
     return f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIPANDA 搜索词复核</title><style>
     *{{box-sizing:border-box}}body{{margin:0;background:#f5f7fb;color:#142338;font:15px/1.65 system-ui,sans-serif}}main{{max-width:1200px;margin:auto;padding:36px 24px}}h1{{font-size:30px}}.label{{color:#7356be;font-weight:700}}.cards{{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}}.cards div{{background:white;border:1px solid #dae1ed;border-radius:12px;padding:16px;min-width:140px}}strong,small{{display:block}}strong{{font-size:24px}}.table{{overflow-x:auto;background:white;border:1px solid #dae1ed;border-radius:12px}}table{{border-collapse:collapse;width:100%;min-width:900px}}td,th{{padding:14px;text-align:left;border-bottom:1px solid #e5eaf2}}th{{background:#edf1fa}}pre{{white-space:pre-wrap;background:#eaf0f8;border-radius:10px;padding:20px}}.note{{color:#52627a}}a{{color:#6052ad}}</style>
-    <main><div class="label">AIPANDA · {data_label}</div><h1>先看证据，再决定下一步。</h1><p>{escape(report['boundary'])}</p><div class="cards">{cards}</div><div class="table"><table><thead><tr><th>搜索词</th><th>状态</th><th>花费</th><th>订单</th><th>归因销售额</th><th>ACOS</th><th>复核理由</th><th>CSV 行号</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div><p class="note">{escape(report['coverage_note'])} 汇总中任一输入缺失，该指标总计显示“未知”。ACOS 按广告归因销售额计算，与 TACOS 不同。</p><details><summary>数据范围与分析假设</summary><pre>{scope}</pre></details><p class="note">v0.1.0 · 本地生成 · 无网络调用</p></main></html>'''
+    <main><div class="label">AIPANDA · {data_label}</div><h1>先看证据，再决定下一步。</h1><p>{scope_line}</p><p>{escape(report['boundary'])}</p><div class="cards">{cards}</div><div class="table"><table><thead><tr><th>搜索词</th><th>状态</th><th>花费</th><th>订单</th><th>归因销售额</th><th>ACOS</th><th>复核理由</th><th>CSV 行号</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div><p class="note">{escape(report['coverage_note'])} 汇总中任一输入缺失，该指标总计显示“未知”。ACOS 按广告归因销售额计算，与 TACOS 不同。</p><details><summary>数据范围与分析假设</summary><pre>{scope}</pre></details><p class="note">v0.1.0 · 本地生成 · 无网络调用</p></main></html>'''
 
 
 def main():
