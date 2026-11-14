@@ -3,7 +3,7 @@
   <h1>🐼 AIPANDA · 跨境有AI</h1>
   <p><strong>AIPANDA Amazon AI Skills</strong></p>
   <p>把亚马逊运营经验，变成可复用的 AI 技能、工具与实战工作流。</p>
-  <p><a href="#十分钟开始">快速开始</a> · <a href="#技能目录">技能目录</a> · <a href="examples/search-term-audit/report.html">报告样例</a> · <a href="docs/roadmap.md">后续计划</a></p>
+  <p><a href="https://kechenaaron.github.io/aipanda-amazon-ai-skills/">项目主页</a> · <a href="#十分钟开始">快速开始</a> · <a href="#技能目录">技能目录</a> · <a href="https://kechenaaron.github.io/aipanda-amazon-ai-skills/demo/report.html">报告样例</a> · <a href="docs/roadmap.md">后续计划</a></p>
 </div>
 
 面向亚马逊卖家与使用 AI 的运营人员。从一个具体问题出发，保留输入、来源、判断理由与可复现结果。
