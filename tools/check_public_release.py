@@ -45,6 +45,12 @@ def check(root=ROOT,history=False):
   spec=importlib.util.spec_from_file_location('public_demo_generator',demo_path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
   for kind in ['unequal-days','immature','mix-shift']:
    if json.loads((demo_path.parents[1]/'assets'/f'{kind}.json').read_text()) != m.demo(kind):findings.append({'path':kind,'rule':'synthetic_fixture_mismatch'})
+ diagnostic_demo=root/'skills/aipanda-ads-period-review/scripts/make_diagnostic_demo.py'
+ if diagnostic_demo.exists():
+  import importlib.util
+  sp=importlib.util.spec_from_file_location('public_diagnostic_generator',diagnostic_demo);dm=importlib.util.module_from_spec(sp);sp.loader.exec_module(dm)
+  for kind in dm.KINDS:
+   if json.loads((diagnostic_demo.parents[1]/'assets'/f'diagnostic-{kind}.json').read_text()) != dm.demo(kind):findings.append({'path':kind,'rule':'synthetic_diagnostic_fixture_mismatch'})
  historic=0;commits=0
  if history:
   objects=subprocess.check_output(['git','rev-list','--all','--objects'],cwd=root,text=True).splitlines()

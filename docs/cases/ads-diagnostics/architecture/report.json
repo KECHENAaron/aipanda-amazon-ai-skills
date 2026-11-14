@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "scope": {
+    "scope_token": "SCOPE-001",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_basis": "click",
+    "attribution_days": 7,
+    "reporting_lag_days": 2
+  },
+  "window": {
+    "start_date": "2026-02-01",
+    "end_date": "2026-02-07",
+    "snapshot_date": "2026-03-01"
+  },
+  "input_grain": "aggregate_no_daily_trends",
+  "mature_under_declared_lag": true,
+  "thresholds": {
+    "target_acos": 0.25,
+    "min_clicks": 12,
+    "min_orders": 2,
+    "review_spend": 8
+  },
+  "architecture": {
+    "units": {
+      "UNIT-A": {
+        "declared_role": "discovery",
+        "declared_state": "enabled",
+        "observed": {
+          "totals": {
+            "impressions": 400.0,
+            "clicks": 58.0,
+            "spend": 31.0,
+            "orders": 0.0,
+            "sales": 0.0
+          },
+          "ratios": {
+            "ctr": 0.145,
+            "cpc": 0.53448276,
+            "order_per_click": 0.0,
+            "acos": null,
+            "roas": 0.0
+          }
+        },
+        "control": {
+          "impressions": 400.0,
+          "clicks": 58.0,
+          "spend": 34.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "residual": {
+          "impressions": 0.0,
+          "clicks": 0.0,
+          "spend": 3.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "reconciliation_issues": [
+          "undisclosed_or_scope_gap"
+        ]
+      },
+      "UNIT-B": {
+        "declared_role": "harvest",
+        "declared_state": "paused",
+        "observed": {
+          "totals": {
+            "impressions": 200.0,
+            "clicks": 32.0,
+            "spend": 18.0,
+            "orders": 5.0,
+            "sales": 80.0
+          },
+          "ratios": {
+            "ctr": 0.16,
+            "cpc": 0.5625,
+            "order_per_click": 0.15625,
+            "acos": 0.225,
+            "roas": 4.44444444
+          }
+        },
+        "control": {
+          "impressions": 200.0,
+          "clicks": 32.0,
+          "spend": 18.0,
+          "orders": 5.0,
+          "sales": 80.0
+        },
+        "residual": {
+          "impressions": 0.0,
+          "clicks": 0.0,
+          "spend": 0.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "reconciliation_issues": []
+      },
+      "UNIT-C": {
+        "declared_role": "unknown",
+        "declared_state": "enabled",
+        "observed": {
+          "totals": {
+            "impressions": 100.0,
+            "clicks": 16.0,
+            "spend": 8.0,
+            "orders": 0.0,
+            "sales": 0.0
+          },
+          "ratios": {
+            "ctr": 0.16,
+            "cpc": 0.5,
+            "order_per_click": 0.0,
+            "acos": null,
+            "roas": 0.0
+          }
+        },
+        "control": {
+          "impressions": 100.0,
+          "clicks": 16.0,
+          "spend": 8.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "residual": {
+          "impressions": 0.0,
+          "clicks": 0.0,
+          "spend": 0.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "reconciliation_issues": []
+      }
+    },
+    "roles": {
+      "defense": {
+        "units": [],
+        "control_spend": 0.0,
+        "spend_share": 0.0
+      },
+      "discovery": {
+        "units": [
+          "UNIT-A"
+        ],
+        "control_spend": 34.0,
+        "spend_share": 0.56666667
+      },
+      "harvest": {
+        "units": [
+          "UNIT-B"
+        ],
+        "control_spend": 18.0,
+        "spend_share": 0.3
+      },
+      "product": {
+        "units": [],
+        "control_spend": 0.0,
+        "spend_share": 0.0
+      },
+      "unknown": {
+        "units": [
+          "UNIT-C"
+        ],
+        "control_spend": 8.0,
+        "spend_share": 0.13333333
+      }
+    },
+    "control_totals": {
+      "impressions": 700.0,
+      "clicks": 106.0,
+      "spend": 60.0,
+      "orders": 5.0,
+      "sales": 80.0
+    }
+  },
+  "terms": {
+    "TERM-A": {
+      "kind": "query",
+      "observed": {
+        "totals": {
+          "impressions": 200.0,
+          "clicks": 30.0,
+          "spend": 15.0,
+          "orders": 3.0,
+          "sales": 60.0
+        },
+        "ratios": {
+          "ctr": 0.15,
+          "cpc": 0.5,
+          "order_per_click": 0.1,
+          "acos": 0.25,
+          "roas": 4.0
+        }
+      },
+      "protected_by_declaration_or_observed_orders": true,
+      "conversion_unknown": false,
+      "active_routes": [
+        "UNIT-A"
+      ],
+      "source_row_ids": [
+        "ROW-001",
+        "ROW-002"
+      ]
+    },
+    "TERM-B": {
+      "kind": "query",
+      "observed": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 20.0,
+          "spend": 12.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.2,
+          "cpc": 0.6,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        }
+      },
+      "protected_by_declaration_or_observed_orders": false,
+      "conversion_unknown": false,
+      "active_routes": [
+        "UNIT-A"
+      ],
+      "source_row_ids": [
+        "ROW-003"
+      ]
+    },
+    "TERM-C": {
+      "kind": "product_target",
+      "observed": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 16.0,
+          "spend": 8.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.16,
+          "cpc": 0.5,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        }
+      },
+      "protected_by_declaration_or_observed_orders": false,
+      "conversion_unknown": false,
+      "active_routes": [
+        "UNIT-C"
+      ],
+      "source_row_ids": [
+        "ROW-004"
+      ]
+    },
+    "TERM-D": {
+      "kind": "query",
+      "observed": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 16.0,
+          "spend": 8.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.16,
+          "cpc": 0.5,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        }
+      },
+      "protected_by_declaration_or_observed_orders": false,
+      "conversion_unknown": false,
+      "active_routes": [
+        "UNIT-A"
+      ],
+      "source_row_ids": [
+        "ROW-005"
+      ]
+    },
+    "TERM-E": {
+      "kind": "query",
+      "observed": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 4.0,
+          "spend": 2.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.04,
+          "cpc": 0.5,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        }
+      },
+      "protected_by_declaration_or_observed_orders": false,
+      "conversion_unknown": false,
+      "active_routes": [
+        "UNIT-A"
+      ],
+      "source_row_ids": [
+        "ROW-006"
+      ]
+    },
+    "TERM-F": {
+      "kind": "query",
+      "observed": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 20.0,
+          "spend": 12.0,
+          "orders": 2.0,
+          "sales": 20.0
+        },
+        "ratios": {
+          "ctr": 0.2,
+          "cpc": 0.6,
+          "order_per_click": 0.1,
+          "acos": 0.6,
+          "roas": 1.66666667
+        }
+      },
+      "protected_by_declaration_or_observed_orders": true,
+      "conversion_unknown": false,
+      "active_routes": [],
+      "source_row_ids": [
+        "ROW-007"
+      ]
+    }
+  },
+  "diagnoses": [
+    {
+      "row_id": "ROW-001",
+      "unit": "UNIT-A",
+      "term": "TERM-A",
+      "bucket": "protect_term_with_other_evidence",
+      "ratios": {
+        "ctr": 0.18,
+        "cpc": 0.5,
+        "order_per_click": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "source_row": 1
+    },
+    {
+      "row_id": "ROW-002",
+      "unit": "UNIT-B",
+      "term": "TERM-A",
+      "bucket": "retain_or_expand_review",
+      "ratios": {
+        "ctr": 0.12,
+        "cpc": 0.5,
+        "order_per_click": 0.25,
+        "acos": 0.1,
+        "roas": 10.0
+      },
+      "source_row": 2
+    },
+    {
+      "row_id": "ROW-003",
+      "unit": "UNIT-A",
+      "term": "TERM-B",
+      "bucket": "zero_order_review",
+      "ratios": {
+        "ctr": 0.2,
+        "cpc": 0.6,
+        "order_per_click": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "source_row": 3
+    },
+    {
+      "row_id": "ROW-004",
+      "unit": "UNIT-C",
+      "term": "TERM-C",
+      "bucket": "zero_order_review",
+      "ratios": {
+        "ctr": 0.16,
+        "cpc": 0.5,
+        "order_per_click": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "source_row": 4
+    },
+    {
+      "row_id": "ROW-005",
+      "unit": "UNIT-A",
+      "term": "TERM-D",
+      "bucket": "zero_order_review",
+      "ratios": {
+        "ctr": 0.16,
+        "cpc": 0.5,
+        "order_per_click": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "source_row": 5
+    },
+    {
+      "row_id": "ROW-006",
+      "unit": "UNIT-A",
+      "term": "TERM-E",
+      "bucket": "observe_sample",
+      "ratios": {
+        "ctr": 0.04,
+        "cpc": 0.5,
+        "order_per_click": 0.0,
+        "acos": null,
+        "roas": 0.0
+      },
+      "source_row": 6
+    },
+    {
+      "row_id": "ROW-007",
+      "unit": "UNIT-B",
+      "term": "TERM-F",
+      "bucket": "efficiency_review",
+      "ratios": {
+        "ctr": 0.2,
+        "cpc": 0.6,
+        "order_per_click": 0.1,
+        "acos": 0.6,
+        "roas": 1.66666667
+      },
+      "source_row": 7
+    }
+  ],
+  "candidates": [
+    {
+      "kind": "traffic_or_bid_context_review",
+      "row_id": "ROW-001",
+      "unit": "UNIT-A",
+      "term": "TERM-A",
+      "state": "BLOCKED",
+      "blockers": [
+        "current_bid_and_context_not_supplied",
+        "undisclosed_or_scope_gap"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    },
+    {
+      "kind": "migration_source_exact_review",
+      "row_id": "ROW-001",
+      "unit": "UNIT-A",
+      "term": "TERM-A",
+      "state": "BLOCKED",
+      "blockers": [
+        "owner_continuity_not_declared",
+        "owner_paused",
+        "undisclosed_or_scope_gap"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    },
+    {
+      "kind": "efficiency_or_capacity_review",
+      "row_id": "ROW-002",
+      "unit": "UNIT-B",
+      "term": "TERM-A",
+      "state": "BLOCKED",
+      "blockers": [
+        "current_bid_and_context_not_supplied",
+        "source_paused"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    },
+    {
+      "kind": "query_exact_negative_review",
+      "row_id": "ROW-003",
+      "unit": "UNIT-A",
+      "term": "TERM-B",
+      "state": "BLOCKED",
+      "blockers": [
+        "undisclosed_or_scope_gap"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    },
+    {
+      "kind": "product_exclusion_review",
+      "row_id": "ROW-004",
+      "unit": "UNIT-C",
+      "term": "TERM-C",
+      "state": "BLOCKED",
+      "blockers": [
+        "role_not_declared"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    },
+    {
+      "kind": "relevance_review",
+      "row_id": "ROW-005",
+      "unit": "UNIT-A",
+      "term": "TERM-D",
+      "state": "BLOCKED",
+      "blockers": [
+        "relevance_not_declared",
+        "undisclosed_or_scope_gap"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    },
+    {
+      "kind": "efficiency_or_capacity_review",
+      "row_id": "ROW-007",
+      "unit": "UNIT-B",
+      "term": "TERM-F",
+      "state": "BLOCKED",
+      "blockers": [
+        "current_bid_and_context_not_supplied",
+        "source_paused"
+      ],
+      "executable": false,
+      "live_state_independently_verified": false
+    }
+  ],
+  "issues": [
+    {
+      "unit": "UNIT-C",
+      "code": "role_not_declared"
+    },
+    {
+      "unit": "UNIT-A",
+      "codes": [
+        "undisclosed_or_scope_gap"
+      ]
+    }
+  ],
+  "token_views": {
+    "non_additive": true,
+    "unigrams": {
+      "TOKEN-A": {
+        "totals": {
+          "impressions": 300.0,
+          "clicks": 50.0,
+          "spend": 27.0,
+          "orders": 3.0,
+          "sales": 60.0
+        },
+        "ratios": {
+          "ctr": 0.16666667,
+          "cpc": 0.54,
+          "order_per_click": 0.06,
+          "acos": 0.45,
+          "roas": 2.22222222
+        },
+        "source_row_ids": [
+          "ROW-001",
+          "ROW-002",
+          "ROW-003"
+        ]
+      },
+      "TOKEN-B": {
+        "totals": {
+          "impressions": 200.0,
+          "clicks": 30.0,
+          "spend": 15.0,
+          "orders": 3.0,
+          "sales": 60.0
+        },
+        "ratios": {
+          "ctr": 0.15,
+          "cpc": 0.5,
+          "order_per_click": 0.1,
+          "acos": 0.25,
+          "roas": 4.0
+        },
+        "source_row_ids": [
+          "ROW-001",
+          "ROW-002"
+        ]
+      },
+      "TOKEN-C": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 20.0,
+          "spend": 12.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.2,
+          "cpc": 0.6,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        },
+        "source_row_ids": [
+          "ROW-003"
+        ]
+      },
+      "TOKEN-D": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 16.0,
+          "spend": 8.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.16,
+          "cpc": 0.5,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        },
+        "source_row_ids": [
+          "ROW-005"
+        ]
+      },
+      "TOKEN-E": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 4.0,
+          "spend": 2.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.04,
+          "cpc": 0.5,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        },
+        "source_row_ids": [
+          "ROW-006"
+        ]
+      },
+      "TOKEN-F": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 20.0,
+          "spend": 12.0,
+          "orders": 2.0,
+          "sales": 20.0
+        },
+        "ratios": {
+          "ctr": 0.2,
+          "cpc": 0.6,
+          "order_per_click": 0.1,
+          "acos": 0.6,
+          "roas": 1.66666667
+        },
+        "source_row_ids": [
+          "ROW-007"
+        ]
+      }
+    },
+    "adjacent_bigrams": {
+      "TOKEN-A TOKEN-B": {
+        "totals": {
+          "impressions": 200.0,
+          "clicks": 30.0,
+          "spend": 15.0,
+          "orders": 3.0,
+          "sales": 60.0
+        },
+        "ratios": {
+          "ctr": 0.15,
+          "cpc": 0.5,
+          "order_per_click": 0.1,
+          "acos": 0.25,
+          "roas": 4.0
+        },
+        "source_row_ids": [
+          "ROW-001",
+          "ROW-002"
+        ]
+      },
+      "TOKEN-A TOKEN-C": {
+        "totals": {
+          "impressions": 100.0,
+          "clicks": 20.0,
+          "spend": 12.0,
+          "orders": 0.0,
+          "sales": 0.0
+        },
+        "ratios": {
+          "ctr": 0.2,
+          "cpc": 0.6,
+          "order_per_click": 0.0,
+          "acos": null,
+          "roas": 0.0
+        },
+        "source_row_ids": [
+          "ROW-003"
+        ]
+      },
+      "TOKEN-B TOKEN-A": {
+        "totals": {
+          "impressions": 200.0,
+          "clicks": 30.0,
+          "spend": 15.0,
+          "orders": 3.0,
+          "sales": 60.0
+        },
+        "ratios": {
+          "ctr": 0.15,
+          "cpc": 0.5,
+          "order_per_click": 0.1,
+          "acos": 0.25,
+          "roas": 4.0
+        },
+        "source_row_ids": [
+          "ROW-001",
+          "ROW-002"
+        ]
+      }
+    }
+  },
+  "business_writes": 0,
+  "causal_effect_verified": false,
+  "source_declarations_independently_verified": false,
+  "limits": [
+    "Opaque tokens do not verify relevance or actual phrase-negative matching.",
+    "Controls and search rows must refer to the same declared scope; residuals are not invented terms.",
+    "All proposals require human review and a fresh live-state check; no bid values or execution payloads."
+  ]
+}

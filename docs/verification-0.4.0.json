@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "isolated_source_copy": true,
+  "tests": [
+    {
+      "suite": "MIT",
+      "passed": 76
+    },
+    {
+      "suite": "community-search",
+      "passed": 21
+    },
+    {
+      "suite": "community-listing",
+      "passed": 9
+    },
+    {
+      "suite": "community-image",
+      "passed": 8
+    }
+  ],
+  "total_tests_passed": 114,
+  "skills_validated": 7,
+  "relative_links_validated": 144,
+  "diagnostic_replay_files_byte_identical": 6,
+  "version": "0.4.0",
+  "skill_version": "1.1.0",
+  "private_sources_not_bundled": true,
+  "business_writes": 0,
+  "scope": "offline wholly synthetic fixtures and generic publication checks"
+}

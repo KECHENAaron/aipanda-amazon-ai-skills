@@ -8,7 +8,7 @@
 
 面向亚马逊卖家与使用 AI 的运营人员。从一个具体问题出发，保留输入、来源、判断理由与可复现结果。
 
-**当前版本：0.3.0。** 共 7 个技能入口：4 个 MIT 技能与 3 个保留 AGPL-3.0 的社区衍生包；5 个有离线脚本，2 个是指令型工作流。配套 [5 个完全合成案例主题](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)，其中新增广告周期复盘含 3 个独立练习。只分享通用技能，不展示实际商品、店铺或经营资料。
+**当前版本：0.4.0。** 共 7 个技能入口：4 个 MIT 技能与 3 个保留 AGPL-3.0 的社区衍生包；5 个有离线脚本，2 个是指令型工作流。配套 [6 个完全合成案例主题](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/)，其中广告复盘包含周期比较与架构 / 搜索词诊断两组，共 6 个独立练习。只分享通用技能，不展示实际商品、店铺或经营资料。
 
 **许可分区：基础版 MIT；`community/ivyeaops/` 与 `docs/cases/data/` 保留 AGPL-3.0。** 来源、版本与修改逐包记录，品牌图片另见 [NOTICE](NOTICE)。
 
@@ -36,17 +36,19 @@
 
 [公开分享规范](docs/curation.md) · [版本变化](CHANGELOG.md) · [完整案例目录](cases/README.md)
 
-## 新增：匿名广告周期复盘
+## 广告复盘：周期、架构与搜索词
 
-[技能与契约](skills/aipanda-ads-period-review/SKILL.md) · [3 个合成练习](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/ads-period-review.html) · [公开来源与许可](skills/aipanda-ads-period-review/references/sources.md)
+[技能与契约](skills/aipanda-ads-period-review/SKILL.md) · [周期 3 个练习](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/ads-period-review.html) · [公开来源与许可](skills/aipanda-ads-period-review/references/sources.md)
 
-Python 标准库实现，从相同匿名单元的 SP 日报比较两期：覆盖、归因成熟、总量与两种日均、加权比率、分单元变化及结构偏移。字段白名单拒绝商品 / 店铺 / 成本 / 备注等额外字段，不做利润核对，不输出竞价或否词操作。
+Skill 1.1.0 新增 [架构、搜索词与优化候选的 3 个合成练习](https://kechenaaron.github.io/aipanda-amazon-ai-skills/cases/ads-diagnostics.html)。Python 标准库实现，从相同匿名单元的 SP 日报比较两期：覆盖、归因成熟、总量与两种日均、加权比率、分单元变化及结构偏移。字段白名单拒绝商品 / 店铺 / 成本 / 备注等额外字段，不做利润核对，不输出竞价或否词操作。
 
 ```bash
 python3 skills/aipanda-ads-period-review/scripts/review.py \
   --input skills/aipanda-ads-period-review/assets/unequal-days.json \
   --output-dir /tmp/aipanda-period-demo
 ```
+
+结构与搜索词模式使用 `scripts/diagnose.py`，入口、独立契约、方法及 6 个演示命令见 SKILL.md。
 
 仅用常量合成的公开练习可供分享；匿名本地报告标记“不供公开”，不要提交到仓库或 Issue。
 

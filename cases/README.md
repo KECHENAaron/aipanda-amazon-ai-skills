@@ -11,13 +11,14 @@
 | [引用正确不等于文意正确](../docs/cases/copy-reference.html) | 同一个 QTY 引用可写出“一件”或“十件”；输出明确需人工审文意 | [反例](../docs/cases/data/demo-evidence.json) / [回归测试](../community/ivyeaops/amazon-asin-cosmo-rufus-audit-optimized/tests/test_evidence.py) |
 | [简报检查与图片验收分开](../docs/cases/image-brief.html) | 4 槽位阻断 → 2 槽位设计草稿；生成和上传均为 0 | [原简报](../docs/cases/data/demo-brief-blocked.json) / [修订结果](../docs/cases/data/brief-revised-audit.json) |
 | [匿名广告周期复盘](../docs/cases/ads-period-review.html) | 3 个完全合成练习：总量与日均、未成熟阻断、聚合结构偏移 | [技能](../skills/aipanda-ads-period-review/SKILL.md) / [合成生成器](../skills/aipanda-ads-period-review/scripts/make_demo.py) |
+| [广告架构与搜索词诊断](../docs/cases/ads-diagnostics.html) | 3 组合成练习：架构缺口、成交保护 / 符号聚合、有条件迁移 | [诊断契约](../skills/aipanda-ads-period-review/references/diagnostic-contract.md) / [常量生成器](../skills/aipanda-ads-period-review/scripts/make_diagnostic_demo.py) |
 
 ## 如何复现
 
-新增匿名周期练习见 [独立 MIT 技能](../skills/aipanda-ads-period-review/SKILL.md)。其他结构化练习在 [社区包目录](../community/ivyeaops/README.md) 选择单个包，按其 SKILL.md 的“可复现的公开练习”运行。无需 API Key 或真实账户。搜索词包需要显式安装 requirements.txt；Listing 和简报校验使用 Python 标准库，像素检查另需 Pillow。
+匿名周期与架构 / 搜索词练习见 [独立 MIT 技能](../skills/aipanda-ads-period-review/SKILL.md)。其他结构化练习在 [社区包目录](../community/ivyeaops/README.md) 选择单个包，按其 SKILL.md 的“可复现的公开练习”运行。无需 API Key 或真实账户。搜索词包需要显式安装 requirements.txt；Listing 和简报校验使用 Python 标准库，像素检查另需 Pillow。
 
 所有公开输入均为合成练习；不包含经营对象映射、原始资料或私有证据路径。引用反例用于演示程序验证范围。每个页面说明程序验证了什么、没有验证什么。
 
 案例文字为 AIPANDA 原创整理，适用根 MIT。`docs/cases/data/` 内含社区工具生成的结果，整体按该目录保留的 AGPL-3.0 分发，完整对应源码位于 `community/ivyeaops/`；请勿将整个仓库统称为 MIT。
 
-新广告周期练习与 `docs/cases/ads-period-review/` 目录为独立 MIT 内容，不属于社区 AGPL 数据目录。
+广告复盘的 `docs/cases/ads-period-review/` 和 `docs/cases/ads-diagnostics/` 目录为独立 MIT 内容，不属于社区 AGPL 数据目录。

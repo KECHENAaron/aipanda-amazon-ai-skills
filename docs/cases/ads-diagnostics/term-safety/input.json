@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "scope": {
+    "scope_token": "SCOPE-001",
+    "marketplace": "US",
+    "currency": "USD",
+    "ad_type": "SP",
+    "attribution_basis": "click",
+    "attribution_days": 7,
+    "reporting_lag_days": 2
+  },
+  "window": {
+    "start_date": "2026-02-01",
+    "end_date": "2026-02-07",
+    "snapshot_date": "2026-03-01"
+  },
+  "thresholds": {
+    "target_acos": 0.25,
+    "min_clicks": 12,
+    "min_orders": 2,
+    "review_spend": 8
+  },
+  "units": [
+    {
+      "unit": "UNIT-A",
+      "role": "discovery",
+      "match": "auto",
+      "state": "enabled",
+      "ownership": "exclusive",
+      "budget_headroom": "yes",
+      "negative_list_complete": true
+    },
+    {
+      "unit": "UNIT-B",
+      "role": "harvest",
+      "match": "exact",
+      "state": "enabled",
+      "ownership": "exclusive",
+      "budget_headroom": "yes",
+      "negative_list_complete": true
+    },
+    {
+      "unit": "UNIT-C",
+      "role": "product",
+      "match": "product",
+      "state": "enabled",
+      "ownership": "exclusive",
+      "budget_headroom": "unknown",
+      "negative_list_complete": true
+    }
+  ],
+  "terms": [
+    {
+      "term": "TERM-A",
+      "kind": "query",
+      "tokens": [
+        "TOKEN-A",
+        "TOKEN-B",
+        "TOKEN-A"
+      ],
+      "relevance": "irrelevant",
+      "protected": false,
+      "owner": "UNIT-B",
+      "owner_continuity_declared": true
+    },
+    {
+      "term": "TERM-B",
+      "kind": "query",
+      "tokens": [
+        "TOKEN-A",
+        "TOKEN-C"
+      ],
+      "relevance": "irrelevant",
+      "protected": false,
+      "owner": null,
+      "owner_continuity_declared": true
+    },
+    {
+      "term": "TERM-C",
+      "kind": "product_target",
+      "tokens": [],
+      "relevance": "irrelevant",
+      "protected": false,
+      "owner": null,
+      "owner_continuity_declared": true
+    },
+    {
+      "term": "TERM-D",
+      "kind": "query",
+      "tokens": [
+        "TOKEN-D"
+      ],
+      "relevance": "unknown",
+      "protected": false,
+      "owner": null,
+      "owner_continuity_declared": true
+    },
+    {
+      "term": "TERM-E",
+      "kind": "query",
+      "tokens": [
+        "TOKEN-E"
+      ],
+      "relevance": "relevant",
+      "protected": false,
+      "owner": null,
+      "owner_continuity_declared": true
+    },
+    {
+      "term": "TERM-F",
+      "kind": "query",
+      "tokens": [
+        "TOKEN-F"
+      ],
+      "relevance": "relevant",
+      "protected": false,
+      "owner": null,
+      "owner_continuity_declared": true
+    }
+  ],
+  "rows": [
+    {
+      "row_id": "ROW-001",
+      "unit": "UNIT-A",
+      "term": "TERM-A",
+      "impressions": 100,
+      "clicks": 18,
+      "spend": 9,
+      "orders": 0,
+      "sales": 0
+    },
+    {
+      "row_id": "ROW-002",
+      "unit": "UNIT-B",
+      "term": "TERM-A",
+      "impressions": 100,
+      "clicks": 12,
+      "spend": 6,
+      "orders": 3,
+      "sales": 60
+    },
+    {
+      "row_id": "ROW-003",
+      "unit": "UNIT-A",
+      "term": "TERM-B",
+      "impressions": 100,
+      "clicks": 20,
+      "spend": 12,
+      "orders": 0,
+      "sales": 0
+    },
+    {
+      "row_id": "ROW-004",
+      "unit": "UNIT-C",
+      "term": "TERM-C",
+      "impressions": 100,
+      "clicks": 16,
+      "spend": 8,
+      "orders": 0,
+      "sales": 0
+    },
+    {
+      "row_id": "ROW-005",
+      "unit": "UNIT-A",
+      "term": "TERM-D",
+      "impressions": 100,
+      "clicks": 16,
+      "spend": 8,
+      "orders": 0,
+      "sales": 0
+    },
+    {
+      "row_id": "ROW-006",
+      "unit": "UNIT-A",
+      "term": "TERM-E",
+      "impressions": 100,
+      "clicks": 4,
+      "spend": 2,
+      "orders": 0,
+      "sales": 0
+    },
+    {
+      "row_id": "ROW-007",
+      "unit": "UNIT-B",
+      "term": "TERM-F",
+      "impressions": 100,
+      "clicks": 20,
+      "spend": 12,
+      "orders": 2,
+      "sales": 20
+    }
+  ],
+  "controls": [
+    {
+      "unit": "UNIT-A",
+      "impressions": 400,
+      "clicks": 58,
+      "spend": 31,
+      "orders": 0,
+      "sales": 0
+    },
+    {
+      "unit": "UNIT-B",
+      "impressions": 200,
+      "clicks": 32,
+      "spend": 18,
+      "orders": 5,
+      "sales": 80
+    },
+    {
+      "unit": "UNIT-C",
+      "impressions": 100,
+      "clicks": 16,
+      "spend": 8,
+      "orders": 0,
+      "sales": 0
+    }
+  ],
+  "existing_negatives": []
+}

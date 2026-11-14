@@ -1,40 +1,50 @@
 ---
 name: aipanda-ads-period-review
-description: 对匿名 SP 日报做前后周期复盘，核验覆盖、归因成熟、投放天数和口径，输出加权指标、分单元变化及结构偏移提醒；不用于利润核对或广告执行。
+description: 匿名 SP 广告复盘，覆盖周期比较、架构角色、完整搜索词、符号聚合与有条件优化候选；保留来源、残差与阻断，不用于利润核对或后台执行。
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
-# 匿名广告周期复盘
+# 匿名广告复盘 · 1.1.0
 
-适用于“这次调整后真的变好了吗”“两个长度不同的周期怎样比”。先按 [输入契约](references/contract.md) 准备本地匿名数据；不直接接收 Amazon、ERP 原始导出。无需第三方依赖、账户、API 或私有知识库。
+适用于周期变化、广告结构混乱、搜索词诊断或优化候选复核。先按 [通用复盘方法](references/review-method.md)明确目标，再选择工作流。Python 标准库即可运行，不需要 API、付费账户或私有知识库；不直接兼容原始导出。
 
-先按 [通用复盘方法卡](references/review-method.md)明确目标、诊断层级、事件窗口与待验证解释；再用脚本核对可比性。方法卡经授权由课程学习摘要和内部笔记重新组织，不需要访问原知识库。
+| 任务 | 阅读与运行 |
+|---|---|
+| 两期真的改善了吗 | [周期契约](references/contract.md)，scripts/review.py；总量 / 两种日均 / 归因成熟 / 分单元变化 |
+| 结构哪里不清楚 | [架构方法](references/architecture-method.md)；明确角色、控制范围、独占归属及 owner |
+| 搜索词怎样分层 | [搜索词方法](references/search-term-method.md)；完整 TERM 与源 UNIT、成交保护、符号聚合 |
+| 什么优化暂时不能做 | [优化方法](references/optimization-method.md)；候选、证据缺口、迁移承接与恢复观察 |
+| 运行结构与搜索词检查 | [诊断契约](references/diagnostic-contract.md)，scripts/diagnose.py；汇总窗口、残差、候选与阻断 |
 
-## 复盘过程
+## 从方法到可复核结果
 
-1. 明确同一站点、币种、SP 点击归因、观察对象集合和快照日期。先在本地去除商品、品牌、店铺及真实 ID；使用 UNIT-A 等匿名单元。不同口径分开运行，不按金额或对象比例猜测拆分。
-2. 每个日期 × 单元都显式提供一行。缺行、缺指标和异常关系保留为阻断；未出现不等于零。inactive 行要显式提供零或未知，不能编造。
-3. 核对归因窗口和用户声明的报表回填等待期。未成熟仍可展示原始摘要，周期变化保持未知。窗口到期不证明来源数据已经最终定稿。
-4. 从合计分子分母重算 CTR、CPC、订单 / 点击、ACOS、ROAS；不平均行级比率。总量、日历日均、实际投放日均分开；投放日是该范围内至少一个单元 active=true 的日期，另看分单元构成。
-5. 检查分单元结果。汇总 ACOS 改善但全部单元恶化时标记结构偏移。促销、价格、库存、内容、预算或竞价事件仅作混杂背景；相关变化不等于因果效果。
-6. 给出数据缺口、可比与不可比项、需要回查的单元和下一轮观察条件。缺当前 Bid、策略或其他必要证据时，不生成竞价、否词或恢复活动指令。该工具没有自动账户接入或写入能力。
+先锁定同一范围、期间、币种和归因口径。真实对象与匿名标签的对应关系只保留在本地，公开包不接收实际商品、店铺、搜索词或成本费用信息。两种契约独立，不能把 SQP、SB / SD 或不同归因报告混作 SP。
 
-## 运行合成练习
+周期模式显式覆盖每日 × 单元，不从缺失造零。诊断模式只接受一个汇总窗口，不推断逐日趋势；以独立源单元的控制摘要比较已披露词，差额单列，不造“其他词”。词根 / 双词视图不可相加当总额。
 
-在本技能目录运行，输出目录必须尚不存在：
+相关性、归属、余量、否定表完整与持续承接都是输入声明，程序未独立核实。保护已观察到的成交与显式保护词；其他来源转化未知也会阻断普通否定。迁移分别核对来源与承接，不能机械从自动 / 广泛转精确。
+
+脚本只产生复核问题和条件候选，所有候选 executable=false。REVIEW_ONLY 不是批准或实时后台就绪；当前 Bid 未输入，历史 CPC 不变成绝对竞价。缺失、矛盾、归因未成熟、共享归属、已暂停或承接不明都保留相应阻断。
+
+## 运行六个完全合成练习
+
+在本技能目录运行；输出目录必须尚不存在。每次输出 report.html 与 report.json。
 
 ```bash
 python3 scripts/review.py --input assets/unequal-days.json --output-dir /tmp/aipanda-period-01
 python3 scripts/review.py --input assets/immature.json --output-dir /tmp/aipanda-period-02
 python3 scripts/review.py --input assets/mix-shift.json --output-dir /tmp/aipanda-period-03
+python3 scripts/diagnose.py --input assets/diagnostic-architecture.json --output-dir /tmp/aipanda-diagnostic-01
+python3 scripts/diagnose.py --input assets/diagnostic-term-safety.json --output-dir /tmp/aipanda-diagnostic-02
+python3 scripts/diagnose.py --input assets/diagnostic-optimization.json --output-dir /tmp/aipanda-diagnostic-03
 ```
 
-每次输出 report.html 与 report.json。三个输入由 scripts/make_demo.py 中的常量独立生成，无产品名称、商品 ID、搜索词或经营数据来源。所有金额为人工设定的演示数，与任何企业账本无关。
+输入由 make_demo.py 与 make_diagnostic_demo.py 的常量生成，不读取经营资料。UNIT / TERM / TOKEN 是匿名符号；金额只是演示设定，不能映射企业表现。实际自然语言、词形与 phrase 否定的语义必须另行人工核验。
 
-## 公开分享边界与来源
+## 来源与公开边界
 
-真实数据只留在使用者本地；`anonymized_local` 输出明确标记“不供公开”。声明 synthetic 本身不证明已脱敏，发布前还需重构并审核。不要将真实商品、品牌、店铺、截图、成本费用、账户配置或报表附到仓库或 Issue。
+[来源说明](references/sources.md)区分官方定义、课程 / 知识卡学习背景和本项目工程设计。经授权重写通用方法，不附原课件、专属模板、知识卡原件或内部路径；原作不因本项目 MIT 获得再授权。新实现未搬运外部代码，也不导入社区 AGPL 包。
 
-实现与练习为本仓库独立编写，MIT；未搬运原广告包实现、课程原文、知识卡原件或 AGPL 社区代码；通用方法经授权重新编写。公开定义与适用限制见 [来源说明](references/sources.md)。
+只分享完全合成练习。真实输入与匿名本地报告留在本地，anonymized_local 输出标记“不供公开”；synthetic 声明不等于已经完成脱敏。不得上传真实商品、店铺、截图、成本费用、客户、经营报表或内部配置到仓库 / Issue。利润核对和业务后台操作不属于本 Skill。

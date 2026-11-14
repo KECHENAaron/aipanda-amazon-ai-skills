@@ -1,0 +1,720 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIPANDA 广告架构与搜索词诊断</title><style>*{box-sizing:border-box}body{margin:0;background:#fbfbfd;color:#17233b;font:16px/1.8 system-ui}main{max-width:1100px;margin:auto;padding:30px 24px}p,.note,td{overflow-wrap:anywhere}.note{padding:18px;background:#f0ecfa;border-left:4px solid #a995e7}.table{overflow:auto}table{width:100%;min-width:760px;border-collapse:collapse;font-size:14px}th,td{padding:12px;border-bottom:1px solid #ddd;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0f7;padding:18px}a{color:#6950c7}</style><main><p>🐼 AIPANDA · 完全合成练习 · MIT</p><h1>先看广告角色，再回查完整词。</h1><div class="note">声明窗口下归因成熟：是。全部为复核候选，executable=false。没有商品、店铺、真实词或经营来源；所有示例指标均为常量合成。</div><h2>逐来源诊断</h2><div class="table"><table><tr><th>源行</th><th>单元</th><th>词标签</th><th>诊断</th><th>ACOS（小数）</th></tr><tr><td>ROW-001</td><td>UNIT-A</td><td>TERM-A</td><td>protect_term_with_other_evidence</td><td>未知</td></tr><tr><td>ROW-002</td><td>UNIT-B</td><td>TERM-A</td><td>retain_or_expand_review</td><td>0.1</td></tr><tr><td>ROW-003</td><td>UNIT-A</td><td>TERM-B</td><td>zero_order_review</td><td>未知</td></tr><tr><td>ROW-004</td><td>UNIT-C</td><td>TERM-C</td><td>zero_order_review</td><td>未知</td></tr><tr><td>ROW-005</td><td>UNIT-A</td><td>TERM-D</td><td>zero_order_review</td><td>未知</td></tr><tr><td>ROW-006</td><td>UNIT-A</td><td>TERM-E</td><td>observe_sample</td><td>未知</td></tr><tr><td>ROW-007</td><td>UNIT-B</td><td>TERM-F</td><td>efficiency_review</td><td>0.6</td></tr></table></div><h2>候选与阻断条件</h2><div class="table"><table><tr><th>单元</th><th>词标签</th><th>候选类型</th><th>状态</th><th>阻断 / 待核对</th></tr><tr><td>UNIT-A</td><td>TERM-A</td><td>query_exact_negative_review</td><td>BLOCKED</td><td>protected_or_converted_term</td></tr><tr><td>UNIT-A</td><td>TERM-A</td><td>migration_source_exact_review</td><td>BLOCKED</td><td>relevance_not_relevant</td></tr><tr><td>UNIT-B</td><td>TERM-A</td><td>efficiency_or_capacity_review</td><td>BLOCKED</td><td>current_bid_and_context_not_supplied</td></tr><tr><td>UNIT-A</td><td>TERM-B</td><td>query_exact_negative_review</td><td>REVIEW_ONLY</td><td>仍须人工复核与实时重查</td></tr><tr><td>UNIT-C</td><td>TERM-C</td><td>product_exclusion_review</td><td>REVIEW_ONLY</td><td>仍须人工复核与实时重查</td></tr><tr><td>UNIT-A</td><td>TERM-D</td><td>relevance_review</td><td>BLOCKED</td><td>relevance_not_declared</td></tr><tr><td>UNIT-B</td><td>TERM-F</td><td>efficiency_or_capacity_review</td><td>BLOCKED</td><td>current_bid_and_context_not_supplied</td></tr></table></div><p>UNIT、TERM 与 TOKEN 是匿名符号。相关性、预算余量、归属、否定表完整和持续承接都是输入声明，未独立核实。词根与双词视图不可相加当总额，商品目标与关键词否定分开。完整结构、残差和符号聚合见审计 JSON。</p><details><summary>完整审计结果</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;data_kind&quot;: &quot;synthetic&quot;,
+  &quot;scope&quot;: {
+    &quot;scope_token&quot;: &quot;SCOPE-001&quot;,
+    &quot;marketplace&quot;: &quot;US&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;ad_type&quot;: &quot;SP&quot;,
+    &quot;attribution_basis&quot;: &quot;click&quot;,
+    &quot;attribution_days&quot;: 7,
+    &quot;reporting_lag_days&quot;: 2
+  },
+  &quot;window&quot;: {
+    &quot;start_date&quot;: &quot;2026-02-01&quot;,
+    &quot;end_date&quot;: &quot;2026-02-07&quot;,
+    &quot;snapshot_date&quot;: &quot;2026-03-01&quot;
+  },
+  &quot;input_grain&quot;: &quot;aggregate_no_daily_trends&quot;,
+  &quot;mature_under_declared_lag&quot;: true,
+  &quot;thresholds&quot;: {
+    &quot;target_acos&quot;: 0.25,
+    &quot;min_clicks&quot;: 12,
+    &quot;min_orders&quot;: 2,
+    &quot;review_spend&quot;: 8
+  },
+  &quot;architecture&quot;: {
+    &quot;units&quot;: {
+      &quot;UNIT-A&quot;: {
+        &quot;declared_role&quot;: &quot;discovery&quot;,
+        &quot;declared_state&quot;: &quot;enabled&quot;,
+        &quot;observed&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 400.0,
+            &quot;clicks&quot;: 58.0,
+            &quot;spend&quot;: 31.0,
+            &quot;orders&quot;: 0.0,
+            &quot;sales&quot;: 0.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.145,
+            &quot;cpc&quot;: 0.53448276,
+            &quot;order_per_click&quot;: 0.0,
+            &quot;acos&quot;: null,
+            &quot;roas&quot;: 0.0
+          }
+        },
+        &quot;control&quot;: {
+          &quot;impressions&quot;: 400.0,
+          &quot;clicks&quot;: 58.0,
+          &quot;spend&quot;: 31.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;residual&quot;: {
+          &quot;impressions&quot;: 0.0,
+          &quot;clicks&quot;: 0.0,
+          &quot;spend&quot;: 0.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;reconciliation_issues&quot;: []
+      },
+      &quot;UNIT-B&quot;: {
+        &quot;declared_role&quot;: &quot;harvest&quot;,
+        &quot;declared_state&quot;: &quot;enabled&quot;,
+        &quot;observed&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 200.0,
+            &quot;clicks&quot;: 32.0,
+            &quot;spend&quot;: 18.0,
+            &quot;orders&quot;: 5.0,
+            &quot;sales&quot;: 80.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.16,
+            &quot;cpc&quot;: 0.5625,
+            &quot;order_per_click&quot;: 0.15625,
+            &quot;acos&quot;: 0.225,
+            &quot;roas&quot;: 4.44444444
+          }
+        },
+        &quot;control&quot;: {
+          &quot;impressions&quot;: 200.0,
+          &quot;clicks&quot;: 32.0,
+          &quot;spend&quot;: 18.0,
+          &quot;orders&quot;: 5.0,
+          &quot;sales&quot;: 80.0
+        },
+        &quot;residual&quot;: {
+          &quot;impressions&quot;: 0.0,
+          &quot;clicks&quot;: 0.0,
+          &quot;spend&quot;: 0.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;reconciliation_issues&quot;: []
+      },
+      &quot;UNIT-C&quot;: {
+        &quot;declared_role&quot;: &quot;product&quot;,
+        &quot;declared_state&quot;: &quot;enabled&quot;,
+        &quot;observed&quot;: {
+          &quot;totals&quot;: {
+            &quot;impressions&quot;: 100.0,
+            &quot;clicks&quot;: 16.0,
+            &quot;spend&quot;: 8.0,
+            &quot;orders&quot;: 0.0,
+            &quot;sales&quot;: 0.0
+          },
+          &quot;ratios&quot;: {
+            &quot;ctr&quot;: 0.16,
+            &quot;cpc&quot;: 0.5,
+            &quot;order_per_click&quot;: 0.0,
+            &quot;acos&quot;: null,
+            &quot;roas&quot;: 0.0
+          }
+        },
+        &quot;control&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 16.0,
+          &quot;spend&quot;: 8.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;residual&quot;: {
+          &quot;impressions&quot;: 0.0,
+          &quot;clicks&quot;: 0.0,
+          &quot;spend&quot;: 0.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;reconciliation_issues&quot;: []
+      }
+    },
+    &quot;roles&quot;: {
+      &quot;defense&quot;: {
+        &quot;units&quot;: [],
+        &quot;control_spend&quot;: 0.0,
+        &quot;spend_share&quot;: 0.0
+      },
+      &quot;discovery&quot;: {
+        &quot;units&quot;: [
+          &quot;UNIT-A&quot;
+        ],
+        &quot;control_spend&quot;: 31.0,
+        &quot;spend_share&quot;: 0.54385965
+      },
+      &quot;harvest&quot;: {
+        &quot;units&quot;: [
+          &quot;UNIT-B&quot;
+        ],
+        &quot;control_spend&quot;: 18.0,
+        &quot;spend_share&quot;: 0.31578947
+      },
+      &quot;product&quot;: {
+        &quot;units&quot;: [
+          &quot;UNIT-C&quot;
+        ],
+        &quot;control_spend&quot;: 8.0,
+        &quot;spend_share&quot;: 0.14035088
+      },
+      &quot;unknown&quot;: {
+        &quot;units&quot;: [],
+        &quot;control_spend&quot;: 0.0,
+        &quot;spend_share&quot;: 0.0
+      }
+    },
+    &quot;control_totals&quot;: {
+      &quot;impressions&quot;: 700.0,
+      &quot;clicks&quot;: 106.0,
+      &quot;spend&quot;: 57.0,
+      &quot;orders&quot;: 5.0,
+      &quot;sales&quot;: 80.0
+    }
+  },
+  &quot;terms&quot;: {
+    &quot;TERM-A&quot;: {
+      &quot;kind&quot;: &quot;query&quot;,
+      &quot;observed&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 200.0,
+          &quot;clicks&quot;: 30.0,
+          &quot;spend&quot;: 15.0,
+          &quot;orders&quot;: 3.0,
+          &quot;sales&quot;: 60.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.15,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.1,
+          &quot;acos&quot;: 0.25,
+          &quot;roas&quot;: 4.0
+        }
+      },
+      &quot;protected_by_declaration_or_observed_orders&quot;: true,
+      &quot;conversion_unknown&quot;: false,
+      &quot;active_routes&quot;: [
+        &quot;UNIT-A&quot;,
+        &quot;UNIT-B&quot;
+      ],
+      &quot;source_row_ids&quot;: [
+        &quot;ROW-001&quot;,
+        &quot;ROW-002&quot;
+      ]
+    },
+    &quot;TERM-B&quot;: {
+      &quot;kind&quot;: &quot;query&quot;,
+      &quot;observed&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 20.0,
+          &quot;spend&quot;: 12.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.2,
+          &quot;cpc&quot;: 0.6,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        }
+      },
+      &quot;protected_by_declaration_or_observed_orders&quot;: false,
+      &quot;conversion_unknown&quot;: false,
+      &quot;active_routes&quot;: [
+        &quot;UNIT-A&quot;
+      ],
+      &quot;source_row_ids&quot;: [
+        &quot;ROW-003&quot;
+      ]
+    },
+    &quot;TERM-C&quot;: {
+      &quot;kind&quot;: &quot;product_target&quot;,
+      &quot;observed&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 16.0,
+          &quot;spend&quot;: 8.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.16,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        }
+      },
+      &quot;protected_by_declaration_or_observed_orders&quot;: false,
+      &quot;conversion_unknown&quot;: false,
+      &quot;active_routes&quot;: [
+        &quot;UNIT-C&quot;
+      ],
+      &quot;source_row_ids&quot;: [
+        &quot;ROW-004&quot;
+      ]
+    },
+    &quot;TERM-D&quot;: {
+      &quot;kind&quot;: &quot;query&quot;,
+      &quot;observed&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 16.0,
+          &quot;spend&quot;: 8.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.16,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        }
+      },
+      &quot;protected_by_declaration_or_observed_orders&quot;: false,
+      &quot;conversion_unknown&quot;: false,
+      &quot;active_routes&quot;: [
+        &quot;UNIT-A&quot;
+      ],
+      &quot;source_row_ids&quot;: [
+        &quot;ROW-005&quot;
+      ]
+    },
+    &quot;TERM-E&quot;: {
+      &quot;kind&quot;: &quot;query&quot;,
+      &quot;observed&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 4.0,
+          &quot;spend&quot;: 2.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.04,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        }
+      },
+      &quot;protected_by_declaration_or_observed_orders&quot;: false,
+      &quot;conversion_unknown&quot;: false,
+      &quot;active_routes&quot;: [
+        &quot;UNIT-A&quot;
+      ],
+      &quot;source_row_ids&quot;: [
+        &quot;ROW-006&quot;
+      ]
+    },
+    &quot;TERM-F&quot;: {
+      &quot;kind&quot;: &quot;query&quot;,
+      &quot;observed&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 20.0,
+          &quot;spend&quot;: 12.0,
+          &quot;orders&quot;: 2.0,
+          &quot;sales&quot;: 20.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.2,
+          &quot;cpc&quot;: 0.6,
+          &quot;order_per_click&quot;: 0.1,
+          &quot;acos&quot;: 0.6,
+          &quot;roas&quot;: 1.66666667
+        }
+      },
+      &quot;protected_by_declaration_or_observed_orders&quot;: true,
+      &quot;conversion_unknown&quot;: false,
+      &quot;active_routes&quot;: [
+        &quot;UNIT-B&quot;
+      ],
+      &quot;source_row_ids&quot;: [
+        &quot;ROW-007&quot;
+      ]
+    }
+  },
+  &quot;diagnoses&quot;: [
+    {
+      &quot;row_id&quot;: &quot;ROW-001&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-A&quot;,
+      &quot;bucket&quot;: &quot;protect_term_with_other_evidence&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.18,
+        &quot;cpc&quot;: 0.5,
+        &quot;order_per_click&quot;: 0.0,
+        &quot;acos&quot;: null,
+        &quot;roas&quot;: 0.0
+      },
+      &quot;source_row&quot;: 1
+    },
+    {
+      &quot;row_id&quot;: &quot;ROW-002&quot;,
+      &quot;unit&quot;: &quot;UNIT-B&quot;,
+      &quot;term&quot;: &quot;TERM-A&quot;,
+      &quot;bucket&quot;: &quot;retain_or_expand_review&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.12,
+        &quot;cpc&quot;: 0.5,
+        &quot;order_per_click&quot;: 0.25,
+        &quot;acos&quot;: 0.1,
+        &quot;roas&quot;: 10.0
+      },
+      &quot;source_row&quot;: 2
+    },
+    {
+      &quot;row_id&quot;: &quot;ROW-003&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-B&quot;,
+      &quot;bucket&quot;: &quot;zero_order_review&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.2,
+        &quot;cpc&quot;: 0.6,
+        &quot;order_per_click&quot;: 0.0,
+        &quot;acos&quot;: null,
+        &quot;roas&quot;: 0.0
+      },
+      &quot;source_row&quot;: 3
+    },
+    {
+      &quot;row_id&quot;: &quot;ROW-004&quot;,
+      &quot;unit&quot;: &quot;UNIT-C&quot;,
+      &quot;term&quot;: &quot;TERM-C&quot;,
+      &quot;bucket&quot;: &quot;zero_order_review&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.16,
+        &quot;cpc&quot;: 0.5,
+        &quot;order_per_click&quot;: 0.0,
+        &quot;acos&quot;: null,
+        &quot;roas&quot;: 0.0
+      },
+      &quot;source_row&quot;: 4
+    },
+    {
+      &quot;row_id&quot;: &quot;ROW-005&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-D&quot;,
+      &quot;bucket&quot;: &quot;zero_order_review&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.16,
+        &quot;cpc&quot;: 0.5,
+        &quot;order_per_click&quot;: 0.0,
+        &quot;acos&quot;: null,
+        &quot;roas&quot;: 0.0
+      },
+      &quot;source_row&quot;: 5
+    },
+    {
+      &quot;row_id&quot;: &quot;ROW-006&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-E&quot;,
+      &quot;bucket&quot;: &quot;observe_sample&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.04,
+        &quot;cpc&quot;: 0.5,
+        &quot;order_per_click&quot;: 0.0,
+        &quot;acos&quot;: null,
+        &quot;roas&quot;: 0.0
+      },
+      &quot;source_row&quot;: 6
+    },
+    {
+      &quot;row_id&quot;: &quot;ROW-007&quot;,
+      &quot;unit&quot;: &quot;UNIT-B&quot;,
+      &quot;term&quot;: &quot;TERM-F&quot;,
+      &quot;bucket&quot;: &quot;efficiency_review&quot;,
+      &quot;ratios&quot;: {
+        &quot;ctr&quot;: 0.2,
+        &quot;cpc&quot;: 0.6,
+        &quot;order_per_click&quot;: 0.1,
+        &quot;acos&quot;: 0.6,
+        &quot;roas&quot;: 1.66666667
+      },
+      &quot;source_row&quot;: 7
+    }
+  ],
+  &quot;candidates&quot;: [
+    {
+      &quot;kind&quot;: &quot;query_exact_negative_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-001&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-A&quot;,
+      &quot;state&quot;: &quot;BLOCKED&quot;,
+      &quot;blockers&quot;: [
+        &quot;protected_or_converted_term&quot;
+      ],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    },
+    {
+      &quot;kind&quot;: &quot;migration_source_exact_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-001&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-A&quot;,
+      &quot;state&quot;: &quot;BLOCKED&quot;,
+      &quot;blockers&quot;: [
+        &quot;relevance_not_relevant&quot;
+      ],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    },
+    {
+      &quot;kind&quot;: &quot;efficiency_or_capacity_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-002&quot;,
+      &quot;unit&quot;: &quot;UNIT-B&quot;,
+      &quot;term&quot;: &quot;TERM-A&quot;,
+      &quot;state&quot;: &quot;BLOCKED&quot;,
+      &quot;blockers&quot;: [
+        &quot;current_bid_and_context_not_supplied&quot;
+      ],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    },
+    {
+      &quot;kind&quot;: &quot;query_exact_negative_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-003&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-B&quot;,
+      &quot;state&quot;: &quot;REVIEW_ONLY&quot;,
+      &quot;blockers&quot;: [],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    },
+    {
+      &quot;kind&quot;: &quot;product_exclusion_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-004&quot;,
+      &quot;unit&quot;: &quot;UNIT-C&quot;,
+      &quot;term&quot;: &quot;TERM-C&quot;,
+      &quot;state&quot;: &quot;REVIEW_ONLY&quot;,
+      &quot;blockers&quot;: [],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    },
+    {
+      &quot;kind&quot;: &quot;relevance_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-005&quot;,
+      &quot;unit&quot;: &quot;UNIT-A&quot;,
+      &quot;term&quot;: &quot;TERM-D&quot;,
+      &quot;state&quot;: &quot;BLOCKED&quot;,
+      &quot;blockers&quot;: [
+        &quot;relevance_not_declared&quot;
+      ],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    },
+    {
+      &quot;kind&quot;: &quot;efficiency_or_capacity_review&quot;,
+      &quot;row_id&quot;: &quot;ROW-007&quot;,
+      &quot;unit&quot;: &quot;UNIT-B&quot;,
+      &quot;term&quot;: &quot;TERM-F&quot;,
+      &quot;state&quot;: &quot;BLOCKED&quot;,
+      &quot;blockers&quot;: [
+        &quot;current_bid_and_context_not_supplied&quot;
+      ],
+      &quot;executable&quot;: false,
+      &quot;live_state_independently_verified&quot;: false
+    }
+  ],
+  &quot;issues&quot;: [
+    {
+      &quot;term&quot;: &quot;TERM-A&quot;,
+      &quot;code&quot;: &quot;multiple_routes_not_evidence_of_bid_inflation&quot;
+    }
+  ],
+  &quot;token_views&quot;: {
+    &quot;non_additive&quot;: true,
+    &quot;unigrams&quot;: {
+      &quot;TOKEN-A&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 300.0,
+          &quot;clicks&quot;: 50.0,
+          &quot;spend&quot;: 27.0,
+          &quot;orders&quot;: 3.0,
+          &quot;sales&quot;: 60.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.16666667,
+          &quot;cpc&quot;: 0.54,
+          &quot;order_per_click&quot;: 0.06,
+          &quot;acos&quot;: 0.45,
+          &quot;roas&quot;: 2.22222222
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-001&quot;,
+          &quot;ROW-002&quot;,
+          &quot;ROW-003&quot;
+        ]
+      },
+      &quot;TOKEN-B&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 200.0,
+          &quot;clicks&quot;: 30.0,
+          &quot;spend&quot;: 15.0,
+          &quot;orders&quot;: 3.0,
+          &quot;sales&quot;: 60.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.15,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.1,
+          &quot;acos&quot;: 0.25,
+          &quot;roas&quot;: 4.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-001&quot;,
+          &quot;ROW-002&quot;
+        ]
+      },
+      &quot;TOKEN-C&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 20.0,
+          &quot;spend&quot;: 12.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.2,
+          &quot;cpc&quot;: 0.6,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-003&quot;
+        ]
+      },
+      &quot;TOKEN-D&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 16.0,
+          &quot;spend&quot;: 8.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.16,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-005&quot;
+        ]
+      },
+      &quot;TOKEN-E&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 4.0,
+          &quot;spend&quot;: 2.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.04,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-006&quot;
+        ]
+      },
+      &quot;TOKEN-F&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 20.0,
+          &quot;spend&quot;: 12.0,
+          &quot;orders&quot;: 2.0,
+          &quot;sales&quot;: 20.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.2,
+          &quot;cpc&quot;: 0.6,
+          &quot;order_per_click&quot;: 0.1,
+          &quot;acos&quot;: 0.6,
+          &quot;roas&quot;: 1.66666667
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-007&quot;
+        ]
+      }
+    },
+    &quot;adjacent_bigrams&quot;: {
+      &quot;TOKEN-A TOKEN-B&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 200.0,
+          &quot;clicks&quot;: 30.0,
+          &quot;spend&quot;: 15.0,
+          &quot;orders&quot;: 3.0,
+          &quot;sales&quot;: 60.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.15,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.1,
+          &quot;acos&quot;: 0.25,
+          &quot;roas&quot;: 4.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-001&quot;,
+          &quot;ROW-002&quot;
+        ]
+      },
+      &quot;TOKEN-A TOKEN-C&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 100.0,
+          &quot;clicks&quot;: 20.0,
+          &quot;spend&quot;: 12.0,
+          &quot;orders&quot;: 0.0,
+          &quot;sales&quot;: 0.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.2,
+          &quot;cpc&quot;: 0.6,
+          &quot;order_per_click&quot;: 0.0,
+          &quot;acos&quot;: null,
+          &quot;roas&quot;: 0.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-003&quot;
+        ]
+      },
+      &quot;TOKEN-B TOKEN-A&quot;: {
+        &quot;totals&quot;: {
+          &quot;impressions&quot;: 200.0,
+          &quot;clicks&quot;: 30.0,
+          &quot;spend&quot;: 15.0,
+          &quot;orders&quot;: 3.0,
+          &quot;sales&quot;: 60.0
+        },
+        &quot;ratios&quot;: {
+          &quot;ctr&quot;: 0.15,
+          &quot;cpc&quot;: 0.5,
+          &quot;order_per_click&quot;: 0.1,
+          &quot;acos&quot;: 0.25,
+          &quot;roas&quot;: 4.0
+        },
+        &quot;source_row_ids&quot;: [
+          &quot;ROW-001&quot;,
+          &quot;ROW-002&quot;
+        ]
+      }
+    }
+  },
+  &quot;business_writes&quot;: 0,
+  &quot;causal_effect_verified&quot;: false,
+  &quot;source_declarations_independently_verified&quot;: false,
+  &quot;limits&quot;: [
+    &quot;Opaque tokens do not verify relevance or actual phrase-negative matching.&quot;,
+    &quot;Controls and search rows must refer to the same declared scope; residuals are not invented terms.&quot;,
+    &quot;All proposals require human review and a fresh live-state check; no bid values or execution payloads.&quot;
+  ]
+}</pre></details><p><a href="https://github.com/KECHENAaron/aipanda-amazon-ai-skills/tree/main/skills/aipanda-ads-period-review">源码、方法与输入契约</a></p></main></html>
